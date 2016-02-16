@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
+		F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* ViewController.swift */; };
+		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
+		F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99791C73A998008BFB71 /* OneUp_iOS.xcdatamodeld */; };
+		F0BC997D1C73A998008BFB71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BC997C1C73A998008BFB71 /* Assets.xcassets */; };
+		F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */; };
+		F0BC998B1C73A998008BFB71 /* OneUp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC998A1C73A998008BFB71 /* OneUp_iOSTests.swift */; };
+		F0BC99961C73A998008BFB71 /* OneUp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0BC99871C73A998008BFB71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0BC99671C73A998008BFB71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0BC996E1C73A998008BFB71;
+			remoteInfo = "OneUp-iOS";
+		};
+		F0BC99921C73A998008BFB71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0BC99671C73A998008BFB71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0BC996E1C73A998008BFB71;
+			remoteInfo = "OneUp-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F0BC99741C73A998008BFB71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F0BC99771C73A998008BFB71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F0BC997A1C73A998008BFB71 /* OneUp_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OneUp_iOS.xcdatamodel; sourceTree = "<group>"; };
+		F0BC997C1C73A998008BFB71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0BC997F1C73A998008BFB71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F0BC99811C73A998008BFB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0BC99861C73A998008BFB71 /* OneUp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OneUp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC998A1C73A998008BFB71 /* OneUp_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneUp_iOSTests.swift; sourceTree = "<group>"; };
+		F0BC998C1C73A998008BFB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0BC99911C73A998008BFB71 /* OneUp-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OneUp-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneUp_iOSUITests.swift; sourceTree = "<group>"; };
+		F0BC99971C73A998008BFB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0BC996C1C73A998008BFB71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC99831C73A998008BFB71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC998E1C73A998008BFB71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F0BC99661C73A998008BFB71 = {
+			isa = PBXGroup;
+			children = (
+				F0BC99711C73A998008BFB71 /* OneUp-iOS */,
+				F0BC99891C73A998008BFB71 /* OneUp-iOSTests */,
+				F0BC99941C73A998008BFB71 /* OneUp-iOSUITests */,
+				F0BC99701C73A998008BFB71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F0BC99701C73A998008BFB71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */,
+				F0BC99861C73A998008BFB71 /* OneUp-iOSTests.xctest */,
+				F0BC99911C73A998008BFB71 /* OneUp-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0BC99711C73A998008BFB71 /* OneUp-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC99721C73A998008BFB71 /* AppDelegate.swift */,
+				F0BC99741C73A998008BFB71 /* ViewController.swift */,
+				F0BC99761C73A998008BFB71 /* Main.storyboard */,
+				F0BC997C1C73A998008BFB71 /* Assets.xcassets */,
+				F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */,
+				F0BC99811C73A998008BFB71 /* Info.plist */,
+				F0BC99791C73A998008BFB71 /* OneUp_iOS.xcdatamodeld */,
+			);
+			path = "OneUp-iOS";
+			sourceTree = "<group>";
+		};
+		F0BC99891C73A998008BFB71 /* OneUp-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC998A1C73A998008BFB71 /* OneUp_iOSTests.swift */,
+				F0BC998C1C73A998008BFB71 /* Info.plist */,
+			);
+			path = "OneUp-iOSTests";
+			sourceTree = "<group>";
+		};
+		F0BC99941C73A998008BFB71 /* OneUp-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */,
+				F0BC99971C73A998008BFB71 /* Info.plist */,
+			);
+			path = "OneUp-iOSUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0BC996E1C73A998008BFB71 /* OneUp-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BC999A1C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOS" */;
+			buildPhases = (
+				F0BC996B1C73A998008BFB71 /* Sources */,
+				F0BC996C1C73A998008BFB71 /* Frameworks */,
+				F0BC996D1C73A998008BFB71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OneUp-iOS";
+			productName = "OneUp-iOS";
+			productReference = F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0BC99851C73A998008BFB71 /* OneUp-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BC999D1C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOSTests" */;
+			buildPhases = (
+				F0BC99821C73A998008BFB71 /* Sources */,
+				F0BC99831C73A998008BFB71 /* Frameworks */,
+				F0BC99841C73A998008BFB71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0BC99881C73A998008BFB71 /* PBXTargetDependency */,
+			);
+			name = "OneUp-iOSTests";
+			productName = "OneUp-iOSTests";
+			productReference = F0BC99861C73A998008BFB71 /* OneUp-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F0BC99901C73A998008BFB71 /* OneUp-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BC99A01C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOSUITests" */;
+			buildPhases = (
+				F0BC998D1C73A998008BFB71 /* Sources */,
+				F0BC998E1C73A998008BFB71 /* Frameworks */,
+				F0BC998F1C73A998008BFB71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0BC99931C73A998008BFB71 /* PBXTargetDependency */,
+			);
+			name = "OneUp-iOSUITests";
+			productName = "OneUp-iOSUITests";
+			productReference = F0BC99911C73A998008BFB71 /* OneUp-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0BC99671C73A998008BFB71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Kiwi;
+				TargetAttributes = {
+					F0BC996E1C73A998008BFB71 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					F0BC99851C73A998008BFB71 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = F0BC996E1C73A998008BFB71;
+					};
+					F0BC99901C73A998008BFB71 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = F0BC996E1C73A998008BFB71;
+					};
+				};
+			};
+			buildConfigurationList = F0BC996A1C73A998008BFB71 /* Build configuration list for PBXProject "OneUp-iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0BC99661C73A998008BFB71;
+			productRefGroup = F0BC99701C73A998008BFB71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0BC996E1C73A998008BFB71 /* OneUp-iOS */,
+				F0BC99851C73A998008BFB71 /* OneUp-iOSTests */,
+				F0BC99901C73A998008BFB71 /* OneUp-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0BC996D1C73A998008BFB71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */,
+				F0BC997D1C73A998008BFB71 /* Assets.xcassets in Resources */,
+				F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC99841C73A998008BFB71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC998F1C73A998008BFB71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0BC996B1C73A998008BFB71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */,
+				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
+				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC99821C73A998008BFB71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC998B1C73A998008BFB71 /* OneUp_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BC998D1C73A998008BFB71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BC99961C73A998008BFB71 /* OneUp_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0BC99881C73A998008BFB71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0BC996E1C73A998008BFB71 /* OneUp-iOS */;
+			targetProxy = F0BC99871C73A998008BFB71 /* PBXContainerItemProxy */;
+		};
+		F0BC99931C73A998008BFB71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0BC996E1C73A998008BFB71 /* OneUp-iOS */;
+			targetProxy = F0BC99921C73A998008BFB71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F0BC99761C73A998008BFB71 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0BC99771C73A998008BFB71 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0BC997F1C73A998008BFB71 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F0BC99981C73A998008BFB71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F0BC99991C73A998008BFB71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0BC999B1C73A998008BFB71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "OneUp-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F0BC999C1C73A998008BFB71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "OneUp-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F0BC999E1C73A998008BFB71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "OneUp-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneUp-iOS.app/OneUp-iOS";
+			};
+			name = Debug;
+		};
+		F0BC999F1C73A998008BFB71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "OneUp-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneUp-iOS.app/OneUp-iOS";
+			};
+			name = Release;
+		};
+		F0BC99A11C73A998008BFB71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "OneUp-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "OneUp-iOS";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		F0BC99A21C73A998008BFB71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "OneUp-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "OneUp-iOS";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0BC996A1C73A998008BFB71 /* Build configuration list for PBXProject "OneUp-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC99981C73A998008BFB71 /* Debug */,
+				F0BC99991C73A998008BFB71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0BC999A1C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC999B1C73A998008BFB71 /* Debug */,
+				F0BC999C1C73A998008BFB71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F0BC999D1C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC999E1C73A998008BFB71 /* Debug */,
+				F0BC999F1C73A998008BFB71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F0BC99A01C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BC99A11C73A998008BFB71 /* Debug */,
+				F0BC99A21C73A998008BFB71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F0BC99791C73A998008BFB71 /* OneUp_iOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F0BC997A1C73A998008BFB71 /* OneUp_iOS.xcdatamodel */,
+			);
+			currentVersion = F0BC997A1C73A998008BFB71 /* OneUp_iOS.xcdatamodel */;
+			path = OneUp_iOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F0BC99671C73A998008BFB71 /* Project object */;
+}
