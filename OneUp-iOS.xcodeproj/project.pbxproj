@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */; };
+		BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* ViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChallengesViewController.swift; sourceTree = "<group>"; };
+		BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalChallengesViewController.swift; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BDB6ABF21C7F501600C0B6C9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F0BC99741C73A998008BFB71 /* ViewController.swift */,
+				BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */,
+				BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BDB6ABF31C7F502500C0B6C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BDB6ABF41C7F502B00C0B6C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		F0BC99661C73A998008BFB71 = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +127,10 @@
 		F0BC99711C73A998008BFB71 /* OneUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BDB6ABF41C7F502B00C0B6C9 /* Models */,
+				BDB6ABF31C7F502500C0B6C9 /* Views */,
+				BDB6ABF21C7F501600C0B6C9 /* Controllers */,
 				F0BC99721C73A998008BFB71 /* AppDelegate.swift */,
-				F0BC99741C73A998008BFB71 /* ViewController.swift */,
 				F0BC99761C73A998008BFB71 /* Main.storyboard */,
 				F0BC997C1C73A998008BFB71 /* Assets.xcassets */,
 				F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */,
@@ -259,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */,
 				F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */,
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
+				BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */,
 				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +518,7 @@
 				F0BC999C1C73A998008BFB71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0BC999D1C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +527,7 @@
 				F0BC999F1C73A998008BFB71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0BC99A01C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +536,7 @@
 				F0BC99A21C73A998008BFB71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
