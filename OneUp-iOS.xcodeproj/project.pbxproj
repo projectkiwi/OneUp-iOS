@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */; };
 		BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */; };
+		BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */; };
+		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* ViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChallengesViewController.swift; sourceTree = "<group>"; };
 		BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalChallengesViewController.swift; sourceTree = "<group>"; };
+		BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		BDB6ABF31C7F502500C0B6C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */,
+				BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */,
+				BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */,
 				F0BC997D1C73A998008BFB71 /* Assets.xcassets in Resources */,
 				F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */,
 			);
@@ -290,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */,
+				BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */,
 				F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */,
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
 				BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */,
