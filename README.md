@@ -9,11 +9,11 @@ The following **required** functionality is completed:
 #### User Story 2
 
 - [X] Setup Storyboard layout - Marty 
-- [ ] Create LoginViewController - Harris
+- [X] Create LoginViewController - Harris
 - [X] Create LocalChallengesViewController - Marty
 - [ ] Create PopularChallengesViewController - Harris
 - [X] Create GlobalChallengesViewController - Marty
-- [ ] Create NotificationsViewController - Harris
+- [X] Create NotificationsViewController - Harris
 - [ ] Create ChallengeDetailViewController - Harris
 - [X] Embed view controllers in main UINavigationController - Marty
 - [X] Create APIClient - Marty
