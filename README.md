@@ -14,7 +14,7 @@ The following **required** functionality is completed:
 - [ ] Create PopularChallengesViewController - Harris
 - [X] Create GlobalChallengesViewController - Marty
 - [X] Create NotificationsViewController - Harris
-- [ ] Create ChallengeDetailViewController - Harris
+- [X] Create ChallengeDetailViewController - Harris
 - [X] Embed view controllers in main UINavigationController - Marty
 - [X] Create APIClient - Marty
 - [X] Create Challenge Model - Marty
