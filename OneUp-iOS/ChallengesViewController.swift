@@ -1,5 +1,5 @@
 //
-//  GlobalChallengesViewController.swift
+//  ChallengesViewController.swift
 //  OneUp-iOS
 //
 //  Created by Martynas Kausas on 2/25/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GlobalChallengesViewController: UIViewController {
+class ChallengesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -68,7 +68,7 @@ class GlobalChallengesViewController: UIViewController {
 }
 
 
-extension GlobalChallengesViewController: UITableViewDataSource {
+extension ChallengesViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return challenges.count
     }
@@ -87,6 +87,6 @@ extension GlobalChallengesViewController: UITableViewDataSource {
     }
 }
 
-extension GlobalChallengesViewController: UITableViewDelegate {
+extension ChallengesViewController: UITableViewDelegate {
     
 }

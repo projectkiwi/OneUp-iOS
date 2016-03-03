@@ -12,6 +12,7 @@ import AFNetworking
 class ApiClient: AFHTTPSessionManager {
     
     static let http = AFHTTPSessionManager()
+    static var apiURL = "http://kiwiapi.purduecs.com"
     
     
     /**
@@ -21,7 +22,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func getChallenges(params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
         
-        http.GET("http://kiwiapi.purduecs.com/challenges", parameters: [], progress: { (progress: NSProgress) -> Void in
+        http.GET(apiURL+"/challenges", parameters: [], progress: { (progress: NSProgress) -> Void in
             
             },
             success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in

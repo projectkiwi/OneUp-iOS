@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68D4C21C88B73300F88429 /* ApiClient.swift */; };
-		BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */; };
-		BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */; };
+		BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */; };
 		BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */; };
 		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
 		BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6C11C1C88BEE3004B2512 /* Challenge.swift */; };
+		F0580D321C88DF6800259247 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D311C88DF6800259247 /* Home.storyboard */; };
+		F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D331C88E3EB00259247 /* Settings.storyboard */; };
+		F0580D361C88EC8600259247 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D351C88EC8600259247 /* Notifications.storyboard */; };
+		F0580D381C88F22200259247 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580D371C88F22200259247 /* TabBarController.swift */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* ViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -45,12 +48,15 @@
 		644D6176E7B0CD8BAF296C09 /* Pods-OneUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		717B517CB521745830D0E19A /* Pods-OneUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		BD68D4C21C88B73300F88429 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChallengesViewController.swift; sourceTree = "<group>"; };
-		BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalChallengesViewController.swift; sourceTree = "<group>"; };
+		BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
 		BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		BDD6C11C1C88BEE3004B2512 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0580D311C88DF6800259247 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		F0580D331C88E3EB00259247 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		F0580D351C88EC8600259247 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		F0580D371C88F22200259247 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,8 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				F0BC99741C73A998008BFB71 /* ViewController.swift */,
-				BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */,
-				BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */,
+				BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */,
+				F0580D371C88F22200259247 /* TabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -114,6 +120,7 @@
 		BDB6ABF31C7F502500C0B6C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F0580D301C88DEB700259247 /* Storyboards */,
 				BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */,
 				BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */,
 			);
@@ -126,6 +133,16 @@
 				BDD6C11C1C88BEE3004B2512 /* Challenge.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		F0580D301C88DEB700259247 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F0580D311C88DF6800259247 /* Home.storyboard */,
+				F0580D331C88E3EB00259247 /* Settings.storyboard */,
+				F0580D351C88EC8600259247 /* Notifications.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		F0BC99661C73A998008BFB71 = {
@@ -158,8 +175,8 @@
 				BDB6ABF31C7F502500C0B6C9 /* Views */,
 				BDB6ABF21C7F501600C0B6C9 /* Controllers */,
 				F0BC99721C73A998008BFB71 /* AppDelegate.swift */,
-				F0BC99761C73A998008BFB71 /* Main.storyboard */,
 				F0BC997C1C73A998008BFB71 /* Assets.xcassets */,
+				F0BC99761C73A998008BFB71 /* Main.storyboard */,
 				F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */,
 				F0BC99811C73A998008BFB71 /* Info.plist */,
 				F0BC99791C73A998008BFB71 /* OneUp_iOS.xcdatamodeld */,
@@ -303,7 +320,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */,
+				F0580D321C88DF6800259247 /* Home.storyboard in Resources */,
 				BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */,
+				F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */,
+				F0580D361C88EC8600259247 /* Notifications.storyboard in Resources */,
 				F0BC997D1C73A998008BFB71 /* Assets.xcassets in Resources */,
 				F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */,
 			);
@@ -379,12 +399,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */,
-				BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */,
+				F0580D381C88F22200259247 /* TabBarController.swift in Sources */,
+				BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */,
 				BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */,
 				F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */,
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
 				BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */,
-				BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */,
 				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
