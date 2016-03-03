@@ -23,6 +23,24 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var challengeHeartCountLabel: UILabel!
     @IBOutlet weak var challengeCategoriesLabel: UILabel!
     
+    var challenge: Challenge! {
+        didSet {
+            challengeTitleLabel.text = challenge.name
+            
+            var catergoriesString = ""
+            for catergory in challenge.categories {
+                catergoriesString += "\(catergory), "
+            }
+            
+            if catergoriesString.characters.count > 0 {
+                catergoriesString = catergoriesString.substringToIndex(catergoriesString.endIndex.predecessor())
+                catergoriesString = catergoriesString.substringToIndex(catergoriesString.endIndex.predecessor())
+            }
+            
+            challengeCategoriesLabel.text = catergoriesString
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -75,8 +75,8 @@ extension GlobalChallengesViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(FeedTableViewCell.cellIdentifier, forIndexPath: indexPath) as! FeedTableViewCell
-                
-        print("happening")
+        
+        cell.challenge = challenges[indexPath.row]
         
         return cell
         
