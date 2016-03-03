@@ -85,6 +85,13 @@ extension ChallengesViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 162
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as UIViewController
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension ChallengesViewController: UITableViewDelegate {

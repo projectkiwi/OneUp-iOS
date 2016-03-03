@@ -8,7 +8,6 @@
         <!--Challenges-->
         <scene sceneID="eWQ-Nc-vGE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DYz-xd-xHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Challenges" id="yHk-w9-s0A" customClass="ChallengesViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Qk-DZ-yd1"/>
@@ -47,13 +46,13 @@
                         <outlet property="tableView" destination="3r5-Uf-HDS" id="mSS-2r-lf9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYz-xd-xHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2153" y="1506"/>
         </scene>
         <!--HomeLocal-->
         <scene sceneID="4Af-wX-r48">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="upf-2E-WcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController restorationIdentifier="HomeLocal" storyboardIdentifier="HomeLocal" title="HomeLocal" automaticallyAdjustsScrollViewInsets="NO" id="6FQ-I0-RZk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="5nA-ra-HW7"/>
                     <toolbarItems/>
@@ -66,13 +65,13 @@
                         <segue destination="yHk-w9-s0A" kind="relationship" relationship="rootViewController" id="B0Y-YG-O39"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="upf-2E-WcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1339" y="1166"/>
         </scene>
         <!--HomeGlobal-->
         <scene sceneID="N13-Fg-26c">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ON3-ZK-Iu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController restorationIdentifier="HomeGlobal" storyboardIdentifier="HomeGlobal" title="HomeGlobal" automaticallyAdjustsScrollViewInsets="NO" id="uDw-qo-qH7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="jop-Vf-nE1"/>
                     <toolbarItems/>
@@ -85,6 +84,7 @@
                         <segue destination="yHk-w9-s0A" kind="relationship" relationship="rootViewController" id="xnx-pO-fMC"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ON3-ZK-Iu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1339" y="1882"/>
         </scene>

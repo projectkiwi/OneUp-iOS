@@ -109,7 +109,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="0L3-iP-YmW">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="HmD-Vw-Uue" customClass="TabBarController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="HmD-Vw-Uue" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VGq-tJ-Vws">
                         <autoresizingMask key="autoresizingMask"/>
