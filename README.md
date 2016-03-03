@@ -30,11 +30,11 @@ The following **required** functionality is completed:
 #### User Story 5
 
 - [ ] Implement a ranking function based on upvotes and time since post - Harris
-- [ ] Add UI elements to display challenges popularity and upvote/downvote - Harris
+- [X] Add UI elements to display challenges popularity and upvote/downvote - Marty
 
 #### User Story 6
 
-- [ ] Add UI element to display records category - Marty
+- [X] Add UI element to display records category - Marty
 - [ ] Implement filters to filter challenges by category - Marty
 
 #### User Story 7
