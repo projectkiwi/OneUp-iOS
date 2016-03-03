@@ -16,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+
+        tabBarController.selectedIndex = 1
+        tabBarController.tabBar.items![0].title = "Local"
+        tabBarController.tabBar.items![1].title = "Global"
+        
+        
         return true
     }
 

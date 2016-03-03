@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68D4C21C88B73300F88429 /* ApiClient.swift */; };
 		BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */; };
 		BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */; };
 		BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */; };
 		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
+		BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6C11C1C88BEE3004B2512 /* Challenge.swift */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* ViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -19,6 +21,7 @@
 		F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */; };
 		F0BC998B1C73A998008BFB71 /* OneUp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC998A1C73A998008BFB71 /* OneUp_iOSTests.swift */; };
 		F0BC99961C73A998008BFB71 /* OneUp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */; };
+		FD2BEAB8C73DE7BC602013C9 /* Pods_OneUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		644D6176E7B0CD8BAF296C09 /* Pods-OneUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		717B517CB521745830D0E19A /* Pods-OneUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		BD68D4C21C88B73300F88429 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		BDB6ABF01C7F501200C0B6C9 /* LocalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalChallengesViewController.swift; sourceTree = "<group>"; };
 		BDB6ABF51C7F503E00C0B6C9 /* GlobalChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalChallengesViewController.swift; sourceTree = "<group>"; };
 		BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		BDD6C11C1C88BEE3004B2512 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD2BEAB8C73DE7BC602013C9 /* Pods_OneUp_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BCC8166D8A5137748BF4B0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BDB6ABF21C7F501600C0B6C9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +123,7 @@
 		BDB6ABF41C7F502B00C0B6C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BDD6C11C1C88BEE3004B2512 /* Challenge.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -117,6 +135,8 @@
 				F0BC99891C73A998008BFB71 /* OneUp-iOSTests */,
 				F0BC99941C73A998008BFB71 /* OneUp-iOSUITests */,
 				F0BC99701C73A998008BFB71 /* Products */,
+				F77B7B6DEB87DF91BDED32FA /* Pods */,
+				2BCC8166D8A5137748BF4B0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +153,7 @@
 		F0BC99711C73A998008BFB71 /* OneUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BD68D4C21C88B73300F88429 /* ApiClient.swift */,
 				BDB6ABF41C7F502B00C0B6C9 /* Models */,
 				BDB6ABF31C7F502500C0B6C9 /* Views */,
 				BDB6ABF21C7F501600C0B6C9 /* Controllers */,
@@ -164,6 +185,15 @@
 			path = "OneUp-iOSUITests";
 			sourceTree = "<group>";
 		};
+		F77B7B6DEB87DF91BDED32FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				644D6176E7B0CD8BAF296C09 /* Pods-OneUp-iOS.debug.xcconfig */,
+				717B517CB521745830D0E19A /* Pods-OneUp-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0BC999A1C73A998008BFB71 /* Build configuration list for PBXNativeTarget "OneUp-iOS" */;
 			buildPhases = (
+				1DC1FC5E350C16496E456F52 /* Check Pods Manifest.lock */,
 				F0BC996B1C73A998008BFB71 /* Sources */,
 				F0BC996C1C73A998008BFB71 /* Frameworks */,
 				F0BC996D1C73A998008BFB71 /* Resources */,
+				F593DC5506D6170E84870A92 /* Embed Pods Frameworks */,
+				ABBE2CD3D2122E79B610AF21 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,15 +325,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DC1FC5E350C16496E456F52 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ABBE2CD3D2122E79B610AF21 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F593DC5506D6170E84870A92 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F0BC996B1C73A998008BFB71 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */,
 				BDB6ABF61C7F503E00C0B6C9 /* GlobalChallengesViewController.swift in Sources */,
 				BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */,
 				F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */,
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
+				BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */,
 				BDB6ABF11C7F501200C0B6C9 /* LocalChallengesViewController.swift in Sources */,
 				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
 			);
@@ -440,6 +523,7 @@
 		};
 		F0BC999B1C73A998008BFB71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 644D6176E7B0CD8BAF296C09 /* Pods-OneUp-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -454,6 +538,7 @@
 		};
 		F0BC999C1C73A998008BFB71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 717B517CB521745830D0E19A /* Pods-OneUp-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

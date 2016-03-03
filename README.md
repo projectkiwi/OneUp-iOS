@@ -16,15 +16,15 @@ The following **required** functionality is completed:
 - [ ] Create NotificationsViewController - Harris
 - [ ] Create ChallengeDetailViewController - Harris
 - [X] Embed view controllers in main UINavigationController - Marty
-- [ ] Create APIClient - Harris
-- [ ] Create Challenge Model - Harris
+- [X] Create APIClient - Marty
+- [X] Create Challenge Model - Marty
 - [X] Create and embed all ViewControllers in the MainTabBarController - Marty
 
 #### User Story 4
 
 - [X] Implement the newsfeed - Marty
 - [X] Implement the newsfeed row UI class - Marty
-- [ ] Call API endpoint to retrieve newsfeed items - Harris
+- [X] Call API endpoint to retrieve newsfeed items - Marty
 - [ ] Implement tabs for recent, popular, and global - Harris
 
 #### User Story 5

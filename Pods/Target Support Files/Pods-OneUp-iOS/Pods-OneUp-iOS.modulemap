@@ -1,0 +1,6 @@
+framework module Pods_OneUp_iOS {
+  umbrella header "Pods-OneUp-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

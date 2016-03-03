@@ -12,10 +12,28 @@ class GlobalChallengesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var challenges = [Challenge]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getData()
         tableViewSetup()
+    }
+    
+    func getData() {
+        ApiClient.getChallenges(nil) { (challenges, error) -> () in
+            // success
+            if error == nil {
+                self.challenges = challenges!
+                self.tableView.reloadData()
+            }
+            
+            // error
+            else {
+                
+            }
+        }
     }
     
     func tableViewSetup() {
@@ -52,7 +70,7 @@ class GlobalChallengesViewController: UIViewController {
 
 extension GlobalChallengesViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return challenges.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
