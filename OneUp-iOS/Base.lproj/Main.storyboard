@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Local Challenges View Controller-->
+        <!--Local-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LocalChallengesViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zp5-0H-PWa"/>
+                    <navigationItem key="navigationItem" title="Local" id="zp5-0H-PWa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="1335" y="387"/>
         </scene>
-        <!--Global Challenges View Controller-->
+        <!--Global-->
         <scene sceneID="bfT-a5-7sf">
             <objects>
                 <viewController id="Z4G-1p-QlD" customClass="GlobalChallengesViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,10 +56,35 @@
                     <view key="view" contentMode="scaleToFill" id="gPd-Jy-M7y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Qf-hX-HUo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="162" id="fcx-fv-OQ8" customClass="FeedTableViewCell" customModule="OneUp_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fcx-fv-OQ8" id="8Rk-fE-Db4">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="161.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Qf-hX-HUo" firstAttribute="top" secondItem="gPd-Jy-M7y" secondAttribute="top" id="2uA-5O-btY"/>
+                            <constraint firstAttribute="trailing" secondItem="1Qf-hX-HUo" secondAttribute="trailing" id="9AK-tT-m9A"/>
+                            <constraint firstAttribute="bottom" secondItem="1Qf-hX-HUo" secondAttribute="bottom" id="OHd-VP-qsC"/>
+                            <constraint firstItem="1Qf-hX-HUo" firstAttribute="leading" secondItem="gPd-Jy-M7y" secondAttribute="leading" id="YTE-C0-s5n"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UyH-0k-Kxb"/>
+                    <navigationItem key="navigationItem" title="Global" id="UyH-0k-Kxb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="1Qf-hX-HUo" id="kgc-l9-536"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EN4-PV-iUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

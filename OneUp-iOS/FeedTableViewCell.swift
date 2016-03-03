@@ -10,9 +10,27 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
 
+    static let cellIdentifier = "com.purduecs.kiwi.FeedTableViewCell"
+    
+    @IBOutlet weak var rightContentView: UIView!
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var contentContainerView: UIView!
+    
+    @IBOutlet weak var challengeTitleLabel: UILabel!
+    @IBOutlet weak var challengeTimeLabel: UILabel!
+    @IBOutlet weak var challengeAuthorLabel: UILabel!
+    @IBOutlet weak var challengeDescriptionLabel: UILabel!
+    @IBOutlet weak var challengeHeartCountLabel: UILabel!
+    @IBOutlet weak var challengeCategoriesLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // rounded edges on back
+        contentContainerView.layer.cornerRadius = 5
+        contentContainerView.clipsToBounds = true
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

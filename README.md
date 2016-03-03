@@ -8,7 +8,7 @@ The following **required** functionality is completed:
 
 #### User Story 2
 
-- [ ] Setup Storyboard layout - Marty 
+- [X] Setup Storyboard layout - Marty 
 - [ ] Create LoginViewController - Harris
 - [X] Create LocalChallengesViewController - Marty
 - [ ] Create PopularChallengesViewController - Harris
@@ -22,10 +22,10 @@ The following **required** functionality is completed:
 
 #### User Story 4
 
-- [ ] Implement the newsfeed - Harris
-- [ ] Implement the newsfeed row UI class - Marty
+- [X] Implement the newsfeed - Marty
+- [X] Implement the newsfeed row UI class - Marty
 - [ ] Call API endpoint to retrieve newsfeed items - Harris
-- [ ] Implement tabs for recent, popular, and global - Marty
+- [ ] Implement tabs for recent, popular, and global - Harris
 
 #### User Story 5
 

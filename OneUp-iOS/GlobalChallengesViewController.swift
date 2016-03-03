@@ -10,10 +10,25 @@ import UIKit
 
 class GlobalChallengesViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableViewSetup()
+    }
+    
+    func tableViewSetup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 162 // "average" cell height
+        
+        let cellNib = UINib(nibName: "FeedTableViewCell", bundle: NSBundle.mainBundle())
+        tableView.registerNib(cellNib, forCellReuseIdentifier: FeedTableViewCell.cellIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +47,28 @@ class GlobalChallengesViewController: UIViewController {
     }
     */
 
+}
+
+
+extension GlobalChallengesViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(FeedTableViewCell.cellIdentifier, forIndexPath: indexPath) as! FeedTableViewCell
+                
+        print("happening")
+        
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 162
+    }
+}
+
+extension GlobalChallengesViewController: UITableViewDelegate {
+    
 }
