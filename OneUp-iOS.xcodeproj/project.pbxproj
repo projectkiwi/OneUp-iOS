@@ -14,6 +14,7 @@
 		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
 		BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6C11C1C88BEE3004B2512 /* Challenge.swift */; };
 		F0254E6A1C88F5F800AB3F5C /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0254E691C88F5F800AB3F5C /* Challenge.storyboard */; };
+		F055136F1C892355006E7B65 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F055136E1C892355006E7B65 /* Map.storyboard */; };
 		F0580D321C88DF6800259247 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D311C88DF6800259247 /* Home.storyboard */; };
 		F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D331C88E3EB00259247 /* Settings.storyboard */; };
 		F0580D361C88EC8600259247 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D351C88EC8600259247 /* Notifications.storyboard */; };
@@ -56,6 +57,7 @@
 		BDD6C11C1C88BEE3004B2512 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0254E691C88F5F800AB3F5C /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
+		F055136E1C892355006E7B65 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		F0580D311C88DF6800259247 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F0580D331C88E3EB00259247 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		F0580D351C88EC8600259247 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				F0580D331C88E3EB00259247 /* Settings.storyboard */,
 				F0580D351C88EC8600259247 /* Notifications.storyboard */,
 				F0254E691C88F5F800AB3F5C /* Challenge.storyboard */,
+				F055136E1C892355006E7B65 /* Map.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			files = (
 				F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */,
 				F0580D321C88DF6800259247 /* Home.storyboard in Resources */,
+				F055136F1C892355006E7B65 /* Map.storyboard in Resources */,
 				BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */,
 				F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */,
 				F0580D361C88EC8600259247 /* Notifications.storyboard in Resources */,
