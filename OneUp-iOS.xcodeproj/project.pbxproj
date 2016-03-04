@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68D4C21C88B73300F88429 /* ApiClient.swift */; };
+		BD962E351C891D8000345774 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E341C891D8000345774 /* Attempt.swift */; };
 		BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */; };
 		BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */; };
 		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
@@ -48,6 +49,7 @@
 		644D6176E7B0CD8BAF296C09 /* Pods-OneUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		717B517CB521745830D0E19A /* Pods-OneUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		BD68D4C21C88B73300F88429 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		BD962E341C891D8000345774 /* Attempt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
 		BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
 		BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD6C11C1C88BEE3004B2512 /* Challenge.swift */,
+				BD962E341C891D8000345774 /* Attempt.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
 				BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */,
 				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
+				BD962E351C891D8000345774 /* Attempt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@ class Challenge {
     var description: String?
     var categories: [String]
     var pattern: String!
+    var imgUrl: String!
     
     init(challengeDetails: NSDictionary) {
         name = challengeDetails["name"] as! String
@@ -22,6 +23,10 @@ class Challenge {
         description = challengeDetails["description"] as? String ?? "No Description"
         categories = challengeDetails["categories"] as! [String]
         pattern = challengeDetails["pattern"] as! String
+//        imgUrl = challengeDetails["imgUrl"] as! String
+
+        
+        
         
         print("recieved challenge with name \(name)")
     }

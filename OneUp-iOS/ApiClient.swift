@@ -22,16 +22,12 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func getChallenges(params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
         
-        http.GET(apiURL+"/challenges", parameters: [], progress: { (progress: NSProgress) -> Void in
+        http.GET(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in
             
             },
             success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 print("challenges: \(response)")
                 print("Success retrieving challenges!")
-                
-//                let json: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(response as! NSData, options: NSJSONReadingOptions.MutableContainers)
-
-//                print("\(json)")
                 
                 let challenges = Challenge.challengesFromJSON(response as! NSArray)
                 completion(challenges: challenges, error: nil)
@@ -41,16 +37,5 @@ class ApiClient: AFHTTPSessionManager {
                 
                 completion(challenges: nil, error: error)
         }
-    }
-    
-    func convertStringToDictionary(text: String) -> [String:AnyObject]? {
-        if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
-            do {
-                return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String:AnyObject]
-            } catch let error as NSError {
-                print(error)
-            }
-        }
-        return nil
     }
 }

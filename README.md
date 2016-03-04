@@ -39,7 +39,7 @@ The following **required** functionality is completed:
 
 #### User Story 7
 
-- [ ] Implement media containers for each challenge. - Marty
+- [X] Implement media containers for each challenge. - Marty
 - [ ] Implement an infinite scroll in the newsfeed containing the containers. - Marty
 
 #### User Story 8
