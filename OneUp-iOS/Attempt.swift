@@ -10,15 +10,27 @@ import Foundation
 
 class Attempt {
     
-    var score: Int!
+    var votes: Int!
     var imgUrl: String!
     var gifUrl: String!
-    var vote_total: Int!
+    var voteTotal: Int!
     
-    // not yet implemented
-//    var user: User!
-//    var comments: [Comment]!
-    
+    init(attemptDetails: NSDictionary) {
+        voteTotal = attemptDetails["vote_total"] as! Int
+        imgUrl = attemptDetails["preview_img"] as! String
+        gifUrl = attemptDetails["gif_img"] as! String
+    }
+
+    class func attemptsFromArray(attemptArray: NSArray) -> [Attempt] {
+        var attempts = [Attempt]()
+        
+        // loop through JSON to grab all challenges
+        for attemptDetails in attemptArray {
+            attempts.append(Attempt(attemptDetails: attemptDetails as! NSDictionary))
+        }
+        
+        return attempts
+    }
 /*
     score: Number, //probably will make this a calculated field
     challenge  : { type: mongoose.Schema.ObjectId, ref: 'Challenge' },

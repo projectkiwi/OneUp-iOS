@@ -12,20 +12,31 @@ import MapKit
 class Challenge: NSObject, MKAnnotation {
     
     var name: String!
-    var attempts: NSArray!
+    var attempts: [Attempt]!
     var desc: String?
     var categories: [String]
     var pattern: String!
     var imgUrl: String!
+    var votes: Int!
     let coordinate: CLLocationCoordinate2D
+    
+    var topAttempt: Attempt!
     
     init(challengeDetails: NSDictionary) {
         name = challengeDetails["name"] as! String
-        attempts = challengeDetails["attempts"] as! NSArray
         desc = challengeDetails["description"] as? String ?? "No Description"
         categories = challengeDetails["categories"] as! [String]
         pattern = challengeDetails["pattern"] as! String
         coordinate = CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444)
+
+        attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
+        topAttempt = attempts[0]
+        votes = topAttempt.voteTotal
+        
+        imgUrl = topAttempt.imgUrl
+        
+        
+        
 //        imgUrl = challengeDetails["imgUrl"] as! String
 
         

@@ -45,8 +45,19 @@ class ChallengesViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 162 // "average" cell height
         
+        // add custom cell
         let cellNib = UINib(nibName: "FeedTableViewCell", bundle: NSBundle.mainBundle())
         tableView.registerNib(cellNib, forCellReuseIdentifier: FeedTableViewCell.cellIdentifier)
+        
+        // pull down to refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +102,8 @@ extension ChallengesViewController: UITableViewDataSource {
         let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as UIViewController
         
         self.navigationController?.pushViewController(controller, animated: true)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 

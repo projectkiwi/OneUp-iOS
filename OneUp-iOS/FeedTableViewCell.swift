@@ -26,6 +26,8 @@ class FeedTableViewCell: UITableViewCell {
     var challenge: Challenge! {
         didSet {
             challengeTitleLabel.text = challenge.name
+            challengeHeartCountLabel.text = "\(challenge.votes)"
+            mainImageView.setImageWithURL(NSURL(string: challenge.imgUrl)!)
             
             var catergoriesString = ""
             for catergory in challenge.categories {
