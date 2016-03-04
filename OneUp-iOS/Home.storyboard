@@ -8,7 +8,7 @@
         <!--Challenges-->
         <scene sceneID="eWQ-Nc-vGE">
             <objects>
-                <viewController title="Challenges" id="yHk-w9-s0A" customClass="ChallengesViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Challenge" title="Challenges" id="yHk-w9-s0A" customClass="ChallengesViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Qk-DZ-yd1"/>
                         <viewControllerLayoutGuide type="bottom" id="6ch-06-sNl"/>
@@ -40,7 +40,9 @@
                             <constraint firstAttribute="trailing" secondItem="3r5-Uf-HDS" secondAttribute="trailing" id="mT7-x7-9jg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Global" id="zy5-Ey-ev7"/>
+                    <navigationItem key="navigationItem" title="Global" id="zy5-Ey-ev7">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="6N9-Jq-gBz"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="3r5-Uf-HDS" id="mSS-2r-lf9"/>

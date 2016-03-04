@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Filter View Controller-->
+        <scene sceneID="Kgn-aP-8OH">
+            <objects>
+                <viewController storyboardIdentifier="Filter" id="39y-8p-qJJ" customClass="FilterViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VtY-O7-fR5"/>
+                        <viewControllerLayoutGuide type="bottom" id="TQz-8Q-heV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lMS-9o-1eM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-Dg-d9z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="rdR-RU-a00">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdR-RU-a00" id="GFX-it-Ydd">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leading" id="M5i-D2-9M9"/>
+                            <constraint firstItem="TQz-8Q-heV" firstAttribute="top" secondItem="GeG-Dg-d9z" secondAttribute="bottom" id="ptt-av-ztH"/>
+                            <constraint firstAttribute="trailing" secondItem="GeG-Dg-d9z" secondAttribute="trailing" id="uql-18-vBz"/>
+                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="top" id="v04-vE-mrL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="GeG-Dg-d9z" id="3Ym-pT-7Ax"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tio-UW-mIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="592" y="268"/>
+        </scene>
+    </scenes>
+</document>
