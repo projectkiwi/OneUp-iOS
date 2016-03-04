@@ -22,12 +22,14 @@ class Challenge: NSObject, MKAnnotation {
     
     var topAttempt: Attempt!
     
+    let locations: [CLLocationCoordinate2D] = [ CLLocationCoordinate2D(latitude: 42, longitude: -97), CLLocationCoordinate2D(latitude: 44, longitude: -95), CLLocationCoordinate2D(latitude: 41, longitude: -94), CLLocationCoordinate2D(latitude: 40, longitude: -102) ]
+    
     init(challengeDetails: NSDictionary) {
         name = challengeDetails["name"] as! String
         desc = challengeDetails["description"] as? String ?? "No Description"
         categories = challengeDetails["categories"] as! [String]
         pattern = challengeDetails["pattern"] as! String
-        coordinate = CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444)
+        coordinate = locations[(Int)(arc4random_uniform(4))]
 
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         topAttempt = attempts[0]
