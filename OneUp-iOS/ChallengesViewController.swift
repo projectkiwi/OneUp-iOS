@@ -13,7 +13,9 @@ class ChallengesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var challenges = [Challenge]()
-    
+    var originalChallenges = [Challenge]() // REMOVE AFTER PAGING IMPLEMENTED: dummy data till backend develops paging
+    var isMoreDataLoading = false // used for infinate scroll
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,12 +23,18 @@ class ChallengesViewController: UIViewController {
         tableViewSetup()
     }
     
+    
     func getData() {
         ApiClient.getChallenges(nil) { (challenges, error) -> () in
             // success
             if error == nil {
                 self.challenges = challenges!
                 self.tableView.reloadData()
+                
+                // REMOVE AFTER PAGING IMPLEMENTED
+                if self.originalChallenges.isEmpty == true {
+                    self.originalChallenges.appendContentsOf(self.challenges)
+                }
             }
             
             // error
@@ -104,6 +112,29 @@ extension ChallengesViewController: UITableViewDataSource {
         self.navigationController?.pushViewController(controller, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+}
+
+extension ChallengesViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            // when the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
+                print("grabbing more")
+                isMoreDataLoading = true
+                
+                // REMOVE AND IMPLEMENT PAGING WHEN BACKEND READY
+                challenges.appendContentsOf(originalChallenges)
+                
+                tableView.reloadData()
+                isMoreDataLoading = false
+            }
+        }
     }
 }
 
