@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Challenges-->
@@ -41,7 +42,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Global" id="zy5-Ey-ev7">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="6N9-Jq-gBz"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" id="P3a-XT-R5B"/>
+                            <barButtonItem title="Filter" id="6N9-Jq-gBz"/>
+                        </leftBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

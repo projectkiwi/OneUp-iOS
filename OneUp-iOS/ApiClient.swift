@@ -29,7 +29,9 @@ class ApiClient: AFHTTPSessionManager {
                 print("challenges: \(response)")
                 print("Success retrieving challenges!")
                 
-                let challenges = Challenge.challengesFromJSON(response as! NSArray)
+                
+                let docs = response as! NSDictionary
+                let challenges = Challenge.challengesFromJSON(docs["docs"] as! NSArray)
                 completion(challenges: challenges, error: nil)
                 
             }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in

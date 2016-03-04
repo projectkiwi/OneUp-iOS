@@ -34,15 +34,7 @@ class Challenge: NSObject, MKAnnotation {
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         topAttempt = attempts[0]
         votes = topAttempt.voteTotal
-        
         imgUrl = topAttempt.imgUrl
-        
-        
-        
-//        imgUrl = challengeDetails["imgUrl"] as! String
-
-        
-        
         
         print("recieved challenge with name \(name)")
     }
