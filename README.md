@@ -45,12 +45,12 @@ The following **required** functionality is completed:
 #### User Story 8
 
 - [ ] Link GoogleMaps API - Harris
-- [ ] Implement Map Views - Harris
+- [X] Implement Map Views - Harris
 - [ ] Make pop-up challenge panel - Harris
 
 #### User Story 9
 
-- [ ] Link challenge locations to the map view - Harris
+- [X] Link challenge locations to the map view - Harris
 - [ ] In list view, filter challenges based on a location radius - Harris
 
 <!--## Video Walkthrough 
