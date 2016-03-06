@@ -35,7 +35,7 @@ The following **required** functionality is completed:
 #### User Story 6
 
 - [X] Add UI element to display records category - Marty
-- [ ] Implement filters to filter challenges by category - Marty
+- [X] Implement filters to filter challenges by category - Marty
 
 #### User Story 7
 

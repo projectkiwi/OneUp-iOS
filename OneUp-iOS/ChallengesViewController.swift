@@ -13,6 +13,7 @@ class ChallengesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var challenges = [Challenge]()
+    var filterItems = [String: Bool]()
     var originalChallenges = [Challenge]() // REMOVE AFTER PAGING IMPLEMENTED: dummy data till backend develops paging
     var isMoreDataLoading = false // used for infinate scroll
 
@@ -22,7 +23,6 @@ class ChallengesViewController: UIViewController {
         getData()
         tableViewSetup()
     }
-    
     
     func getData() {
         ApiClient.getChallenges(nil) { (challenges, error) -> () in
@@ -68,22 +68,37 @@ class ChallengesViewController: UIViewController {
         refreshControl.endRefreshing()
     }
 
+    
+    @IBAction func onFilterPress(sender: AnyObject) {
+//        let filterController = FilterViewController()
+//        presentViewController(filterController, animated: true) { () -> Void in
+//            print("presented filtered view controller")
+//        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let destinationViewController = segue.destinationViewController
+        
+        if let destinationViewController = destinationViewController as? FilterViewController {
+            destinationViewController.delegate = self
+            
+            if filterItems.count > 0 {
+                print("replacing items")
+                destinationViewController.filterItems = self.filterItems
+            }
+        }
     }
-    */
-
 }
 
 
@@ -115,7 +130,7 @@ extension ChallengesViewController: UITableViewDataSource {
     }
 }
 
-extension ChallengesViewController: UIScrollViewDelegate {
+extension ChallengesViewController: UIScrollViewDelegate, UITableViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
@@ -125,10 +140,9 @@ extension ChallengesViewController: UIScrollViewDelegate {
             
             // when the user has scrolled past the threshold, start requesting
             if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
-                print("grabbing more")
                 isMoreDataLoading = true
                 
-                // REMOVE AND IMPLEMENT PAGING WHEN BACKEND READY
+                // TODO: REMOVE AND IMPLEMENT PAGING WHEN BACKEND READY
                 challenges.appendContentsOf(originalChallenges)
                 
                 tableView.reloadData()
@@ -138,6 +152,25 @@ extension ChallengesViewController: UIScrollViewDelegate {
     }
 }
 
-extension ChallengesViewController: UITableViewDelegate {
-    
+extension ChallengesViewController: FiltersViewControllerDelegate {
+    func filtersViewController(filtersViewController: FilterViewController, didUpdateFilters filters: [String: Bool]) {
+        // implement catergory filtering with backend here... //
+        
+        filterItems = filters
+        tableView.reloadData()
+        
+        // only grab filter params that were selected
+        let filtered = filters.filter { (s: String, filterBool: Bool) -> Bool in
+            if filterBool == true {
+                return true
+            }
+            return false
+        }
+        
+        for filteredItem in filtered {
+            print(filteredItem)
+        }
+        
+        // TODO: Once backend filtering is complete add ApiClient filter functionality
+    }
 }

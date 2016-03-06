@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="39y-8p-qJJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -8,7 +8,7 @@
         <!--Filter View Controller-->
         <scene sceneID="Kgn-aP-8OH">
             <objects>
-                <viewController storyboardIdentifier="Filter" id="39y-8p-qJJ" customClass="FilterViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="39y-8p-qJJ" customClass="FilterViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VtY-O7-fR5"/>
                         <viewControllerLayoutGuide type="bottom" id="TQz-8Q-heV"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-Dg-d9z">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="rdR-RU-a00">
@@ -31,13 +31,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZO-B3-smr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Cjf-5k-hrg"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Filters" id="upg-42-FWC">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3Nq-lM-WnS">
+                                            <connections>
+                                                <action selector="onCancel:" destination="39y-8p-qJJ" id="3GL-oc-5XD"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="9sh-II-rV7">
+                                            <connections>
+                                                <action selector="onSaveFilter:" destination="39y-8p-qJJ" id="WCh-kh-NkJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GeG-Dg-d9z" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leading" id="M5i-D2-9M9"/>
+                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="cZO-B3-smr" secondAttribute="bottom" id="Svf-Fu-gqd"/>
+                            <constraint firstItem="cZO-B3-smr" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leading" id="YeR-PL-ZSc"/>
+                            <constraint firstAttribute="trailing" secondItem="cZO-B3-smr" secondAttribute="trailing" id="hO1-kO-cba"/>
+                            <constraint firstItem="cZO-B3-smr" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="top" id="mPC-np-Wiv"/>
                             <constraint firstItem="TQz-8Q-heV" firstAttribute="top" secondItem="GeG-Dg-d9z" secondAttribute="bottom" id="ptt-av-ztH"/>
                             <constraint firstAttribute="trailing" secondItem="GeG-Dg-d9z" secondAttribute="trailing" id="uql-18-vBz"/>
-                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="top" id="v04-vE-mrL"/>
+                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="top" constant="44" id="v04-vE-mrL"/>
                         </constraints>
                     </view>
                     <connections>

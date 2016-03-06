@@ -44,7 +44,12 @@
                     <navigationItem key="navigationItem" title="Global" id="zy5-Ey-ev7">
                         <leftBarButtonItems>
                             <barButtonItem title="Item" id="P3a-XT-R5B"/>
-                            <barButtonItem title="Filter" id="6N9-Jq-gBz"/>
+                            <barButtonItem title="Filter" id="6N9-Jq-gBz">
+                                <connections>
+                                    <action selector="onFilterPress:" destination="yHk-w9-s0A" id="WaX-LD-g6x"/>
+                                    <segue destination="feJ-DU-49K" kind="presentation" id="Pdj-Sv-Ym8"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -55,6 +60,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYz-xd-xHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2153" y="1506"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="aNA-c2-3di">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Filter" id="feJ-DU-49K" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCA-qO-Z6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2546.5" y="1312"/>
         </scene>
         <!--HomeLocal-->
         <scene sceneID="4Af-wX-r48">
@@ -96,6 +109,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xnx-pO-fMC"/>
+        <segue reference="B0Y-YG-O39"/>
     </inferredMetricsTieBreakers>
 </document>
