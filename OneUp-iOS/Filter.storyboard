@@ -38,16 +38,8 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Filters" id="upg-42-FWC">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3Nq-lM-WnS">
-                                            <connections>
-                                                <action selector="onCancel:" destination="39y-8p-qJJ" id="3GL-oc-5XD"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="9sh-II-rV7">
-                                            <connections>
-                                                <action selector="onSaveFilter:" destination="39y-8p-qJJ" id="WCh-kh-NkJ"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3Nq-lM-WnS"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="9sh-II-rV7"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

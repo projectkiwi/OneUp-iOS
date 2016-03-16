@@ -2,7 +2,53 @@
 
 ## User Stories
 
-The following **required** functionality is completed:
+### Sprint 2
+
+#### User Story 2
+
+- [ ] Implement tabs for recent, popular, and global - Harris
+
+#### User Story 3
+
+- [ ] Express an opinion on past records by liking - Harris
+- [ ] Express an opinion on past records by commenting - Marty
+
+#### User Story 4
+
+- [ ] Link challenge locations to the map view - Harris
+- [ ] In list view, filter challenges based on a location radius - Harris
+
+#### User Story 5
+
+- [ ] As a user, I would like to be identified by a username - Harris
+- [ ] As a user, I would like to be able to link my Facebook account to the app - Harris
+- [ ] Provide support for profile pictures - Harris
+
+#### User Story 6
+
+- [ ] As a user, I would like to be able to view a list of my records held - Harris
+
+#### User Story 7
+
+- [ ] Implement Challenge Detail Page - Marty
+
+#### User Story 8
+
+- [ ] Implement timeline of past record holders - Marty 
+- [ ] As a user, I would like to know how long each record was held for - Marty
+
+#### User Story 9
+
+- [ ] Implement bookmark button on challenge detail page. - Harris
+- [ ] Implement bookmarked challenges page - harris
+- [ ] New changes in bookmarked challenges should be sent to notifications - Harris
+
+#### User Story 10
+
+- [ ] Implement Challenge Creation Page - Harris
+- [ ] Implement getting media from phone or camera - Marty
+- [ ] Implement challenge uploading - Harris
+
 
 ### Sprint 1
 
@@ -54,10 +100,10 @@ The following **required** functionality is completed:
 - [ ] In list view, filter challenges based on a location radius - Harris
 
 <!--## Video Walkthrough 
-
-Here's a walkthrough of implemented user stories:
-
-![alt tag](https://raw.githubusercontent.com/mkausas/Yelp/master/demo.gif "Video Walkthrough")-->
+ 
+ Here's a walkthrough of implemented user stories:
+ 
+ ![alt tag](url "Video Walkthrough")-->
 
 ## License
 
