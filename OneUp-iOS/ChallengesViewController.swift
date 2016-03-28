@@ -98,6 +98,8 @@ class ChallengesViewController: UIViewController {
                 destinationViewController.filterItems = self.filterItems
             }
         }
+        
+        print("second")
     }
 }
 
@@ -122,9 +124,11 @@ extension ChallengesViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as UIViewController
+        let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as! ChallengeDetailViewController
         
         self.navigationController?.pushViewController(controller, animated: true)
+//        controller.attempt = challenges[indexPath.row].topAttempt
+        print("first")
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

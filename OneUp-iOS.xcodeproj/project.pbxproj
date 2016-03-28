@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD21A4701CA8D43700A6226B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21A46F1CA8D43700A6226B /* ColorExtension.swift */; };
 		BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68D4C21C88B73300F88429 /* ApiClient.swift */; };
+		BD6E4E851CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */; };
+		BD6E4E881CA8C0F900EBBDDC /* AttemptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6E4E861CA8C0F900EBBDDC /* AttemptTableViewCell.swift */; };
+		BD6E4E891CA8C0F900EBBDDC /* AttemptTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6E4E871CA8C0F900EBBDDC /* AttemptTableViewCell.xib */; };
 		BD962E351C891D8000345774 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E341C891D8000345774 /* Attempt.swift */; };
 		BD962E371C894C2500345774 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD962E361C894C2500345774 /* Filter.storyboard */; };
 		BD962E391C894DD100345774 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E381C894DD100345774 /* FilterViewController.swift */; };
@@ -54,7 +58,11 @@
 /* Begin PBXFileReference section */
 		644D6176E7B0CD8BAF296C09 /* Pods-OneUp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		717B517CB521745830D0E19A /* Pods-OneUp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneUp-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneUp-iOS/Pods-OneUp-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		BD21A46F1CA8D43700A6226B /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		BD68D4C21C88B73300F88429 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
+		BD6E4E861CA8C0F900EBBDDC /* AttemptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttemptTableViewCell.swift; sourceTree = "<group>"; };
+		BD6E4E871CA8C0F900EBBDDC /* AttemptTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttemptTableViewCell.xib; sourceTree = "<group>"; };
 		BD962E341C891D8000345774 /* Attempt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
 		BD962E361C894C2500345774 /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		BD962E381C894DD100345774 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 				F0BC99741C73A998008BFB71 /* ViewController.swift */,
 				BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */,
 				F03A2A5B1C892EF400267302 /* MapViewController.swift */,
+				BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -139,6 +148,8 @@
 				BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */,
 				BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */,
 				F03A2A5F1C893C6800267302 /* VCMapView.swift */,
+				BD6E4E861CA8C0F900EBBDDC /* AttemptTableViewCell.swift */,
+				BD6E4E871CA8C0F900EBBDDC /* AttemptTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 				F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */,
 				F0BC99811C73A998008BFB71 /* Info.plist */,
 				F0BC99791C73A998008BFB71 /* OneUp_iOS.xcdatamodeld */,
+				BD21A46F1CA8D43700A6226B /* ColorExtension.swift */,
 			);
 			path = "OneUp-iOS";
 			sourceTree = "<group>";
@@ -341,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */,
+				BD6E4E891CA8C0F900EBBDDC /* AttemptTableViewCell.xib in Resources */,
 				F0580D321C88DF6800259247 /* Home.storyboard in Resources */,
 				BD962E371C894C2500345774 /* Filter.storyboard in Resources */,
 				F055136F1C892355006E7B65 /* Map.storyboard in Resources */,
@@ -423,12 +436,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */,
+				BD6E4E881CA8C0F900EBBDDC /* AttemptTableViewCell.swift in Sources */,
 				BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */,
 				BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */,
 				F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */,
 				F03A2A601C893C6800267302 /* VCMapView.swift in Sources */,
 				F03A2A5C1C892EF400267302 /* MapViewController.swift in Sources */,
 				BD962E391C894DD100345774 /* FilterViewController.swift in Sources */,
+				BD6E4E851CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift in Sources */,
+				BD21A4701CA8D43700A6226B /* ColorExtension.swift in Sources */,
 				F03A2A5E1C89367A00267302 /* ChallengePin.swift in Sources */,
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
 				BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */,

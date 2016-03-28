@@ -28,10 +28,10 @@ class FeedTableViewCell: UITableViewCell {
             challengeTitleLabel.text = challenge.name
             challengeHeartCountLabel.text = "\(challenge.votes)"
             challengeDescriptionLabel.text = challenge.desc
-            mainImageView.setImageWithURL(NSURL(string: challenge.imgUrl)!)
+            mainImageView.setImageWithURL(NSURL(string: challenge.imgUrl!)!)
             
             var catergoriesString = ""
-            for catergory in challenge.categories {
+            for catergory in challenge.categories! {
                 catergoriesString += "\(catergory), "
             }
             
