@@ -99,8 +99,10 @@ class ChallengesViewController: UIViewController {
             }
         }
         
-        print("second")
-    }
+        else if let destinationViewController = destinationViewController as? ChallengeDetailViewController {
+            destinationViewController.challenge = challenges[(tableView.indexPathForSelectedRow?.row)!]
+        }
+     }
 }
 
 
@@ -125,6 +127,7 @@ extension ChallengesViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as! ChallengeDetailViewController
+        controller.challenge = challenges[indexPath.row]
         
         self.navigationController?.pushViewController(controller, animated: true)
 //        controller.attempt = challenges[indexPath.row].topAttempt

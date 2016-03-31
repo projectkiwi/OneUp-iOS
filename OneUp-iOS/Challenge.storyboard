@@ -145,6 +145,7 @@
                         <outlet property="attemptAuthorLabel" destination="UP1-Bh-tG5" id="S6b-6a-AFK"/>
                         <outlet property="attemptImageView" destination="o4j-zj-hAZ" id="Kjt-2E-ieT"/>
                         <outlet property="challengeNameLabel" destination="scp-1g-fag" id="zN0-ms-MLN"/>
+                        <outlet property="likesLabel" destination="l4M-nz-YjF" id="kKp-YG-YSx"/>
                         <outlet property="likesView" destination="4zJ-Us-als" id="fIJ-mj-dny"/>
                         <outlet property="tableView" destination="sGp-GJ-8Hc" id="hR4-al-Ujd"/>
                     </connections>

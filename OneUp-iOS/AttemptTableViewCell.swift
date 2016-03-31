@@ -11,24 +11,28 @@ import UIKit
 class AttemptTableViewCell: UITableViewCell {
 
     static let cellIdentifier = "AttemptCell"
-    
-    @IBOutlet weak var attemptAuthorLabel: UILabel!
+
+
+    @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var previewImageView: UIImageView!
     
-    func initSubviews() {
-        // standard initialization logic
-//        let nib = UINib(nibName: "AttemptTableViewCell", bundle: nil)
-//        nib.instantiateWithOwner(self, options: nil)
-//        contentView.frame = bounds
-//        addSubview(contentView)
-        
+    var attempt: Attempt? {
+        didSet {
+            // TODO: Edit this value so it shows the right info
+            scoreLabel.text = "\(attempt?.votes) people"
+            
+            previewImageView.setImageWithURL(NSURL(string: (attempt?.imgUrl!)!)!)
+            
+        }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//         scoreLabel.text = "\(attempt?.votes) people"
         
-        initSubviews()
+//        previewImageView.setImageWithURL(NSURL(string: (attempt?.imgUrl!)!)!)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

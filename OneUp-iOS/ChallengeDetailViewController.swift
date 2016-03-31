@@ -14,11 +14,22 @@ class ChallengeDetailViewController: UIViewController {
     @IBOutlet weak var challengeNameLabel: UILabel!
     @IBOutlet weak var likesView: UIView!
     @IBOutlet weak var attemptImageView: UIImageView!
-    
+    @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    var challenge: Challenge!
+    var currentAttempt: Attempt? {
+        didSet {
+            attemptAuthorLabel.text = "Author!"
+            likesLabel.text = "\(currentAttempt?.votes)"
+            attemptImageView.setImageWithURL(NSURL(string: (currentAttempt?.imgUrl)!)!)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentAttempt = challenge.attempts[0]
         
         // add custom cell
         let cellNib = UINib(nibName: "AttemptTableViewCell", bundle: NSBundle.mainBundle())
@@ -28,7 +39,6 @@ class ChallengeDetailViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
 
         likesView.layer.cornerRadius = 3
     }
@@ -54,11 +64,13 @@ class ChallengeDetailViewController: UIViewController {
 
 extension ChallengeDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return challenge.attempts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AttemptTableViewCell.cellIdentifier, forIndexPath: indexPath) as! AttemptTableViewCell
+        
+        cell.attempt = challenge.attempts[indexPath.row]
         
 //        switch (indexPath.row) {
 //        case 0:
@@ -85,6 +97,8 @@ extension ChallengeDetailViewController: UITableViewDataSource {
 extension ChallengeDetailViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        currentAttempt = challenge.attempts[indexPath.row]
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
