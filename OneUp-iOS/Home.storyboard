@@ -51,6 +51,11 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NbZ-sS-DGh">
+                            <connections>
+                                <segue destination="0So-D5-izt" kind="presentation" id="H5h-yP-QS3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -60,6 +65,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYz-xd-xHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2153" y="1506"/>
+        </scene>
+        <!--ChallengeCreation-->
+        <scene sceneID="hRb-iQ-nxL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChallengeCreation" id="0So-D5-izt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2sN-5R-6rT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537.5" y="1236"/>
         </scene>
         <!--Filter-->
         <scene sceneID="aNA-c2-3di">
