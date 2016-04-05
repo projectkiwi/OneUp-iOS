@@ -35,7 +35,16 @@ class ChallengeDetailViewController: UIViewController {
         }
         currentAttempt = challenge.attempts[0]
         
-        // add custom cell
+        setupCustomCell()
+        
+        makeLikeButtonInteractive()
+        
+        // Setup AttemptCreation Data
+        AttemptCreationViewController.challengeID = challenge.id
+        AttemptCreationViewController.challengeName = challenge.name
+    }
+    
+    func setupCustomCell() {
         let cellNib = UINib(nibName: "AttemptTableViewCell", bundle: NSBundle.mainBundle())
         tableView.registerNib(cellNib, forCellReuseIdentifier: AttemptTableViewCell.cellIdentifier)
         
@@ -43,10 +52,8 @@ class ChallengeDetailViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-
-        likesView.layer.cornerRadius = 3
         
-        makeLikeButtonInteractive()
+        likesView.layer.cornerRadius = 3
     }
     
     func makeLikeButtonInteractive() {
@@ -72,17 +79,6 @@ class ChallengeDetailViewController: UIViewController {
         }
         likesView.backgroundColor = UIColor.redColor()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

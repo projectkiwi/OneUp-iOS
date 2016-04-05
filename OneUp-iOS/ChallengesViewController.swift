@@ -128,11 +128,8 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationViewController = segue.destinationViewController
+        //let destinationViewController = segue.destinationViewController
         
-        if let destinationViewController = destinationViewController as? ChallengeDetailViewController {
-            destinationViewController.challenge = challenges[(tableView.indexPathForSelectedRow?.row)!]
-        }
     }
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {

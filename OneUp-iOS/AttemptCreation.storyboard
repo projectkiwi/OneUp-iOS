@@ -66,16 +66,17 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="challengeImageView" destination="tA1-hi-t9D" id="Nc4-5G-S1k"/>
+                        <outlet property="challengeNameLabel" destination="5dV-5y-eWg" id="Rr3-c6-2Y5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk6-SS-KdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1263" y="-101"/>
         </scene>
-        <!--AttemptNavigation-->
+        <!--Add Attempt-->
         <scene sceneID="tLu-aB-U5a">
             <objects>
-                <navigationController restorationIdentifier="AttemptCreation" storyboardIdentifier="AttemptCreation" title="AttemptNavigation" automaticallyAdjustsScrollViewInsets="NO" id="ajV-CT-woq" sceneMemberID="viewController">
+                <navigationController title="Add Attempt" automaticallyAdjustsScrollViewInsets="NO" id="ajV-CT-woq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YKi-xE-a31">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

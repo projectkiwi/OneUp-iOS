@@ -11,12 +11,15 @@ import UIKit
 class AttemptCreationViewController: UIViewController {
 
     @IBOutlet weak var challengeImageView: UIImageView!
+    @IBOutlet weak var challengeNameLabel: UILabel!
+    static var challengeID: String!
+    static var challengeName: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print("Name: "+AttemptCreationViewController.challengeName)
+        challengeNameLabel.text = AttemptCreationViewController.challengeName
     }
     
     @IBAction func onCancelSelected(sender: AnyObject) {
@@ -26,18 +29,18 @@ class AttemptCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-//        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test") { (challengeID, error) -> () in
-//            // success
-//            if error == nil {
-//                self.dismissViewControllerAnimated(true) { () -> Void in
-//                    print("dismissing from create attempt")
-//                }
-//            }
-//            // error
-//            else {
-//                
-//            }
-//        }
+        ApiClient.postAttempt(AttemptCreationViewController.challengeID, attemptImg: nil) { (attemptID, error) -> () in
+            // success
+            if error == nil {
+                self.dismissViewControllerAnimated(true) { () -> Void in
+                    print("dismissing from create attempt")
+                }
+            }
+            // error
+            else {
+                
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
