@@ -24,7 +24,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Create" id="vjC-gg-r1P">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9wt-mF-XRE"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9wt-mF-XRE">
+                                            <connections>
+                                                <action selector="onCancel:" destination="iUH-B2-GPA" id="scc-V3-PdH"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="2H2-rz-Ewk"/>
                                     </navigationItem>
                                 </items>

@@ -17,6 +17,8 @@
 		BD962E351C891D8000345774 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E341C891D8000345774 /* Attempt.swift */; };
 		BD962E371C894C2500345774 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD962E361C894C2500345774 /* Filter.storyboard */; };
 		BD962E391C894DD100345774 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E381C894DD100345774 /* FilterViewController.swift */; };
+		BDA57E671CB33F1B00E89162 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */; };
+		BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E681CB3492400E89162 /* FeedTableView.swift */; };
 		BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */; };
 		BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */; };
 		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
@@ -70,6 +72,8 @@
 		BD962E341C891D8000345774 /* Attempt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
 		BD962E361C894C2500345774 /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		BD962E381C894DD100345774 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		BDA57E681CB3492400E89162 /* FeedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableView.swift; sourceTree = "<group>"; };
 		BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
 		BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				F03A2A5B1C892EF400267302 /* MapViewController.swift */,
 				BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */,
 				BD0812691CB17EBD00EC912D /* ChallengeCreationViewController.swift */,
+				BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				F03A2A5F1C893C6800267302 /* VCMapView.swift */,
 				BD6E4E861CA8C0F900EBBDDC /* AttemptTableViewCell.swift */,
 				BD6E4E871CA8C0F900EBBDDC /* AttemptTableViewCell.xib */,
+				BDA57E681CB3492400E89162 /* FeedTableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -449,8 +455,10 @@
 				F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */,
 				F03A2A601C893C6800267302 /* VCMapView.swift in Sources */,
 				F03A2A5C1C892EF400267302 /* MapViewController.swift in Sources */,
+				BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */,
 				BD08126A1CB17EBD00EC912D /* ChallengeCreationViewController.swift in Sources */,
 				BD962E391C894DD100345774 /* FilterViewController.swift in Sources */,
+				BDA57E671CB33F1B00E89162 /* NotificationsViewController.swift in Sources */,
 				BD6E4E851CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift in Sources */,
 				BD21A4701CA8D43700A6226B /* ColorExtension.swift in Sources */,
 				F03A2A5E1C89367A00267302 /* ChallengePin.swift in Sources */,

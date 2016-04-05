@@ -35,6 +35,14 @@ class ChallengeCreationViewController: UIViewController {
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
+    
+    @IBAction func onCancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true) { 
+            print("dismissing")
+        }
+    }
+    
+
     /*
     // MARK: - Navigation
 

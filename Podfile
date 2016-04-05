@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'OneUp-iOS' do
 	pod 'AFNetworking'	
+	pod 'XMSegmentedControl'
 end
 
 target 'OneUp-iOSTests' do

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '532197A61569172654FC23B1'
-               BlueprintName = 'AFNetworking'
+               BlueprintIdentifier = '6D012BDF06A7BA4FEA5410BE'
+               BlueprintName = 'XMSegmentedControl-XMSegmentedControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AFNetworking.framework'>
+               BuildableName = 'XMSegmentedControl.bundle'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
