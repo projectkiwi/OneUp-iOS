@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Filter View Controller-->
+        <!--Filter Challenges-->
         <scene sceneID="Kgn-aP-8OH">
             <objects>
                 <viewController id="39y-8p-qJJ" customClass="FilterViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-Dg-d9z">
-                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="rdR-RU-a00">
-                                        <rect key="frame" x="0.0" y="92" width="560" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdR-RU-a00" id="GFX-it-Ydd">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -37,11 +37,11 @@
                         <constraints>
                             <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="topMargin" id="Fdx-4r-Qgs"/>
                             <constraint firstAttribute="bottomMargin" secondItem="GeG-Dg-d9z" secondAttribute="bottom" id="SRQ-0P-mqA"/>
-                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leadingMargin" id="cXj-Ha-YKu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GeG-Dg-d9z" secondAttribute="trailing" id="tky-ph-pEV"/>
+                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leadingMargin" constant="-20" id="cXj-Ha-YKu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GeG-Dg-d9z" secondAttribute="trailing" constant="-20" id="tky-ph-pEV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oTQ-EA-JWp">
+                    <navigationItem key="navigationItem" title="Filter Challenges" id="oTQ-EA-JWp">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="UBg-oh-gR2">
                             <connections>
                                 <action selector="onCancel:" destination="39y-8p-qJJ" id="Vs3-LG-s34"/>
@@ -49,7 +49,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="H92-aC-Gy2">
                             <connections>
-                                <action selector="onSaveFilter:" destination="39y-8p-qJJ" id="YXt-gG-0DT"/>
+                                <segue destination="We8-bJ-0zT" kind="unwind" identifier="SaveFilter" unwindAction="unwindToHome:" id="LTJ-io-FC0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -58,6 +58,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tio-UW-mIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="We8-bJ-0zT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1458" y="268"/>
         </scene>

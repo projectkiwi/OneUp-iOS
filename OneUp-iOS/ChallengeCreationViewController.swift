@@ -18,7 +18,17 @@ class ChallengeCreationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func onCancelSelected(sender: AnyObject) {
+        dismissViewControllerAnimated(true) { () -> Void in
+            print("dismissing from create")
+        }
+    }
 
+    @IBAction func onCreateSelected(sender: AnyObject) {
+        print("create selected")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

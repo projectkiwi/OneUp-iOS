@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Notifications-->
+        <!--NotificationsView-->
         <scene sceneID="jPJ-Ys-4r3">
             <objects>
-                <viewController storyboardIdentifier="Notifications" title="Notifications" id="4sC-ls-521" customClass="NotificationsViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationsView" title="NotificationsView" id="4sC-ls-521" customClass="NotificationsViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ha5-BE-p9l"/>
                         <viewControllerLayoutGuide type="bottom" id="NQG-Hp-bbx"/>
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="853" y="186"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Notifications-->
         <scene sceneID="iRZ-pg-o3l">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kec-NY-zuD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Notifications" title="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="Kec-NY-zuD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TFy-XE-gxy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -9,23 +9,61 @@
 import UIKit
 import XMSegmentedControl
 
-class ChallengesViewController: UIViewController {
+class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    enum DataSources {
+        case Local
+        case Popular
+        case Global
+    }
+    
+    var currentDataSource:DataSources = .Local
     var challenges = [Challenge]()
-    var filterItems = [String: Bool]()
+    static var filterItems: [String: Bool] = ["sports": true, "Drinks": false, "Food": false]
     var originalChallenges = [Challenge]() // REMOVE AFTER PAGING IMPLEMENTED: dummy data till backend develops paging
     var isMoreDataLoading = false // used for infinate scroll
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        currentDataSource = .Local
+        setupSegmentedControl()
         getData()
         tableViewSetup()
     }
     
+    // XMSegmentedControl
+    func xmSegmentedControl(xmSegmentedControl: XMSegmentedControl, selectedSegment: Int) {
+        if(selectedSegment == 0) {
+            currentDataSource = .Local
+        }
+        if(selectedSegment == 1) {
+            currentDataSource = .Popular
+        }
+        if(selectedSegment == 2) {
+            currentDataSource = .Global
+        }
+    }
+    
+    func setupSegmentedControl() {
+        let segmentedControl = XMSegmentedControl(frame: CGRect(x: 0, y: 60, width: self.view.frame.width, height: 44), segmentTitle: ["Local", "Popular", "Global"], selectedItemHighlightStyle: XMSelectedItemHighlightStyle.BottomEdge)
+        
+        segmentedControl.delegate = self
+        segmentedControl.backgroundColor = UIColor(red: 115/255, green: 44/255, blue: 123/255, alpha: 1)
+        segmentedControl.highlightColor = UIColor(red: 165/255, green: 66/255, blue: 220/255, alpha: 1)
+        segmentedControl.tint = UIColor.whiteColor()
+        segmentedControl.highlightTint = UIColor.lightGrayColor()
+        
+        self.view.addSubview(segmentedControl)
+    }
+    
+    
+    
+    // Challenges Table
     func getData() {
+        // TODO: Get Local/Popular/Global and Apply Filters
         ApiClient.getChallenges(nil) { (challenges, error) -> () in
             // success
             if error == nil {
@@ -68,14 +106,6 @@ class ChallengesViewController: UIViewController {
         getData()
         refreshControl.endRefreshing()
     }
-
-    
-    @IBAction func onFilterPress(sender: AnyObject) {
-//        let filterController = FilterViewController()
-//        presentViewController(filterController, animated: true) { () -> Void in
-//            print("presented filtered view controller")
-//        }
-    }
     
     
     override func didReceiveMemoryWarning() {
@@ -91,19 +121,18 @@ class ChallengesViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
         
-        if let destinationViewController = destinationViewController as? FilterViewController {
-            destinationViewController.delegate = self
-            
-            if filterItems.count > 0 {
-                print("replacing items")
-                destinationViewController.filterItems = self.filterItems
-            }
-        }
-        
-        else if let destinationViewController = destinationViewController as? ChallengeDetailViewController {
+        if let destinationViewController = destinationViewController as? ChallengeDetailViewController {
             destinationViewController.challenge = challenges[(tableView.indexPathForSelectedRow?.row)!]
         }
-     }
+    }
+    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        if segue.identifier == "SaveFilter" { // Returning to Home from Filter
+            let filterController = segue.sourceViewController as! FilterViewController
+            ChallengesViewController.filterItems = filterController.filterItems!
+            // TODO: Reload Challenges w/ correct Filters
+        }
+    }
 }
 
 
@@ -157,28 +186,5 @@ extension ChallengesViewController: UIScrollViewDelegate, UITableViewDelegate {
                 isMoreDataLoading = false
             }
         }
-    }
-}
-
-extension ChallengesViewController: FiltersViewControllerDelegate {
-    func filtersViewController(filtersViewController: FilterViewController, didUpdateFilters filters: [String: Bool]) {
-        // implement catergory filtering with backend here... //
-        
-        filterItems = filters
-        tableView.reloadData()
-        
-        // only grab filter params that were selected
-        let filtered = filters.filter { (s: String, filterBool: Bool) -> Bool in
-            if filterBool == true {
-                return true
-            }
-            return false
-        }
-        
-        for filteredItem in filtered {
-            print(filteredItem)
-        }
-        
-        // TODO: Once backend filtering is complete add ApiClient filter functionality
     }
 }

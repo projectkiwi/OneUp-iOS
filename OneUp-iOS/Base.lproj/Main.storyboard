@@ -66,25 +66,15 @@
             </objects>
             <point key="canvasLocation" x="1105" y="-379"/>
         </scene>
-        <!--HomeLocal-->
+        <!--Home-->
         <scene sceneID="Vue-sU-jJl">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeLocal" id="VDC-jK-Rao" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" id="VDC-jK-Rao" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Local" id="EHf-94-csn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HiF-lT-gki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2428" y="-460"/>
-        </scene>
-        <!--HomeGlobal-->
-        <scene sceneID="Gyy-hh-xp4">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeGlobal" id="7lJ-Px-daQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Global" id="LQz-nN-bHk"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EX4-3S-kC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2431" y="-402"/>
+            <point key="canvasLocation" x="2412" y="-422"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="XOv-FR-R84">
@@ -127,7 +117,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="VDC-jK-Rao" kind="relationship" relationship="viewControllers" id="I6z-Da-T0B"/>
-                        <segue destination="7lJ-Px-daQ" kind="relationship" relationship="viewControllers" id="Wyh-s7-cHr"/>
                         <segue destination="OsG-ai-m8w" kind="relationship" relationship="viewControllers" id="BfS-26-BDJ"/>
                         <segue destination="GKg-Ly-1Kq" kind="relationship" relationship="viewControllers" id="lBY-Ac-ugf"/>
                         <segue destination="WjI-ix-iLy" kind="relationship" relationship="viewControllers" id="KZ6-gg-Pvc"/>
