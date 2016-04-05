@@ -64,8 +64,16 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
     
     // Challenges Table
     func loadTableAndData() {
-        // TODO: Get Local/Popular/Global and Apply Filters
-        ApiClient.getChallenges(nil) { (challenges, error) -> () in
+        // TODO: Apply Filters
+        var requestURL = "/challenges/"
+        if currentDataSource == .Local {
+            requestURL = "/challenges/local/new/"
+        } else if currentDataSource == .Popular {
+            requestURL = "/challenges/local/popular/"
+        } else if currentDataSource == .Global {
+            requestURL = "/challenges/"
+        }
+        ApiClient.getChallenges(requestURL,params: nil) { (challenges, error) -> () in
             // success
             if error == nil {
                 self.challenges = challenges!

@@ -18,9 +18,9 @@ class ApiClient: AFHTTPSessionManager {
     /**
          Retrieves global challenges
      */
-    class func getChallenges(params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+    class func getChallenges(requestPath:String, params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
         
-        http.GET(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in
+        http.GET(apiURL+requestPath, parameters: params, progress: { (progress: NSProgress) -> Void in
             
             },
             success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
