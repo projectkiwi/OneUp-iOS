@@ -17,17 +17,15 @@ class ApiClient: AFHTTPSessionManager {
     
     /**
          Retrieves global challenges
-         
-         @param bar Consectetur adipisicing elit.
      */
-    class func getChallenges(params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+    class func getChallenges(requestPath:String, params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
         
-        http.GET(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in
+        http.GET(apiURL+requestPath, parameters: params, progress: { (progress: NSProgress) -> Void in
             
             },
             success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                print("challenges: \(response)")
-                print("Success retrieving challenges!")
+                print("Challenges: \(response)")
+                //print("Success retrieving challenges!")
                 
                 
                 let docs = response as! NSDictionary
@@ -40,4 +38,49 @@ class ApiClient: AFHTTPSessionManager {
                 completion(challenges: nil, error: error)
         }
     }
+    
+    /**
+        Like Challenge Attempt
+    */
+    class func likeChallenge(attemptID: String, completion: (liked: Bool?, error: NSError?) -> ()) {
+        print("Liked: "+attemptID);
+        
+        http.PATCH(apiURL+"/challenges/like/"+attemptID, parameters: nil,
+            success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                completion(liked: true, error: nil)
+                    
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error liking challenge: \(error.description)")
+            
+            completion(liked: nil, error: error)
+        }
+    }
+    
+    /**
+        Post Challenge
+    */
+    class func postChallenge(name:String, desc:String, pattern:String, categories:String, completion: (challengeID: String?, error: NSError?) -> ()) {
+        let params:NSDictionary = ["name":name, "description":desc, "pattern":pattern, "categories":categories]
+        
+        http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in },
+            success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let responseDict = response as! NSDictionary
+                responseDict["data"]!["_id"]!?.string
+                let challengeID = responseDict["data"]!["_id"] as? String
+                http.POST(apiURL+"/challenges/"+challengeID!+"/attempts/", parameters: params, progress: { (progress: NSProgress) -> Void in },
+                    success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                        completion(challengeID: challengeID!, error: nil)
+                }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+                    print("Error posting challenge attempt: \(error.description)")
+                    completion(challengeID: nil, error: error)
+                }
+                    
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error posting challenge: \(error.description)")
+            completion(challengeID: nil, error: error)
+        }
+
+        
+    }
+    
 }

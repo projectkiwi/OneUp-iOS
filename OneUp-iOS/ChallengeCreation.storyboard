@@ -1,70 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iUH-B2-GPA">
-    <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-    </dependencies>
-    <scenes>
-        <!--Challenge Creation View Controller-->
-        <scene sceneID="FRM-2Z-pdl">
-            <objects>
-                <viewController storyboardIdentifier="ChallengeCreation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iUH-B2-GPA" customClass="ChallengeCreationViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LIi-hJ-mDb"/>
-                        <viewControllerLayoutGuide type="bottom" id="1SF-v4-5I3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="54X-MJ-gO7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ss-m6-Yvp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Dxu-ry-uwf"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Create" id="vjC-gg-r1P">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9wt-mF-XRE">
-                                            <connections>
-                                                <action selector="onCancel:" destination="iUH-B2-GPA" id="scc-V3-PdH"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="2H2-rz-Ewk"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tA1-hi-t9D">
-                                <rect key="frame" x="40" y="101" width="240" height="128"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGG-id-KdC">
-                                <rect key="frame" x="124" y="269" width="72" height="30"/>
-                                <state key="normal" title="find image"/>
-                                <connections>
-                                    <action selector="onSelectMedia:" destination="iUH-B2-GPA" eventType="touchUpInside" id="NZM-9M-ocp"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="challenge creation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7O-fB-aJz">
-                                <rect key="frame" x="90" y="415" width="141" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4ss-m6-Yvp" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" id="ISL-qX-iej"/>
-                            <constraint firstItem="4ss-m6-Yvp" firstAttribute="top" secondItem="54X-MJ-gO7" secondAttribute="top" id="SHk-0V-zBL"/>
-                            <constraint firstAttribute="trailing" secondItem="4ss-m6-Yvp" secondAttribute="trailing" id="U6R-xe-gBg"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="challengeImageView" destination="tA1-hi-t9D" id="XI8-dn-cus"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rk6-SS-KdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="451" y="-101"/>
-        </scene>
-    </scenes>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ajV-CT-woq">
+<dependencies>
+<deployment identifier="iOS"/>
+<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+<capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+</dependencies>
+<scenes>
+<!--Create-->
+<scene sceneID="FRM-2Z-pdl">
+<objects>
+<viewController storyboardIdentifier="ChallengeCreation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iUH-B2-GPA" customClass="ChallengeCreationViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="LIi-hJ-mDb"/>
+<viewControllerLayoutGuide type="bottom" id="1SF-v4-5I3"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="54X-MJ-gO7">
+<rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tA1-hi-t9D">
+<rect key="frame" x="16" y="69" width="288" height="150"/>
+<constraints>
+<constraint firstAttribute="height" constant="150" id="810-PY-zDV"/>
+</constraints>
+</imageView>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGG-id-KdC">
+<rect key="frame" x="21" y="224" width="278" height="30"/>
+<state key="normal" title="find image"/>
+<connections>
+<action selector="onSelectMedia:" destination="iUH-B2-GPA" eventType="touchUpInside" id="NZM-9M-ocp"/>
+</connections>
+</button>
+<textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Challenge Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-6P-GnK">
+<rect key="frame" x="21" y="259" width="278" height="30"/>
+<fontDescription key="fontDescription" type="system" pointSize="14"/>
+<textInputTraits key="textInputTraits"/>
+</textField>
+<textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Challenge Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-CE-mhO">
+<rect key="frame" x="21" y="294" width="278" height="100"/>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstAttribute="height" constant="100" id="rBO-SM-hUk"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="14"/>
+<textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+</textView>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstItem="tA1-hi-t9D" firstAttribute="top" secondItem="LIi-hJ-mDb" secondAttribute="bottom" constant="5" id="9R5-ua-egW"/>
+<constraint firstAttribute="trailingMargin" secondItem="tA1-hi-t9D" secondAttribute="trailing" id="AUW-9l-xy3"/>
+<constraint firstItem="Qkw-6P-GnK" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="Gie-aF-aUJ"/>
+<constraint firstAttribute="trailingMargin" secondItem="Qkw-6P-GnK" secondAttribute="trailing" constant="5" id="IyC-Qa-XHN"/>
+<constraint firstItem="Qkw-6P-GnK" firstAttribute="top" secondItem="LGG-id-KdC" secondAttribute="bottom" constant="5" id="Rce-mm-uje"/>
+<constraint firstAttribute="trailingMargin" secondItem="LGG-id-KdC" secondAttribute="trailing" constant="5" id="UE2-31-B3H"/>
+<constraint firstItem="CWh-CE-mhO" firstAttribute="top" secondItem="Qkw-6P-GnK" secondAttribute="bottom" constant="5" id="lcA-bv-yWz"/>
+<constraint firstItem="CWh-CE-mhO" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="osx-F4-WAg"/>
+<constraint firstAttribute="trailingMargin" secondItem="CWh-CE-mhO" secondAttribute="trailing" constant="5" id="qN3-oT-Vgb"/>
+<constraint firstItem="LGG-id-KdC" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="tfN-h2-2Sf"/>
+<constraint firstItem="LGG-id-KdC" firstAttribute="top" secondItem="tA1-hi-t9D" secondAttribute="bottom" constant="5" id="vrD-MW-KIs"/>
+<constraint firstItem="tA1-hi-t9D" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" id="yG1-MN-zK8"/>
+</constraints>
+</view>
+<navigationItem key="navigationItem" title="Create" id="3hw-UL-LRZ">
+<barButtonItem key="leftBarButtonItem" title="Cancel" id="CMD-F4-RCA">
+<connections>
+<action selector="onCancelSelected:" destination="iUH-B2-GPA" id="Bi0-9I-4Wj"/>
+</connections>
+</barButtonItem>
+<barButtonItem key="rightBarButtonItem" title="Create" id="iuS-wQ-dpU">
+<connections>
+<action selector="onCreateSelected:" destination="iUH-B2-GPA" id="qKo-tS-1Xo"/>
+</connections>
+</barButtonItem>
+</navigationItem>
+<simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+<connections>
+<outlet property="challengeDescription" destination="CWh-CE-mhO" id="41g-Uv-O4C"/>
+<outlet property="challengeImageView" destination="tA1-hi-t9D" id="XI8-dn-cus"/>
+<outlet property="challengeName" destination="Qkw-6P-GnK" id="MH4-Nj-nZI"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="rk6-SS-KdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="1263" y="-101"/>
+</scene>
+<!--Navigation Controller-->
+<scene sceneID="tLu-aB-U5a">
+<objects>
+<navigationController automaticallyAdjustsScrollViewInsets="NO" id="ajV-CT-woq" sceneMemberID="viewController">
+<toolbarItems/>
+<navigationBar key="navigationBar" contentMode="scaleToFill" id="YKi-xE-a31">
+<rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+</navigationBar>
+<nil name="viewControllers"/>
+<connections>
+<segue destination="iUH-B2-GPA" kind="relationship" relationship="rootViewController" id="Ato-vq-U10"/>
+</connections>
+</navigationController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="fP1-CD-6jS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="451" y="-101"/>
+</scene>
+</scenes>
 </document>

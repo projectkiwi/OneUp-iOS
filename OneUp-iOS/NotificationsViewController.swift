@@ -1,12 +1,17 @@
-//
-//  NotificationsViewController.swift
-//  OneUp-iOS
-//
-//  Created by Martynas Kausas on 4/4/16.
-//  Copyright © 2016 Kiwi. All rights reserved.
-//
+////
+////  NotificationsViewController.swift
+////  OneUp-iOS
+////
+//<<<<<<< HEAD
+////  Created by Martynas Kausas on 4/4/16.
+//=======
+////  Created by Harris Christiansen on 4/4/16.
+//>>>>>>> 33e6af5ca7f9eabecc64ecb225f8cac88c7b540d
+////  Copyright © 2016 Kiwi. All rights reserved.
+////
 
 import UIKit
+//<<<<<<< HEAD
 import XMSegmentedControl
 
 class NotificationsViewController: UIViewController {
@@ -52,7 +57,7 @@ class NotificationsViewController: UIViewController {
     
     var challenges: [Challenge]?
     func getData() {
-        ApiClient.getChallenges(nil) { (challenges, error) -> () in
+        ApiClient.getChallenges("/challenges/", params: nil) { (challenges, error) -> () in
             // success
             if error == nil {
                 self.challenges = challenges!
@@ -99,3 +104,47 @@ extension NotificationsViewController: XMSegmentedControlDelegate {
         print("happened")
     }
 }
+//=======
+//
+//class NotificationsViewController: UIViewController {
+//    
+//    @IBOutlet weak var tableView: UITableView!
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        setupTableView()
+//    }
+//    
+//    func setupTableView() {
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        
+//    }
+//    
+//    let notificationItems = ["Notification 1","Notification 2","Notification 3"]
+//}
+//
+//extension NotificationsViewController: UITableViewDataSource {
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return notificationItems.count
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("notificationCell", forIndexPath: indexPath)
+//        
+//        cell.textLabel?.text = notificationItems[indexPath.row]
+//        
+//        return cell
+//    }
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        //let cell = tableView.cellForRowAtIndexPath(indexPath)
+//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//    }
+//}
+//
+//extension NotificationsViewController: UITableViewDelegate {
+//    
+//}
+//>>>>>>> 33e6af5ca7f9eabecc64ecb225f8cac88c7b540d

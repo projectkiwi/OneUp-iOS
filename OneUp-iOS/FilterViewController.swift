@@ -15,12 +15,13 @@ import UIKit
 class FilterViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var filterItems: [String: Bool] = ["sports": true, "Drinks": false, "Food": false]
+    var filterItems: [String: Bool]?
     var delegate: FiltersViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        filterItems = ChallengesViewController.filterItems
         setupTableView()
     }
 
@@ -36,9 +37,10 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func onSaveFilter(sender: AnyObject) {
+        ChallengesViewController.filterItems = filterItems!
         dismissViewControllerAnimated(true) { () -> Void in
             print("dismissing on save")
-            self.delegate?.filtersViewController!(self, didUpdateFilters: self.filterItems)
+            self.delegate?.filtersViewController!(self, didUpdateFilters: self.filterItems!)
         }
     }
     
@@ -65,15 +67,15 @@ class FilterViewController: UIViewController {
 
 extension FilterViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filterKeys = Array(filterItems.keys)
-        return filterItems.count
+        filterKeys = Array(filterItems!.keys)
+        return filterItems!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("filterCell", forIndexPath: indexPath)
         
         cell.textLabel?.text = filterKeys![indexPath.row]
-        if filterItems[filterKeys![indexPath.row]] == true {
+        if filterItems![filterKeys![indexPath.row]] == true {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.None
@@ -88,10 +90,10 @@ extension FilterViewController: UITableViewDataSource {
         
         if cell!.accessoryType == UITableViewCellAccessoryType.None {
             cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
-            filterItems[filterKeys![indexPath.row]] = true
+            filterItems![filterKeys![indexPath.row]] = true
         } else {
             cell!.accessoryType = UITableViewCellAccessoryType.None
-            filterItems[filterKeys![indexPath.row]] = false
+            filterItems![filterKeys![indexPath.row]] = false
         }
     }
 }

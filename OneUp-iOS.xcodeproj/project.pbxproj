@@ -23,6 +23,7 @@
 		BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */; };
 		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
 		BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6C11C1C88BEE3004B2512 /* Challenge.swift */; };
+		F01DDFCB1CB366C40074CA97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01DDFCA1CB366C40074CA97 /* NotificationsViewController.swift */; };
 		F0254E6A1C88F5F800AB3F5C /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0254E691C88F5F800AB3F5C /* Challenge.storyboard */; };
 		F03A2A5C1C892EF400267302 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A2A5B1C892EF400267302 /* MapViewController.swift */; };
 		F03A2A5E1C89367A00267302 /* ChallengePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A2A5D1C89367A00267302 /* ChallengePin.swift */; };
@@ -79,6 +80,7 @@
 		BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		BDD6C11C1C88BEE3004B2512 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01DDFCA1CB366C40074CA97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		F0254E691C88F5F800AB3F5C /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
 		F03A2A5B1C892EF400267302 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F03A2A5D1C89367A00267302 /* ChallengePin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengePin.swift; sourceTree = "<group>"; };

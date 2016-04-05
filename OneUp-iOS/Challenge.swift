@@ -11,6 +11,7 @@ import MapKit
 
 class Challenge: NSObject, MKAnnotation {
     
+    var id: String!
     var name: String?
     var attempts: [Attempt]!
     var desc: String?
@@ -25,6 +26,7 @@ class Challenge: NSObject, MKAnnotation {
     let locations: [CLLocationCoordinate2D] = [ CLLocationCoordinate2D(latitude: 42, longitude: -97), CLLocationCoordinate2D(latitude: 44, longitude: -95), CLLocationCoordinate2D(latitude: 41, longitude: -94), CLLocationCoordinate2D(latitude: 40, longitude: -102) ]
     
     init(challengeDetails: NSDictionary) {
+        id = challengeDetails["_id"] as! String
         name = challengeDetails["name"] as? String ?? "No name"
         desc = challengeDetails["description"] as? String ?? "No Description"
         categories = challengeDetails["categories"] as? [String] ?? ["No Catergory"]
@@ -33,15 +35,13 @@ class Challenge: NSObject, MKAnnotation {
 
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         if attempts.count > 0 {
-            topAttempt = attempts[0] as? Attempt
+            topAttempt = attempts[0] as Attempt
             votes = topAttempt.voteTotal
             imgUrl = topAttempt.imgUrl
         } else {
             votes = -1
             imgUrl = "http://fuel-design.com/media/uploads/thumbs/uploads/homepage/This_is_Bad_jpg_321x311_q95.jpg"
         }
-        
-        print("recieved challenge with name \(name)")
     }
     
     class func challengesFromJSON(challengeArray: NSArray) -> [Challenge] {

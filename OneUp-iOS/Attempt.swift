@@ -10,12 +10,14 @@ import Foundation
 
 class Attempt {
     
+    var id: String!
     var votes: Int!
     var imgUrl: String!
     var gifUrl: String!
     var voteTotal: Int!
     
     init(attemptDetails: NSDictionary) {
+        id = attemptDetails["_id"] as! String
         voteTotal = attemptDetails["vote_total"] as! Int
         imgUrl = attemptDetails["preview_img"] as! String
         gifUrl = attemptDetails["gif_img"] as! String

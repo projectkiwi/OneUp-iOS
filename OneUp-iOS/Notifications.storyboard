@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Notifications-->
+        <!--NotificationsView-->
         <scene sceneID="jPJ-Ys-4r3">
             <objects>
                 <viewController storyboardIdentifier="Notifications" title="Notifications" id="4sC-ls-521" customClass="NotificationsViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
