@@ -11,6 +11,8 @@ import UIKit
 class ChallengeCreationViewController: UIViewController {
 
     @IBOutlet weak var challengeImageView: UIImageView!
+    @IBOutlet weak var challengeName: UITextField!
+    @IBOutlet weak var challengeDescription: UITextView!
     
     
     override func viewDidLoad() {
@@ -21,12 +23,23 @@ class ChallengeCreationViewController: UIViewController {
     
     @IBAction func onCancelSelected(sender: AnyObject) {
         dismissViewControllerAnimated(true) { () -> Void in
-            print("dismissing from create")
+            print("dismissing from cancel")
         }
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        print("create selected")
+        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test") { (challengeID, error) -> () in
+            // success
+            if error == nil {
+                self.dismissViewControllerAnimated(true) { () -> Void in
+                    print("dismissing from create")
+                }
+            }
+            // error
+            else {
+                
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

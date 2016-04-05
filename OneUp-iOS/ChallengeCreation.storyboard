@@ -76,7 +76,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="challengeDescription" destination="CWh-CE-mhO" id="41g-Uv-O4C"/>
                         <outlet property="challengeImageView" destination="tA1-hi-t9D" id="XI8-dn-cus"/>
+                        <outlet property="challengeName" destination="Qkw-6P-GnK" id="MH4-Nj-nZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk6-SS-KdS" userLabel="First Responder" sceneMemberID="firstResponder"/>

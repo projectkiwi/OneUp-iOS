@@ -55,4 +55,21 @@ class ApiClient: AFHTTPSessionManager {
             completion(liked: nil, error: error)
         }
     }
+    
+    /**
+        Post Challenge
+    */
+    class func postChallenge(name:String, desc:String, pattern:String, categories:String, completion: (challengeID: String?, error: NSError?) -> ()) {
+        let params:NSDictionary = ["name":name, "description":desc, "pattern":pattern, "categories":categories]
+        
+        http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in },
+            success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                completion(challengeID: nil, error: nil)
+                    
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error posting challenge: \(error.description)")
+            completion(challengeID: nil, error: error)
+        }
+    }
+    
 }
