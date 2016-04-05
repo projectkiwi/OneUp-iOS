@@ -10,7 +10,7 @@
 
 #### User Story 3
 
-- [ ] Express an opinion on past records by liking - Harris
+- [.5] Express an opinion on past records by liking - Harris
 - [ ] Express an opinion on past records by commenting - Marty
 
 #### User Story 4
@@ -45,9 +45,9 @@
 
 #### User Story 10
 
-- [ ] Implement Challenge Creation Page - Harris
+- [X] Implement Challenge Creation Page - Harris
 - [ ] Implement getting media from phone or camera - Marty
-- [ ] Implement challenge uploading - Harris
+- [ ] Implement challenge attempt uploading - Harris
 
 
 ### Sprint 1
