@@ -64,12 +64,23 @@ class ApiClient: AFHTTPSessionManager {
         
         http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in },
             success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                completion(challengeID: nil, error: nil)
+                let responseDict = response as! NSDictionary
+                responseDict["data"]!["_id"]!?.string
+                let challengeID = responseDict["data"]!["_id"] as? String
+                http.POST(apiURL+"/challenges/"+challengeID!+"/attempts/", parameters: params, progress: { (progress: NSProgress) -> Void in },
+                    success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                        completion(challengeID: challengeID!, error: nil)
+                }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+                    print("Error posting challenge attempt: \(error.description)")
+                    completion(challengeID: nil, error: error)
+                }
                     
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error posting challenge: \(error.description)")
             completion(challengeID: nil, error: error)
         }
+
+        
     }
     
 }
