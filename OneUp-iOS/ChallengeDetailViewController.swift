@@ -36,7 +36,7 @@ class ChallengeDetailViewController: UIViewController {
         currentAttempt = challenge.attempts[0]
         
         setupCustomCell()
-        
+        updateUIFields()
         makeLikeButtonInteractive()
         
         // Setup AttemptCreation Data
@@ -56,6 +56,12 @@ class ChallengeDetailViewController: UIViewController {
         likesView.layer.cornerRadius = 3
     }
     
+    func updateUIFields() {
+        challengeNameLabel.text = challenge.name
+        attemptAuthorLabel.text = "Author Name"
+        //attemptImageView.image = UIImage(contentsOfFile: <#T##String#>)
+    }
+    
     func makeLikeButtonInteractive() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(ChallengeDetailViewController.likeClicked(_:)))
         likesView.addGestureRecognizer(gesture)
@@ -67,7 +73,6 @@ class ChallengeDetailViewController: UIViewController {
     }
     
     @IBAction func likeClicked(sender: AnyObject) {
-        print("Like Clicked")
         ApiClient.likeChallenge((challenge.attempts.last?.id)!) { (liked, error) -> () in // TODO: Get correct attemptID
             // success
             if error == nil {
@@ -93,24 +98,8 @@ extension ChallengeDetailViewController: UITableViewDataSource {
         
         cell.attempt = challenge.attempts[indexPath.row]
         
-//        switch (indexPath.row) {
-//        case 0:
-//            cell.attemptAuthorLabel.textColor = UIColor.oneUp_goldColor()
-//            break
-//            
-//        case 1:
-//            cell.attemptAuthorLabel.textColor = UIColor.oneUp_silverColor()
-//            break
-//            
-//        default: break
-//            
-//            
-//        }
-        
-        
         return cell
     }
-
 
 }
 
