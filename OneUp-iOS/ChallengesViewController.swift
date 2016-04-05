@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XMSegmentedControl
 
 class ChallengesViewController: UIViewController {
 
@@ -59,7 +60,7 @@ class ChallengesViewController: UIViewController {
         
         // pull down to refresh
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(ChallengesViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
     }
     

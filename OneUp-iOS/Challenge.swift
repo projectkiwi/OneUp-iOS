@@ -33,7 +33,7 @@ class Challenge: NSObject, MKAnnotation {
 
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         if attempts.count > 0 {
-            topAttempt = attempts[0] as? Attempt
+            topAttempt = attempts[0] as Attempt
             votes = topAttempt.voteTotal
             imgUrl = topAttempt.imgUrl
         } else {
