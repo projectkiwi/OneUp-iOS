@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="39y-8p-qJJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2nA-vW-Lar">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Filter View Controller-->
@@ -18,49 +19,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-Dg-d9z">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="rdR-RU-a00">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdR-RU-a00" id="GFX-it-Ydd">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZO-B3-smr">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Cjf-5k-hrg"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Filters" id="upg-42-FWC">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3Nq-lM-WnS"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="9sh-II-rV7"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leading" id="M5i-D2-9M9"/>
-                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="cZO-B3-smr" secondAttribute="bottom" id="Svf-Fu-gqd"/>
-                            <constraint firstItem="cZO-B3-smr" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leading" id="YeR-PL-ZSc"/>
-                            <constraint firstAttribute="trailing" secondItem="cZO-B3-smr" secondAttribute="trailing" id="hO1-kO-cba"/>
-                            <constraint firstItem="cZO-B3-smr" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="top" id="mPC-np-Wiv"/>
-                            <constraint firstItem="TQz-8Q-heV" firstAttribute="top" secondItem="GeG-Dg-d9z" secondAttribute="bottom" id="ptt-av-ztH"/>
-                            <constraint firstAttribute="trailing" secondItem="GeG-Dg-d9z" secondAttribute="trailing" id="uql-18-vBz"/>
-                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="top" constant="44" id="v04-vE-mrL"/>
+                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="top" secondItem="lMS-9o-1eM" secondAttribute="topMargin" id="Fdx-4r-Qgs"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="GeG-Dg-d9z" secondAttribute="bottom" id="SRQ-0P-mqA"/>
+                            <constraint firstItem="GeG-Dg-d9z" firstAttribute="leading" secondItem="lMS-9o-1eM" secondAttribute="leadingMargin" id="cXj-Ha-YKu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GeG-Dg-d9z" secondAttribute="trailing" id="tky-ph-pEV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oTQ-EA-JWp">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="UBg-oh-gR2">
+                            <connections>
+                                <action selector="onCancel:" destination="39y-8p-qJJ" id="Vs3-LG-s34"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="H92-aC-Gy2">
+                            <connections>
+                                <action selector="onSaveFilter:" destination="39y-8p-qJJ" id="YXt-gG-0DT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="GeG-Dg-d9z" id="3Ym-pT-7Ax"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tio-UW-mIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1458" y="268"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p49-Wa-RTs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2nA-vW-Lar" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zdp-F2-l5O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="39y-8p-qJJ" kind="relationship" relationship="rootViewController" id="ISU-8O-pSn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s12-lm-y4U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="592" y="268"/>
         </scene>
