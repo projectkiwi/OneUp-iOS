@@ -33,6 +33,8 @@
 		F0580D321C88DF6800259247 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D311C88DF6800259247 /* Home.storyboard */; };
 		F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D331C88E3EB00259247 /* Settings.storyboard */; };
 		F0580D361C88EC8600259247 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D351C88EC8600259247 /* Profile.storyboard */; };
+		F08214BA1CB476A70016D55F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */; };
+		F08214BC1CB4797A0016D55F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* MainViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -93,6 +95,8 @@
 		F0580D311C88DF6800259247 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F0580D331C88E3EB00259247 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		F0580D351C88EC8600259247 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD2BEAB8C73DE7BC602013C9 /* Pods_OneUp_iOS.framework in Frameworks */,
+				F08214BA1CB476A70016D55F /* FBSDKCoreKit.framework in Frameworks */,
+				F08214BC1CB4797A0016D55F /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +146,8 @@
 		2BCC8166D8A5137748BF4B0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */,
+				F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */,
 				C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */,
 			);
 			name = Frameworks;
@@ -624,6 +632,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "OneUp-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOS";
@@ -639,6 +651,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "OneUp-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.purduecs.kiwi.OneUp-iOS";
