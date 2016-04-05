@@ -43,9 +43,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Global" id="zy5-Ey-ev7">
                         <leftBarButtonItems>
-                            <barButtonItem title="Item" id="P3a-XT-R5B">
+                            <barButtonItem title="Map" id="P3a-XT-R5B">
                                 <connections>
-                                    <segue destination="0oq-qe-MAF" kind="showDetail" id="Y9K-5t-6ZI"/>
+                                    <segue destination="0oq-qe-MAF" kind="show" id="mgV-bI-JDl"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Filter" id="6N9-Jq-gBz">

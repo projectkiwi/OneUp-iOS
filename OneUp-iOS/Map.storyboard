@@ -13,7 +13,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
-                    <navigationItem key="navigationItem" title="Map" id="FmL-yO-Oyt"/>
+                    <navigationItem key="navigationItem" title="Map" id="FmL-yO-Oyt">
+                        <barButtonItem key="leftBarButtonItem" title="List" id="Xp7-AW-aaa">
+                            <connections>
+                                <action selector="listButtonClicked:" destination="P3Q-Ta-oyg" id="xHk-AP-q7Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="jYv-Es-034" id="IZm-hz-N6d"/>
                     </connections>
