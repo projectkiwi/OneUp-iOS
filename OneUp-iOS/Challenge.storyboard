@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nuQ-My-MVC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ph8-qW-9oR">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -140,6 +140,13 @@
                             <constraint firstItem="scp-1g-fag" firstAttribute="leading" secondItem="UP1-Bh-tG5" secondAttribute="leading" id="vg3-xP-ODe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Challenge" id="gIv-xo-EU1">
+                        <barButtonItem key="rightBarButtonItem" title="One Up" id="YmG-py-Pau">
+                            <connections>
+                                <segue destination="jHK-lk-CEc" kind="showDetail" id="C2s-Xe-GIX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="attemptAuthorLabel" destination="UP1-Bh-tG5" id="S6b-6a-AFK"/>
@@ -151,6 +158,32 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pcb-i4-Fkb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="241"/>
+        </scene>
+        <!--AttemptCreation-->
+        <scene sceneID="PNq-WJ-i1Y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AttemptCreation" id="jHK-lk-CEc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfd-8B-TEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1358.5" y="79"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n3q-lC-1ai">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ph8-qW-9oR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P9V-Bo-Uxk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nuQ-My-MVC" kind="relationship" relationship="rootViewController" id="6iB-m1-ZHh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q6j-pq-MKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="241"/>
         </scene>

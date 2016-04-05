@@ -1,5 +1,5 @@
 //
-//  ChallengeCreationViewController.swift
+//  AttemptCreationViewController.swift
 //  OneUp-iOS
 //
 //  Created by Martynas Kausas on 4/3/16.
@@ -8,11 +8,9 @@
 
 import UIKit
 
-class ChallengeCreationViewController: UIViewController {
+class AttemptCreationViewController: UIViewController {
 
     @IBOutlet weak var challengeImageView: UIImageView!
-    @IBOutlet weak var challengeName: UITextField!
-    @IBOutlet weak var challengeDescription: UITextView!
     
     
     override func viewDidLoad() {
@@ -23,23 +21,23 @@ class ChallengeCreationViewController: UIViewController {
     
     @IBAction func onCancelSelected(sender: AnyObject) {
         dismissViewControllerAnimated(true) { () -> Void in
-            print("dismissing from cancel")
+            print("dismissing from attempt creation cancel")
         }
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test") { (challengeID, error) -> () in
-            // success
-            if error == nil {
-                self.dismissViewControllerAnimated(true) { () -> Void in
-                    print("dismissing from create")
-                }
-            }
-            // error
-            else {
-                
-            }
-        }
+//        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test") { (challengeID, error) -> () in
+//            // success
+//            if error == nil {
+//                self.dismissViewControllerAnimated(true) { () -> Void in
+//                    print("dismissing from create attempt")
+//                }
+//            }
+//            // error
+//            else {
+//                
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +58,7 @@ class ChallengeCreationViewController: UIViewController {
 
 }
 
-extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
+extension AttemptCreationViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // Get the image captured by the UIImagePickerController
 //        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -75,6 +73,6 @@ extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
     
 }
 
-extension ChallengeCreationViewController: UINavigationControllerDelegate {
+extension AttemptCreationViewController: UINavigationControllerDelegate {
     
 }

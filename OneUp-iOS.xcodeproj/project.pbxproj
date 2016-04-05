@@ -41,6 +41,8 @@
 		F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */; };
 		F0BC998B1C73A998008BFB71 /* OneUp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC998A1C73A998008BFB71 /* OneUp_iOSTests.swift */; };
 		F0BC99961C73A998008BFB71 /* OneUp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */; };
+		F0EB973B1CB435DD001C5B73 /* AttemptCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EB973A1CB435DD001C5B73 /* AttemptCreation.storyboard */; };
+		F0EB973D1CB4370A001C5B73 /* AttemptCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB973C1CB4370A001C5B73 /* AttemptCreationViewController.swift */; };
 		FD2BEAB8C73DE7BC602013C9 /* Pods_OneUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +107,8 @@
 		F0BC99911C73A998008BFB71 /* OneUp-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OneUp-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneUp_iOSUITests.swift; sourceTree = "<group>"; };
 		F0BC99971C73A998008BFB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0EB973A1CB435DD001C5B73 /* AttemptCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AttemptCreation.storyboard; sourceTree = "<group>"; };
+		F0EB973C1CB4370A001C5B73 /* AttemptCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttemptCreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 				F03A2A5B1C892EF400267302 /* MapViewController.swift */,
 				BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */,
 				BD0812691CB17EBD00EC912D /* ChallengeCreationViewController.swift */,
+				F0EB973C1CB4370A001C5B73 /* AttemptCreationViewController.swift */,
 				BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */,
 				BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */,
 			);
@@ -191,6 +196,7 @@
 				F055136E1C892355006E7B65 /* Map.storyboard */,
 				BD962E361C894C2500345774 /* Filter.storyboard */,
 				BD0812671CB17CF700EC912D /* ChallengeCreation.storyboard */,
+				F0EB973A1CB435DD001C5B73 /* AttemptCreation.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */,
+				F0EB973B1CB435DD001C5B73 /* AttemptCreation.storyboard in Resources */,
 				BD6E4E891CA8C0F900EBBDDC /* AttemptTableViewCell.xib in Resources */,
 				F0580D321C88DF6800259247 /* Home.storyboard in Resources */,
 				BD962E371C894C2500345774 /* Filter.storyboard in Resources */,
@@ -472,6 +479,7 @@
 				F03A2A5E1C89367A00267302 /* ChallengePin.swift in Sources */,
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
 				BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */,
+				F0EB973D1CB4370A001C5B73 /* AttemptCreationViewController.swift in Sources */,
 				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
 				BD962E351C891D8000345774 /* Attempt.swift in Sources */,
 			);

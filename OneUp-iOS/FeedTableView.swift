@@ -50,7 +50,7 @@ class FeedTableView: UITableView {
         
         // pull down to refresh
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(FeedTableView.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         insertSubview(refreshControl, atIndex: 0)
         
     }
