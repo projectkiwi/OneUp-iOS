@@ -17,8 +17,6 @@ class ApiClient: AFHTTPSessionManager {
     
     /**
          Retrieves global challenges
-         
-         @param bar Consectetur adipisicing elit.
      */
     class func getChallenges(params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
         
@@ -26,8 +24,8 @@ class ApiClient: AFHTTPSessionManager {
             
             },
             success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                print("challenges: \(response)")
-                print("Success retrieving challenges!")
+                print("Challenges: \(response)")
+                //print("Success retrieving challenges!")
                 
                 
                 let docs = response as! NSDictionary
@@ -38,6 +36,24 @@ class ApiClient: AFHTTPSessionManager {
                 print("Error retrieving challenges: \(error.description)")
                 
                 completion(challenges: nil, error: error)
+        }
+    }
+    
+    /**
+        Like Challenge Attempt
+    */
+    class func likeChallenge(attemptID: String, completion: (liked: Bool?, error: NSError?) -> ()) {
+        print("Liked: "+attemptID);
+        
+        http.GET(apiURL+"/challenges/like/"+attemptID, parameters: nil, progress: { (progress: NSProgress) -> Void in },
+                 success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                    
+                    completion(liked: true, error: nil)
+                    
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error liking challenge: \(error.description)")
+            
+            completion(liked: nil, error: error)
         }
     }
 }

@@ -29,6 +29,10 @@ class ChallengeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(challenge.attempts.count <= 0) { // If Challenge has no Attempts, go back
+            navigationController?.popViewControllerAnimated(true)
+            return;
+        }
         currentAttempt = challenge.attempts[0]
         
         // add custom cell
@@ -41,11 +45,32 @@ class ChallengeDetailViewController: UIViewController {
         tableView.dataSource = self
 
         likesView.layer.cornerRadius = 3
+        
+        makeLikeButtonInteractive()
+    }
+    
+    func makeLikeButtonInteractive() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(ChallengeDetailViewController.likeClicked(_:)))
+        likesView.addGestureRecognizer(gesture)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func likeClicked(sender: AnyObject) {
+        print("Like Clicked")
+        ApiClient.likeChallenge((challenge.attempts.last?.id)!) { (liked, error) -> () in
+            // success
+            if error == nil {
+            }
+            // error
+            else {
+                
+            }
+        }
+        likesView.backgroundColor = UIColor.redColor()
     }
     
 

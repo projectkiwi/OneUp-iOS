@@ -6,7 +6,7 @@
 
 #### User Story 2
 
-- [ ] Implement tabs for recent, popular, and global - Harris
+- [X] Implement tabs for recent, popular, and global - Harris
 
 #### User Story 3
 

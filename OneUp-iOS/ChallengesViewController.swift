@@ -30,7 +30,7 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
         
         currentDataSource = .Local
         setupSegmentedControl()
-        getData()
+        loadTableAndData()
         tableViewSetup()
     }
     
@@ -45,6 +45,7 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
         if(selectedSegment == 2) {
             currentDataSource = .Global
         }
+        loadTableAndData(); // Reload Table
     }
     
     func setupSegmentedControl() {
@@ -62,7 +63,7 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
     
     
     // Challenges Table
-    func getData() {
+    func loadTableAndData() {
         // TODO: Get Local/Popular/Global and Apply Filters
         ApiClient.getChallenges(nil) { (challenges, error) -> () in
             // success
@@ -103,7 +104,7 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
-        getData()
+        loadTableAndData()
         refreshControl.endRefreshing()
     }
     
@@ -130,7 +131,7 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
         if segue.identifier == "SaveFilter" { // Returning to Home from Filter
             let filterController = segue.sourceViewController as! FilterViewController
             ChallengesViewController.filterItems = filterController.filterItems!
-            // TODO: Reload Challenges w/ correct Filters
+            loadTableAndData(); // Reload Table
         }
     }
 }
@@ -160,8 +161,6 @@ extension ChallengesViewController: UITableViewDataSource {
         controller.challenge = challenges[indexPath.row]
         
         self.navigationController?.pushViewController(controller, animated: true)
-//        controller.attempt = challenges[indexPath.row].topAttempt
-        print("first")
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

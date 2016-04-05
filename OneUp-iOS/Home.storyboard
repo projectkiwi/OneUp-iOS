@@ -43,6 +43,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="One Up" id="zy5-Ey-ev7">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="YxP-GQ-IsT"/>
                         <leftBarButtonItems>
                             <barButtonItem title="Map" id="P3a-XT-R5B">
                                 <connections>
