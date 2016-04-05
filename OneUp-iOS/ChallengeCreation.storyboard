@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Create-->
@@ -17,24 +18,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tA1-hi-t9D">
-                                <rect key="frame" x="40" y="101" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tA1-hi-t9D">
+                                <rect key="frame" x="16" y="69" width="288" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="810-PY-zDV"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGG-id-KdC">
-                                <rect key="frame" x="124" y="269" width="72" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGG-id-KdC">
+                                <rect key="frame" x="21" y="224" width="278" height="30"/>
                                 <state key="normal" title="find image"/>
                                 <connections>
                                     <action selector="onSelectMedia:" destination="iUH-B2-GPA" eventType="touchUpInside" id="NZM-9M-ocp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="challenge creation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7O-fB-aJz">
-                                <rect key="frame" x="90" y="415" width="141" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Challenge Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-6P-GnK">
+                                <rect key="frame" x="21" y="259" width="278" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Challenge Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-CE-mhO">
+                                <rect key="frame" x="21" y="294" width="278" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="rBO-SM-hUk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tA1-hi-t9D" firstAttribute="top" secondItem="LIi-hJ-mDb" secondAttribute="bottom" constant="5" id="9R5-ua-egW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tA1-hi-t9D" secondAttribute="trailing" id="AUW-9l-xy3"/>
+                            <constraint firstItem="Qkw-6P-GnK" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="Gie-aF-aUJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qkw-6P-GnK" secondAttribute="trailing" constant="5" id="IyC-Qa-XHN"/>
+                            <constraint firstItem="Qkw-6P-GnK" firstAttribute="top" secondItem="LGG-id-KdC" secondAttribute="bottom" constant="5" id="Rce-mm-uje"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LGG-id-KdC" secondAttribute="trailing" constant="5" id="UE2-31-B3H"/>
+                            <constraint firstItem="CWh-CE-mhO" firstAttribute="top" secondItem="Qkw-6P-GnK" secondAttribute="bottom" constant="5" id="lcA-bv-yWz"/>
+                            <constraint firstItem="CWh-CE-mhO" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="osx-F4-WAg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CWh-CE-mhO" secondAttribute="trailing" constant="5" id="qN3-oT-Vgb"/>
+                            <constraint firstItem="LGG-id-KdC" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="tfN-h2-2Sf"/>
+                            <constraint firstItem="LGG-id-KdC" firstAttribute="top" secondItem="tA1-hi-t9D" secondAttribute="bottom" constant="5" id="vrD-MW-KIs"/>
+                            <constraint firstItem="tA1-hi-t9D" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" id="yG1-MN-zK8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create" id="3hw-UL-LRZ">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="CMD-F4-RCA">

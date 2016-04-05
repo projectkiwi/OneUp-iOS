@@ -61,7 +61,7 @@ class ChallengeDetailViewController: UIViewController {
     
     @IBAction func likeClicked(sender: AnyObject) {
         print("Like Clicked")
-        ApiClient.likeChallenge((challenge.attempts.last?.id)!) { (liked, error) -> () in
+        ApiClient.likeChallenge((challenge.attempts.last?.id)!) { (liked, error) -> () in // TODO: Get correct attemptID
             // success
             if error == nil {
             }

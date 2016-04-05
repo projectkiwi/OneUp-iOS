@@ -45,10 +45,9 @@ class ApiClient: AFHTTPSessionManager {
     class func likeChallenge(attemptID: String, completion: (liked: Bool?, error: NSError?) -> ()) {
         print("Liked: "+attemptID);
         
-        http.GET(apiURL+"/challenges/like/"+attemptID, parameters: nil, progress: { (progress: NSProgress) -> Void in },
-                 success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                    
-                    completion(liked: true, error: nil)
+        http.PATCH(apiURL+"/challenges/like/"+attemptID, parameters: nil,
+            success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                completion(liked: true, error: nil)
                     
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error liking challenge: \(error.description)")
