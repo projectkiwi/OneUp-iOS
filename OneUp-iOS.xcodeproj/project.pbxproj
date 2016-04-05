@@ -19,11 +19,12 @@
 		BD962E391C894DD100345774 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E381C894DD100345774 /* FilterViewController.swift */; };
 		BDA57E671CB33F1B00E89162 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */; };
 		BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E681CB3492400E89162 /* FeedTableView.swift */; };
+		BDA57E6F1CB41A8800E89162 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */; };
+		BDA57E711CB41B8200E89162 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA57E701CB41B8200E89162 /* Notifications.storyboard */; };
 		BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */; };
 		BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */; };
 		BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */; };
 		BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD6C11C1C88BEE3004B2512 /* Challenge.swift */; };
-		F01DDFCB1CB366C40074CA97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01DDFCA1CB366C40074CA97 /* NotificationsViewController.swift */; };
 		F0254E6A1C88F5F800AB3F5C /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0254E691C88F5F800AB3F5C /* Challenge.storyboard */; };
 		F03A2A5C1C892EF400267302 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A2A5B1C892EF400267302 /* MapViewController.swift */; };
 		F03A2A5E1C89367A00267302 /* ChallengePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03A2A5D1C89367A00267302 /* ChallengePin.swift */; };
@@ -31,7 +32,7 @@
 		F055136F1C892355006E7B65 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F055136E1C892355006E7B65 /* Map.storyboard */; };
 		F0580D321C88DF6800259247 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D311C88DF6800259247 /* Home.storyboard */; };
 		F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D331C88E3EB00259247 /* Settings.storyboard */; };
-		F0580D361C88EC8600259247 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D351C88EC8600259247 /* Notifications.storyboard */; };
+		F0580D361C88EC8600259247 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D351C88EC8600259247 /* Profile.storyboard */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* ViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -75,12 +76,13 @@
 		BD962E381C894DD100345774 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		BDA57E681CB3492400E89162 /* FeedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableView.swift; sourceTree = "<group>"; };
+		BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BDA57E701CB41B8200E89162 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
 		BDB6ABF71C7F532300C0B6C9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BDB6ABF81C7F532300C0B6C9 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		BDD6C11C1C88BEE3004B2512 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneUp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F01DDFCA1CB366C40074CA97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		F0254E691C88F5F800AB3F5C /* Challenge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Challenge.storyboard; sourceTree = "<group>"; };
 		F03A2A5B1C892EF400267302 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F03A2A5D1C89367A00267302 /* ChallengePin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengePin.swift; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		F055136E1C892355006E7B65 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		F0580D311C88DF6800259247 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F0580D331C88E3EB00259247 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		F0580D351C88EC8600259247 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		F0580D351C88EC8600259247 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */,
 				BD0812691CB17EBD00EC912D /* ChallengeCreationViewController.swift */,
 				BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */,
+				BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -182,7 +185,8 @@
 			children = (
 				F0580D311C88DF6800259247 /* Home.storyboard */,
 				F0580D331C88E3EB00259247 /* Settings.storyboard */,
-				F0580D351C88EC8600259247 /* Notifications.storyboard */,
+				F0580D351C88EC8600259247 /* Profile.storyboard */,
+				BDA57E701CB41B8200E89162 /* Notifications.storyboard */,
 				F0254E691C88F5F800AB3F5C /* Challenge.storyboard */,
 				F055136E1C892355006E7B65 /* Map.storyboard */,
 				BD962E361C894C2500345774 /* Filter.storyboard */,
@@ -374,10 +378,11 @@
 				BDB6ABFA1C7F532300C0B6C9 /* FeedTableViewCell.xib in Resources */,
 				F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */,
 				BD0812681CB17CF700EC912D /* ChallengeCreation.storyboard in Resources */,
-				F0580D361C88EC8600259247 /* Notifications.storyboard in Resources */,
+				F0580D361C88EC8600259247 /* Profile.storyboard in Resources */,
 				F0BC997D1C73A998008BFB71 /* Assets.xcassets in Resources */,
 				F0254E6A1C88F5F800AB3F5C /* Challenge.storyboard in Resources */,
 				F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */,
+				BDA57E711CB41B8200E89162 /* Notifications.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +464,7 @@
 				F03A2A5C1C892EF400267302 /* MapViewController.swift in Sources */,
 				BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */,
 				BD08126A1CB17EBD00EC912D /* ChallengeCreationViewController.swift in Sources */,
+				BDA57E6F1CB41A8800E89162 /* ProfileViewController.swift in Sources */,
 				BD962E391C894DD100345774 /* FilterViewController.swift in Sources */,
 				BDA57E671CB33F1B00E89162 /* NotificationsViewController.swift in Sources */,
 				BD6E4E851CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift in Sources */,
