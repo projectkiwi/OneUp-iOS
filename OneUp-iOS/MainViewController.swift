@@ -13,6 +13,8 @@ import FBSDKLoginKit
 class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     static var userID: String?
+    static var FBAccessToken: String?
+    static var FBEmail: String?
     static var userName: String?
 
     override func viewDidLoad() {
@@ -43,15 +45,22 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     func processLogin() {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            
             if ((error) != nil) {
                 print("FB Login Error: \(error)") // Process error
             } else {
                 print("Logged In: \(result)")
-                let id: String = result.valueForKey("id") as! String
-                MainViewController.userID = id
+                MainViewController.userID = result.valueForKey("id") as? String
+                MainViewController.FBAccessToken = FBSDKAccessToken.currentAccessToken().tokenString
+                MainViewController.FBEmail = result.valueForKey("email") as? String
                 MainViewController.userName = "NameToDo"
-                self.enterApplication()
+                
+                ApiClient.postLogin() { (registered, error) -> () in // Authenticate with API
+                    if error == nil { // success
+                        self.enterApplication()
+                    } else {
+                        self.enterApplication()
+                    }
+                }
             }
         })
     }

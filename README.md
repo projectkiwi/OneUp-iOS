@@ -57,7 +57,7 @@
 - [X] Setup Storyboard layout - Marty 
 - [X] Create LoginViewController - Harris
 - [X] Create LocalChallengesViewController - Marty
-- [ ] Create PopularChallengesViewController - Harris
+- [X] Create PopularChallengesViewController - Harris
 - [X] Create GlobalChallengesViewController - Marty
 - [X] Create NotificationsViewController - Harris
 - [X] Create ChallengeDetailViewController - Harris
@@ -71,11 +71,11 @@
 - [X] Implement the newsfeed - Marty
 - [X] Implement the newsfeed row UI class - Marty
 - [X] Call API endpoint to retrieve newsfeed items - Marty
-- [ ] Implement tabs for recent, popular, and global - Harris
+- [X] Implement tabs for recent, popular, and global - Harris
 
 #### User Story 5
 
-- [ ] Implement a ranking function based on upvotes and time since post - Harris
+- [X] Implement a ranking function based on upvotes and time since post - Harris
 - [X] Add UI elements to display challenges popularity and upvote/downvote - Marty
 
 #### User Story 6
@@ -90,7 +90,7 @@
 
 #### User Story 8
 
-- [ ] Link GoogleMaps API - Harris
+- [X] Link GoogleMaps API - Harris
 - [X] Implement Map Views - Harris
 - [ ] Make pop-up challenge panel - Harris
 

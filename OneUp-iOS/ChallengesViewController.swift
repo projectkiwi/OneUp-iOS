@@ -74,8 +74,7 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
             requestURL = "/challenges/"
         }
         ApiClient.getChallenges(requestURL,params: nil) { (challenges, error) -> () in
-            // success
-            if error == nil {
+            if error == nil { // success
                 self.challenges = challenges!
                 self.tableView.reloadData()
                 
@@ -83,11 +82,6 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
                 if self.originalChallenges.isEmpty == true {
                     self.originalChallenges.appendContentsOf(self.challenges)
                 }
-            }
-            
-            // error
-            else {
-                
             }
         }
     }
