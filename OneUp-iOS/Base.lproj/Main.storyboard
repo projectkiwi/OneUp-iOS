@@ -31,9 +31,12 @@
                                     <constraint firstAttribute="height" constant="200" id="jqo-WR-Ev0"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WME-u0-LIF" userLabel="LoginButton" customClass="FBSDKLoginButton">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WME-u0-LIF" userLabel="LoginButton" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="25" y="235" width="550" height="38"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Ya2-zO-9O0"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

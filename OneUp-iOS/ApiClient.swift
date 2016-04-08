@@ -61,7 +61,7 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL+requestPath, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            print("Challenges: \(response)")
+            //print("Challenges: \(response)")
             
             let docs = response as! NSDictionary
             let challenges = Challenge.challengesFromJSON(docs["docs"] as! NSArray)

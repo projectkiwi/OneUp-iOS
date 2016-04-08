@@ -32,7 +32,7 @@ class Challenge: NSObject, MKAnnotation {
         categories = challengeDetails["categories"] as? [String] ?? ["No Catergory"]
         pattern = challengeDetails["pattern"] as? String ?? "No pattern"
         coordinate = locations[(Int)(arc4random_uniform(4))]
-        votes = challengeDetails["challenge_likes"] as! Int
+        votes = challengeDetails["challenge_likes"] as? Int
 
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         if attempts.count > 0 {
