@@ -16,7 +16,7 @@
 #### User Story 4
 
 - [ ] Link challenge locations to the map view - Harris
-- [ ] In list view, filter challenges based on a location radius - Harris
+- [-] In list view, filter challenges based on a location radius - Harris
 
 #### User Story 5
 
@@ -97,7 +97,7 @@
 #### User Story 9
 
 - [X] Link challenge locations to the map view - Harris
-- [ ] In list view, filter challenges based on a location radius - Harris
+- [-] In list view, filter challenges based on a location radius - Harris
 
 <!--## Video Walkthrough 
  

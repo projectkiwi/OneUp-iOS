@@ -21,14 +21,15 @@ class ApiClient: AFHTTPSessionManager {
      */
     
     class func postLogin(completion: (registered: Bool, error: NSError?) -> ()) {
-        let params:NSDictionary = ["facebook_id":MainViewController.userID!,"access_token":MainViewController.FBAccessToken!,"email":MainViewController.FBEmail!]
+        let params:NSDictionary = ["facebook_id":MainViewController.userID!, "access_token":MainViewController.FBAccessToken!,"email":MainViewController.FBEmail!]
         
         http.POST(apiURL+"/auth/facebook", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            print("Login Result: " + (response as? String)!)
+            //print("Login Response: \(response)")
             
-            //let responseDict = response as! NSDictionary
-            //let attemptID = responseDict["data"]!["_id"] as? String
+            let responseDict = response as! NSDictionary
+            ApiClient.authToken = responseDict["token"] as! String
+            
             completion(registered: true, error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -41,8 +42,10 @@ class ApiClient: AFHTTPSessionManager {
         Register New Account
      */
     
-    class func postRegister(fbID:String, userName:String, completion: (success: Bool, error: NSError?) -> ()) {
-        http.POST(apiURL+"/register/"+fbID+"/"+userName, parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+    class func postRegister(completion: (success: Bool, error: NSError?) -> ()) {
+        let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.userID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"username":MainViewController.userName!]
+        
+        http.POST(apiURL+"/register", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             //let responseDict = response as! NSDictionary
             //let attemptID = responseDict["data"]!["_id"] as? String
@@ -77,7 +80,7 @@ class ApiClient: AFHTTPSessionManager {
         Post Challenge
      */
     class func postChallenge(name:String, desc:String, pattern:String, categories:String, completion: (challengeID: String?, error: NSError?) -> ()) {
-        let params:NSDictionary = ["name":name, "description":desc, "pattern":pattern, "categories":categories]
+        let params:NSDictionary = ["token":ApiClient.authToken, "name":name, "description":desc, "pattern":pattern, "categories":categories]
         
         http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
@@ -102,7 +105,9 @@ class ApiClient: AFHTTPSessionManager {
         Post Challenge Attempt
      */
     class func postAttempt(challengeID:String, attemptImg:UIImage?, completion: (attemptID: String?, error: NSError?) -> ()) {
-        http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        let params:NSDictionary = ["token":ApiClient.authToken]
+        
+        http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
                 let responseDict = response as! NSDictionary
                 let attemptID = responseDict["data"]!["_id"] as? String
@@ -119,9 +124,9 @@ class ApiClient: AFHTTPSessionManager {
         Like Challenge Attempt
      */
     class func likeChallenge(attemptID: String, completion: (liked: Bool, error: NSError?) -> ()) {
-        print("Liked: "+attemptID);
+        let params:NSDictionary = ["token":ApiClient.authToken]
         
-        http.POST(apiURL+"/challenges/like/"+attemptID, parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.POST(apiURL+"/challenges/like/"+attemptID, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             completion(liked: true, error: nil)
                     
@@ -136,8 +141,9 @@ class ApiClient: AFHTTPSessionManager {
         Bookmark Challenge
      */
     class func bookmarkChallenge(challengeID: String, completion: (bookmarked: Bool, error: NSError?) -> ()) {
+        let params:NSDictionary = ["token":ApiClient.authToken]
         
-        http.PATCH(apiURL+"/challenges/bookmark/"+challengeID, parameters: nil, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.PATCH(apiURL+"/challenges/bookmark/"+challengeID, parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             completion(bookmarked: true, error: nil)
                     

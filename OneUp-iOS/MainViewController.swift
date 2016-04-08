@@ -59,8 +59,6 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
                 ApiClient.postLogin() { (registered, error) -> () in // Authenticate with API
                     if error == nil { // success
                         self.enterApplication()
-                    } else {
-                        self.enterApplication()
                     }
                 }
             }
