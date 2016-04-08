@@ -62,7 +62,16 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func getChallenges(requestPath:String, params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
         
-        http.GET(apiURL+requestPath, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        var paramsDict: NSDictionary
+        
+        if params != nil {
+            paramsDict = params!
+            paramsDict.setValue(ApiClient.authToken, forKey: "token")
+        } else {
+            paramsDict = ["token":ApiClient.authToken]
+        }
+        
+        http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             //print("Challenges: \(response)")
             
