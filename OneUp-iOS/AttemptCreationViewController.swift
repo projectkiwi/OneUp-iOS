@@ -21,20 +21,13 @@ class AttemptCreationViewController: UIViewController {
     }
     
     @IBAction func onCancelSelected(sender: AnyObject) {
-        dismissViewControllerAnimated(true) { () -> Void in
-            print("dismissing from attempt creation cancel")
-        }
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
         ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, attemptImg: nil) { (attemptID, error) -> () in
-            // success
-            if error == nil {
+            if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil);
-            }
-            // error
-            else {
-                
             }
         }
     }

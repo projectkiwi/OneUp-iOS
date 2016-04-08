@@ -22,22 +22,14 @@ class ChallengeCreationViewController: UIViewController {
     }
     
     @IBAction func onCancelSelected(sender: AnyObject) {
-        dismissViewControllerAnimated(true) { () -> Void in
-            print("dismissing from cancel")
-        }
+        dismissViewControllerAnimated(true,completion: nil)
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
         ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test") { (challengeID, error) -> () in
-            // success
-            if error == nil {
-                self.dismissViewControllerAnimated(true) { () -> Void in
-                    print("dismissing from create")
-                }
-            }
-            // error
-            else {
-                
+            
+            if error == nil { // success
+                self.dismissViewControllerAnimated(true,completion: nil)
             }
         }
     }

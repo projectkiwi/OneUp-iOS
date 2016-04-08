@@ -39,15 +39,12 @@ class FilterViewController: UIViewController {
     @IBAction func onSaveFilter(sender: AnyObject) {
         ChallengesViewController.filterItems = filterItems!
         dismissViewControllerAnimated(true) { () -> Void in
-            print("dismissing on save")
             self.delegate?.filtersViewController!(self, didUpdateFilters: self.filterItems!)
         }
     }
     
     @IBAction func onCancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true) { () -> Void in
-            print("dismissing on cancel")
-        }
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 
