@@ -12,14 +12,12 @@ class AttemptCreationViewController: UIViewController {
 
     @IBOutlet weak var challengeImageView: UIImageView!
     @IBOutlet weak var challengeNameLabel: UILabel!
-    static var challengeID: String!
-    static var challengeName: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Name: "+AttemptCreationViewController.challengeName)
-        challengeNameLabel.text = AttemptCreationViewController.challengeName
+        print("Name: "+ChallengeDetailViewController.challenge.name!)
+        challengeNameLabel.text = ChallengeDetailViewController.challenge.name!
     }
     
     @IBAction func onCancelSelected(sender: AnyObject) {
@@ -29,12 +27,10 @@ class AttemptCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        ApiClient.postAttempt(AttemptCreationViewController.challengeID, attemptImg: nil) { (attemptID, error) -> () in
+        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, attemptImg: nil) { (attemptID, error) -> () in
             // success
             if error == nil {
-                self.dismissViewControllerAnimated(true) { () -> Void in
-                    print("dismissing from create attempt")
-                }
+                self.dismissViewControllerAnimated(true,completion: nil);
             }
             // error
             else {

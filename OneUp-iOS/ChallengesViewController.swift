@@ -163,7 +163,7 @@ extension ChallengesViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as! ChallengeDetailViewController
-        controller.challenge = challenges[indexPath.row]
+        ChallengeDetailViewController.challenge = challenges[indexPath.row]
         
         self.navigationController?.pushViewController(controller, animated: true)
         

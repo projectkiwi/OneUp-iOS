@@ -119,12 +119,59 @@
                                     <constraint firstAttribute="height" constant="25" id="wkP-bE-BfI"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D16-20-g5D" userLabel="Bookmark View">
+                                <rect key="frame" x="81" y="267" width="91" height="20"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OneUp" translatesAutoresizingMaskIntoConstraints="NO" id="GN4-1I-YmM">
+                                        <rect key="frame" x="10" y="5" width="10" height="10"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="ooI-3A-uR2"/>
+                                            <constraint firstAttribute="height" constant="10" id="wv1-1h-Pak"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaE-ZF-uvG">
+                                        <rect key="frame" x="25" y="4" width="55" height="11"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="Xx9-5s-L4f"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.91764705879999997" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2xs-o4-Dv3"/>
+                                    <constraint firstItem="DaE-ZF-uvG" firstAttribute="top" secondItem="D16-20-g5D" secondAttribute="top" constant="4" id="49X-3T-qef"/>
+                                    <constraint firstItem="DaE-ZF-uvG" firstAttribute="leading" secondItem="GN4-1I-YmM" secondAttribute="trailing" constant="5" id="8MU-RS-e7Z"/>
+                                    <constraint firstItem="DaE-ZF-uvG" firstAttribute="centerY" secondItem="D16-20-g5D" secondAttribute="centerY" id="FVU-TL-UzB"/>
+                                    <constraint firstAttribute="bottom" secondItem="DaE-ZF-uvG" secondAttribute="bottom" constant="4.5" id="UXB-xU-lyS"/>
+                                    <constraint firstItem="GN4-1I-YmM" firstAttribute="leading" secondItem="D16-20-g5D" secondAttribute="leading" constant="10" id="VIS-GI-EgP"/>
+                                    <constraint firstItem="DaE-ZF-uvG" firstAttribute="leading" secondItem="GN4-1I-YmM" secondAttribute="trailing" constant="5" id="bQ1-2C-igC"/>
+                                    <constraint firstItem="GN4-1I-YmM" firstAttribute="centerY" secondItem="D16-20-g5D" secondAttribute="centerY" id="cua-id-b50"/>
+                                    <constraint firstAttribute="width" constant="55" id="m4m-6y-2KE"/>
+                                    <constraint firstItem="DaE-ZF-uvG" firstAttribute="top" secondItem="D16-20-g5D" secondAttribute="top" constant="4.5" id="wX4-RQ-wdf"/>
+                                    <constraint firstAttribute="trailing" secondItem="DaE-ZF-uvG" secondAttribute="trailing" constant="11" id="zcM-KS-Jq9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="m4m-6y-2KE"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sGp-GJ-8Hc" firstAttribute="leading" secondItem="6sQ-1l-aPa" secondAttribute="leading" id="0J8-RH-EnD"/>
                             <constraint firstItem="sGp-GJ-8Hc" firstAttribute="top" secondItem="o4j-zj-hAZ" secondAttribute="bottom" id="18S-DR-Ls7"/>
                             <constraint firstItem="4zJ-Us-als" firstAttribute="leading" secondItem="6sQ-1l-aPa" secondAttribute="leading" constant="12" id="1et-42-fvT"/>
+                            <constraint firstItem="D16-20-g5D" firstAttribute="leading" secondItem="4zJ-Us-als" secondAttribute="trailing" constant="8" id="2cI-hN-VhW"/>
                             <constraint firstAttribute="trailing" secondItem="Has-za-lVK" secondAttribute="trailing" id="2h8-h4-iqD"/>
                             <constraint firstItem="scp-1g-fag" firstAttribute="top" secondItem="UP1-Bh-tG5" secondAttribute="bottom" id="8co-IT-xXU"/>
                             <constraint firstAttribute="trailing" secondItem="sGp-GJ-8Hc" secondAttribute="trailing" id="BiF-Dp-ju7"/>
@@ -132,6 +179,7 @@
                             <constraint firstItem="o4j-zj-hAZ" firstAttribute="top" secondItem="6sQ-1l-aPa" secondAttribute="top" id="KEF-av-xuu"/>
                             <constraint firstItem="o4j-zj-hAZ" firstAttribute="leading" secondItem="6sQ-1l-aPa" secondAttribute="leading" id="KTf-Sm-eai"/>
                             <constraint firstItem="4zJ-Us-als" firstAttribute="top" secondItem="scp-1g-fag" secondAttribute="bottom" constant="4.5" id="KhP-vm-pi7"/>
+                            <constraint firstItem="D16-20-g5D" firstAttribute="top" secondItem="scp-1g-fag" secondAttribute="bottom" constant="5" id="OqQ-r5-qUz"/>
                             <constraint firstItem="Has-za-lVK" firstAttribute="leading" secondItem="6sQ-1l-aPa" secondAttribute="leading" id="cXf-I3-XHL"/>
                             <constraint firstItem="4zJ-Us-als" firstAttribute="leading" secondItem="UP1-Bh-tG5" secondAttribute="leading" id="gRO-NT-dd1"/>
                             <constraint firstItem="sGp-GJ-8Hc" firstAttribute="top" secondItem="Has-za-lVK" secondAttribute="bottom" id="iU1-o9-7SG"/>
@@ -151,6 +199,7 @@
                     <connections>
                         <outlet property="attemptAuthorLabel" destination="UP1-Bh-tG5" id="S6b-6a-AFK"/>
                         <outlet property="attemptImageView" destination="o4j-zj-hAZ" id="Kjt-2E-ieT"/>
+                        <outlet property="bookmarksView" destination="D16-20-g5D" id="Pl6-r9-LM6"/>
                         <outlet property="challengeNameLabel" destination="scp-1g-fag" id="zN0-ms-MLN"/>
                         <outlet property="likesLabel" destination="l4M-nz-YjF" id="kKp-YG-YSx"/>
                         <outlet property="likesView" destination="4zJ-Us-als" id="fIJ-mj-dny"/>
@@ -189,6 +238,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="OneUp" width="541" height="710"/>
         <image name="arrow" width="128" height="128"/>
         <image name="template" width="375" height="376"/>
         <image name="whiteheart" width="240" height="240"/>

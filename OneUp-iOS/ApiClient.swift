@@ -14,6 +14,31 @@ class ApiClient: AFHTTPSessionManager {
     static let http = AFHTTPSessionManager()
     static var apiURL = "http://kiwiapi.purduecs.com"
     
+    static var fbUserID = ""
+    
+    /**
+        Process FB Login Success w/ API
+     */
+    
+    class func postLogin(fbID:String, completion: (registered: Bool, error: NSError?) -> ()) {
+        http.POST(apiURL+"/login/"+fbID, parameters: nil, progress: { (progress: NSProgress) -> Void in },
+                  success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                    let responseDict = response as! NSDictionary
+                    responseDict["data"]!["_id"]!?.string
+                    let attemptID = responseDict["data"]!["_id"] as? String
+                    completion(attemptID: attemptID!, error: nil)
+                    
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error posting attempt: \(error.description)")
+            completion(attemptID: nil, error: error)
+        }
+    }
+    
+    /**
+        Register New Account
+     */
+    
+    
     
     /**
          Retrieves global challenges
@@ -40,24 +65,7 @@ class ApiClient: AFHTTPSessionManager {
     }
     
     /**
-        Like Challenge Attempt
-    */
-    class func likeChallenge(attemptID: String, completion: (liked: Bool?, error: NSError?) -> ()) {
-        print("Liked: "+attemptID);
-        
-        http.PATCH(apiURL+"/challenges/like/"+attemptID, parameters: nil,
-            success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                completion(liked: true, error: nil)
-                    
-        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
-            print("Error liking challenge: \(error.description)")
-            
-            completion(liked: nil, error: error)
-        }
-    }
-    
-    /**
-     Post Challenge
+        Post Challenge
      */
     class func postChallenge(name:String, desc:String, pattern:String, categories:String, completion: (challengeID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["name":name, "description":desc, "pattern":pattern, "categories":categories]
@@ -83,7 +91,7 @@ class ApiClient: AFHTTPSessionManager {
     }
     
     /**
-     Post Challenge Attempt
+        Post Challenge Attempt
      */
     class func postAttempt(challengeID:String, attemptImg:UIImage?, completion: (attemptID: String?, error: NSError?) -> ()) {
         http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: nil, progress: { (progress: NSProgress) -> Void in },
@@ -98,6 +106,39 @@ class ApiClient: AFHTTPSessionManager {
             completion(attemptID: nil, error: error)
         }
         
+    }
+    
+    /**
+        Like Challenge Attempt
+     */
+    class func likeChallenge(attemptID: String, completion: (liked: Bool, error: NSError?) -> ()) {
+        print("Liked: "+attemptID);
+        
+        http.PATCH(apiURL+"/challenges/like/"+attemptID, parameters: nil,
+                   success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                    completion(liked: true, error: nil)
+                    
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error liking challenge: \(error.description)")
+            
+            completion(liked: false, error: error)
+        }
+    }
+    
+    /**
+        Bookmark Challenge
+     */
+    class func bookmarkChallenge(challengeID: String, completion: (bookmarked: Bool, error: NSError?) -> ()) {
+        
+        http.PATCH(apiURL+"/challenges/bookmark/"+challengeID, parameters: nil, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            completion(bookmarked: true, error: nil)
+                    
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error liking challenge: \(error.description)")
+            
+            completion(bookmarked: false, error: error)
+        }
     }
     
 }

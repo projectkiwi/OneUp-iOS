@@ -9,19 +9,22 @@
 import UIKit
 
 class ChallengeDetailViewController: UIViewController {
+    
+    static var challenge: Challenge!
 
     @IBOutlet weak var attemptAuthorLabel: UILabel!
     @IBOutlet weak var challengeNameLabel: UILabel!
     @IBOutlet weak var likesView: UIView!
+    @IBOutlet weak var bookmarksView: UIView!
     @IBOutlet weak var attemptImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var challenge: Challenge!
     var currentAttempt: Attempt? {
         didSet {
             attemptAuthorLabel.text = "Author!"
-            likesLabel.text = "\(currentAttempt?.votes)"
+            //likesLabel.text = "\(currentAttempt?.votes)"
+            likesLabel.text = "0"
             attemptImageView.setImageWithURL(NSURL(string: (currentAttempt?.imgUrl)!)!)
         }
     }
@@ -29,19 +32,15 @@ class ChallengeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(challenge.attempts.count <= 0) { // If Challenge has no Attempts, go back
+        if(ChallengeDetailViewController.challenge.attempts.count <= 0) { // If Challenge has no Attempts, go back
             navigationController?.popViewControllerAnimated(true)
             return;
         }
-        currentAttempt = challenge.attempts[0]
+        currentAttempt = ChallengeDetailViewController.challenge.attempts[0]
         
         setupCustomCell()
         updateUIFields()
-        makeLikeButtonInteractive()
-        
-        // Setup AttemptCreation Data
-        AttemptCreationViewController.challengeID = challenge.id
-        AttemptCreationViewController.challengeName = challenge.name
+        makeLikeBookmarkButtonsInteractive()
     }
     
     func setupCustomCell() {
@@ -57,14 +56,19 @@ class ChallengeDetailViewController: UIViewController {
     }
     
     func updateUIFields() {
-        challengeNameLabel.text = challenge.name
+        challengeNameLabel.text = ChallengeDetailViewController.challenge.name
         attemptAuthorLabel.text = "Author Name"
         //attemptImageView.image = UIImage(contentsOfFile: <#T##String#>)
     }
     
-    func makeLikeButtonInteractive() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(ChallengeDetailViewController.likeClicked(_:)))
-        likesView.addGestureRecognizer(gesture)
+    func makeLikeBookmarkButtonsInteractive() {
+        // Like Button
+        let likeGesture = UITapGestureRecognizer(target: self, action: #selector(ChallengeDetailViewController.likeClicked(_:)))
+        likesView.addGestureRecognizer(likeGesture)
+        
+        // Bookmark Button
+        let bookmarkGesture = UITapGestureRecognizer(target: self, action: #selector(ChallengeDetailViewController.bookmarkClicked(_:)))
+        bookmarksView.addGestureRecognizer(bookmarkGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,16 +77,33 @@ class ChallengeDetailViewController: UIViewController {
     }
     
     @IBAction func likeClicked(sender: AnyObject) {
-        ApiClient.likeChallenge((challenge.attempts.last?.id)!) { (liked, error) -> () in // TODO: Get correct attemptID
-            // success
-            if error == nil {
-            }
-            // error
-            else {
-                
+        
+        // TODO: Immediately Toggle Color
+        
+        ApiClient.likeChallenge((ChallengeDetailViewController.challenge.attempts.last?.id)!) { (liked, error) -> () in // TODO: Get correct attemptID
+            if error == nil { // success
+                if liked {
+                    self.likesView.backgroundColor = UIColor.redColor()
+                } else {
+                    self.likesView.backgroundColor = UIColor.greenColor()
+                }
             }
         }
-        likesView.backgroundColor = UIColor.redColor()
+    }
+    
+    @IBAction func bookmarkClicked(sender: AnyObject) {
+        
+        // TODO: Immediately Toggle Color
+        
+        ApiClient.bookmarkChallenge((ChallengeDetailViewController.challenge.attempts.last?.id)!) { (bookmarked, error) -> () in
+            if error == nil { // success
+                if bookmarked {
+                    self.bookmarksView.backgroundColor = UIColor.redColor()
+                } else {
+                    self.bookmarksView.backgroundColor = UIColor.greenColor()
+                }
+            }
+        }
     }
 
 }
@@ -90,13 +111,13 @@ class ChallengeDetailViewController: UIViewController {
 
 extension ChallengeDetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return challenge.attempts.count
+        return ChallengeDetailViewController.challenge.attempts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AttemptTableViewCell.cellIdentifier, forIndexPath: indexPath) as! AttemptTableViewCell
         
-        cell.attempt = challenge.attempts[indexPath.row]
+        cell.attempt = ChallengeDetailViewController.challenge.attempts[indexPath.row]
         
         return cell
     }
@@ -107,7 +128,7 @@ extension ChallengeDetailViewController: UITableViewDataSource {
 extension ChallengeDetailViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        currentAttempt = challenge.attempts[indexPath.row]
+        currentAttempt = ChallengeDetailViewController.challenge.attempts[indexPath.row]
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
