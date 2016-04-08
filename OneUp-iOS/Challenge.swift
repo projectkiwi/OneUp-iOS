@@ -32,14 +32,13 @@ class Challenge: NSObject, MKAnnotation {
         categories = challengeDetails["categories"] as? [String] ?? ["No Catergory"]
         pattern = challengeDetails["pattern"] as? String ?? "No pattern"
         coordinate = locations[(Int)(arc4random_uniform(4))]
+        votes = challengeDetails["challenge_likes"] as! Int
 
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         if attempts.count > 0 {
             topAttempt = attempts[0] as Attempt
-            votes = topAttempt.voteTotal
             imgUrl = topAttempt.imgUrl
         } else {
-            votes = -1
             imgUrl = "http://fuel-design.com/media/uploads/thumbs/uploads/homepage/This_is_Bad_jpg_321x311_q95.jpg"
         }
     }

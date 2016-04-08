@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  OneUp-iOS
 //
 //  Created by Harris Christiansen on 2/16/16.
@@ -16,6 +16,8 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     static var FBAccessToken: String?
     static var FBEmail: String?
     static var userName: String?
+    
+    var FBRequestPermissions = ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func processLogin() {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: FBRequestPermissions)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             if ((error) != nil) {
                 print("FB Login Error: \(error)") // Process error

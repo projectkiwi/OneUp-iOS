@@ -18,7 +18,7 @@ class Attempt {
     
     init(attemptDetails: NSDictionary) {
         id = attemptDetails["_id"] as! String
-        voteTotal = attemptDetails["vote_total"] as! Int
+        voteTotal = attemptDetails["like_total"] as! Int
         imgUrl = attemptDetails["preview_img"] as! String
         gifUrl = attemptDetails["gif_img"] as! String
     }
