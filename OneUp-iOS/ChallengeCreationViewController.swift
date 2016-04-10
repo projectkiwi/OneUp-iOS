@@ -26,7 +26,7 @@ class ChallengeCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test") { (challengeID, error) -> () in
+        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test", attemptImg: challengeImageView.image!) { (challengeID, error) -> () in
             
             if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil)
