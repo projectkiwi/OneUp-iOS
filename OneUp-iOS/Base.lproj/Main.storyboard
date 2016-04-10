@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mqj-mL-tum">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mqj-mL-tum">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--LoginHome-->
         <scene sceneID="zXg-jo-Rh0">
             <objects>
-                <viewController id="Mqj-mL-tum" customClass="MainViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginHome" title="LoginHome" id="Mqj-mL-tum" customClass="MainViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pWe-fR-vfF"/>
                         <viewControllerLayoutGuide type="bottom" id="KtJ-vw-zXU"/>
@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwZ-t5-vZd" userLabel="SkipLoginButton">
-                                <rect key="frame" x="25" y="565" width="550" height="30"/>
-                                <state key="normal" title="Skip Login"/>
-                                <connections>
-                                    <action selector="skipLoginClicked:" destination="Mqj-mL-tum" eventType="touchUpInside" id="0EK-Z3-OQP"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OneUp" translatesAutoresizingMaskIntoConstraints="NO" id="RgL-HH-JvZ">
                                 <rect key="frame" x="25" y="25" width="550" height="200"/>
                                 <constraints>
@@ -43,10 +36,7 @@
                         <constraints>
                             <constraint firstItem="WME-u0-LIF" firstAttribute="leading" secondItem="x6P-BJ-B4d" secondAttribute="leadingMargin" constant="5" id="3yx-EU-DwU"/>
                             <constraint firstItem="WME-u0-LIF" firstAttribute="top" secondItem="RgL-HH-JvZ" secondAttribute="bottom" constant="10" id="6od-eh-Fb8"/>
-                            <constraint firstItem="DwZ-t5-vZd" firstAttribute="leading" secondItem="x6P-BJ-B4d" secondAttribute="leadingMargin" constant="5" id="DYu-mM-fbf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RgL-HH-JvZ" secondAttribute="trailing" constant="5" id="FPY-jm-9Hn"/>
-                            <constraint firstItem="KtJ-vw-zXU" firstAttribute="top" secondItem="DwZ-t5-vZd" secondAttribute="bottom" constant="5" id="NBd-6u-keh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DwZ-t5-vZd" secondAttribute="trailing" constant="5" id="Nlh-0h-Vmm"/>
                             <constraint firstItem="RgL-HH-JvZ" firstAttribute="leading" secondItem="x6P-BJ-B4d" secondAttribute="leadingMargin" constant="5" id="R2e-6w-2SF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WME-u0-LIF" secondAttribute="trailing" constant="5" id="SVj-LV-piz"/>
                             <constraint firstItem="RgL-HH-JvZ" firstAttribute="top" secondItem="pWe-fR-vfF" secondAttribute="bottom" constant="5" id="XxT-ZK-lvn"/>
@@ -59,6 +49,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeQ-LH-1fD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1105" y="-379"/>
+        </scene>
+        <!--RegisterAccount-->
+        <scene sceneID="yiK-HO-xW3">
+            <objects>
+                <viewController storyboardIdentifier="RegisterAccount" title="RegisterAccount" id="OFu-fl-UFh" customClass="RegisterViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yuz-7F-gTf"/>
+                        <viewControllerLayoutGuide type="bottom" id="ahw-ZU-Ho3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qb4-Zh-gda">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OneUp" translatesAutoresizingMaskIntoConstraints="NO" id="Am8-6e-zpY">
+                                <rect key="frame" x="25" y="25" width="550" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="pBi-1W-2bb"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8s-Xm-zgr" userLabel="SkipLoginButton">
+                                <rect key="frame" x="25" y="273" width="550" height="30"/>
+                                <state key="normal" title="Set Username"/>
+                                <connections>
+                                    <action selector="setUsernameClicked:" destination="OFu-fl-UFh" eventType="touchUpInside" id="4ry-AQ-TxN"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-jc-ucA">
+                                <rect key="frame" x="25" y="235" width="550" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Am8-6e-zpY" firstAttribute="leading" secondItem="qb4-Zh-gda" secondAttribute="leadingMargin" constant="5" id="IdU-Yz-XP8"/>
+                            <constraint firstItem="Am8-6e-zpY" firstAttribute="top" secondItem="yuz-7F-gTf" secondAttribute="bottom" constant="5" id="MMq-ur-GRV"/>
+                            <constraint firstItem="rYz-jc-ucA" firstAttribute="top" secondItem="Am8-6e-zpY" secondAttribute="bottom" constant="10" id="RaK-DR-tpr"/>
+                            <constraint firstItem="L8s-Xm-zgr" firstAttribute="top" secondItem="rYz-jc-ucA" secondAttribute="bottom" constant="8" id="UMM-jz-bJW"/>
+                            <constraint firstItem="rYz-jc-ucA" firstAttribute="leading" secondItem="qb4-Zh-gda" secondAttribute="leadingMargin" constant="5" id="eEU-Zs-5AD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Am8-6e-zpY" secondAttribute="trailing" constant="5" id="gXu-X6-uMg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L8s-Xm-zgr" secondAttribute="trailing" constant="5" id="iTL-GL-5N7"/>
+                            <constraint firstItem="L8s-Xm-zgr" firstAttribute="leading" secondItem="qb4-Zh-gda" secondAttribute="leadingMargin" constant="5" id="wW3-vX-t3R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rYz-jc-ucA" secondAttribute="trailing" constant="5" id="yTO-9o-9xX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="usernameField" destination="rYz-jc-ucA" id="UD3-dK-IIX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dN-el-FhX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119" y="371"/>
         </scene>
         <!--Home-->
         <scene sceneID="Vue-sU-jJl">
@@ -110,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="2466.5" y="-148"/>
         </scene>
-        <!--MainApp-->
+        <!--Tab Bar Controller-->
         <scene sceneID="0L3-iP-YmW">
             <objects>
-                <tabBarController storyboardIdentifier="MainApp" title="MainApp" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HmD-Vw-Uue" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainApp" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HmD-Vw-Uue" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VGq-tJ-Vws">
                         <autoresizingMask key="autoresizingMask"/>

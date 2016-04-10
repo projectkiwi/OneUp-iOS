@@ -29,6 +29,12 @@ class ProfileViewController: UIViewController {
         getData()
     }
     
+    @IBAction func logoutClicked(sender: AnyObject) {
+        MainViewController.clearUserInfo()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = (storyboard.instantiateViewControllerWithIdentifier("LoginHome")) as UIViewController
+        self.presentViewController(vc, animated: false, completion: nil)
+    }
     
     func setupSegmentedControl() {
         let segmentedControl3 = XMSegmentedControl(frame: CGRect(x: 0, y: 0, width: segmentedControlView.frame.width, height: 44), segmentTitle: ["challenges", "liked", "watching"], selectedItemHighlightStyle: XMSelectedItemHighlightStyle.BottomEdge)

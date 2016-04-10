@@ -12,7 +12,7 @@ import FBSDKLoginKit
 
 class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    static var userID: String?
+    static var FBUserID: String?
     static var FBAccessToken: String?
     static var FBEmail: String?
     static var userName: String?
@@ -23,15 +23,16 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         setupLoginButton()
-        loadUserInfo()
+        MainViewController.loadUserInfo()
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         checkAutoLogin()
     }
     
-    func loadUserInfo() {
-        MainViewController.userID = NSUserDefaults.standardUserDefaults().stringForKey("userID")
+    class func loadUserInfo() {
+        MainViewController.FBUserID = NSUserDefaults.standardUserDefaults().stringForKey("FBUserID")
         MainViewController.FBAccessToken = NSUserDefaults.standardUserDefaults().stringForKey("FBAccessToken")
         MainViewController.FBEmail = NSUserDefaults.standardUserDefaults().stringForKey("FBEmail")
         MainViewController.userName = NSUserDefaults.standardUserDefaults().stringForKey("userName")
@@ -43,15 +44,25 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    func saveUserInfo() {
-        NSUserDefaults.standardUserDefaults().setObject(MainViewController.userID, forKey: "userID")
+    class func saveUserInfo() {
+        NSUserDefaults.standardUserDefaults().setObject(MainViewController.FBUserID, forKey: "FBUserID")
         NSUserDefaults.standardUserDefaults().setObject(MainViewController.FBAccessToken, forKey: "FBAccessToken")
         NSUserDefaults.standardUserDefaults().setObject(MainViewController.FBEmail, forKey: "FBEmail")
         NSUserDefaults.standardUserDefaults().setObject(MainViewController.userName, forKey: "userName")
         NSUserDefaults.standardUserDefaults().setObject(ApiClient.authToken, forKey: "OneUp_AuthToken")
     }
     
+    class func clearUserInfo() {
+        MainViewController.FBUserID = nil
+        MainViewController.FBAccessToken = nil
+        MainViewController.FBEmail = nil
+        MainViewController.userName = nil
+        ApiClient.authToken = ""
+        MainViewController.saveUserInfo()
+    }
+    
     func checkAutoLogin() {
+        //if(!ApiClient.authToken.isEmpty && MainViewController.userName != nil) {
         if(!ApiClient.authToken.isEmpty) {
             enterApplication()
         }
@@ -82,29 +93,33 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
             if ((error) != nil) {
                 print("FB Login Error: \(error)") // Process error
             } else {
-                print("Logged In: \(result)")
-                MainViewController.userID = result.valueForKey("id") as? String
+                //print("FB Logged In: \(result)")
+                MainViewController.FBUserID = result.valueForKey("id") as? String
                 MainViewController.FBAccessToken = FBSDKAccessToken.currentAccessToken().tokenString
                 MainViewController.FBEmail = result.valueForKey("email") as? String
-                MainViewController.userName = "NameToDo"
                 
                 ApiClient.postLogin() { (registered, error) -> () in // Authenticate with API
                     if error == nil { // success
-                        self.saveUserInfo()
-                        self.enterApplication()
+                        MainViewController.saveUserInfo()
+                        if(registered) {
+                            self.enterApplication()
+                        } else {
+                            self.enterRegisterAccount()
+                        }
                     }
                 }
             }
         })
     }
     
-    @IBAction func skipLoginClicked(sender: AnyObject) {
-        enterApplication()
+    func enterApplication() {
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = (self.storyboard?.instantiateViewControllerWithIdentifier("MainApp"))! as UIViewController
+        self.presentViewController(vc, animated: false, completion: nil)
     }
     
-    func enterApplication() {
-        //let storyboard = UIStoryboard(name: "MyStoryboardName", bundle: nil)
-        let vc = (self.storyboard?.instantiateViewControllerWithIdentifier("MainApp"))! as UIViewController
+    func enterRegisterAccount() {
+        let vc = (self.storyboard?.instantiateViewControllerWithIdentifier("RegisterAccount"))! as UIViewController
         self.presentViewController(vc, animated: false, completion: nil)
     }
 
