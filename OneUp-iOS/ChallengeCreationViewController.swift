@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import MediaPlayer
 import MobileCoreServices
+import Photos
 
 class ChallengeCreationViewController: UIViewController {
 
@@ -95,21 +96,46 @@ extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
 //        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
 //        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-        
-        
-        if mediaType == kUTTypeMovie {
-            if let videoURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
-//                videoData = NSData(contentsOfURL: videoURL)
-                
-                var asset = AVURLAsset(URL: videoURL)
-                print("shasda")
-            }
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
+//        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+//        
+//        
+//        if mediaType == kUTTypeMovie {
+//            if let videoURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
+////                videoData = NSData(contentsOfURL: videoURL)
+//                
+//                var asset = AVURLAsset(URL: videoURL)
+//                print("shasda")
+//            }
+//        }
+//        
+//        dismissViewControllerAnimated(true, completion: nil)
 //        key	String	"UIImagePickerControllerReferenceURL"
         
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if let referenceURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
+            let fetchResult = PHAsset.fetchAssetsWithALAssetURLs([referenceURL], options: nil)
+            if let phAsset = fetchResult.firstObject as? PHAsset {
+                PHImageManager.defaultManager().requestAVAssetForVideo(phAsset, options: PHVideoRequestOptions(), resultHandler: { (asset, audioMix, info) -> Void in
+                    if let asset = asset as? AVURLAsset {
+                        self.videoData = NSData(contentsOfURL: asset.URL)
+                        
+                        // optionally, write the video to the temp directory
+//                        let videoPath = NSTemporaryDirectory() + "tmpMovie.MOV"
+//                        let videoURL = NSURL(fileURLWithPath: videoPath)
+//                        let writeResult = self.videoData?.writeToURL(videoURL, atomically: true)
+//                        
+//                        if let writeResult = writeResult where writeResult {
+//                            print("success")
+//                        }
+//                        else {
+//                            print("failure")
+//                        }
+                    }
+                })
+            }
+        }
         
         
         
