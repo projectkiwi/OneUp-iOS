@@ -81,6 +81,11 @@ class ApiClient: AFHTTPSessionManager {
                 return
             }
             let challenges = Challenge.challengesFromJSON(docs["docs"] as! NSArray)
+//            print("sample date = \(challenges[0]["updated_on"])")
+//            var challenge = Challenge(challengeDetails: )
+//            var date = NSDate()
+            
+            
             completion(challenges: challenges, error: nil)
 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
