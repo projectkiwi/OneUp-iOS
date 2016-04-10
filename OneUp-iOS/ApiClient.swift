@@ -77,13 +77,17 @@ class ApiClient: AFHTTPSessionManager {
             
             //print("Challenges: \(response)")
             
-            let docs = response as! NSDictionary
-            if(docs["message"] != nil) { // Message set (ex: Invalid User!)
-                // TODO: Logout
-                return
+            if let docs = response as? NSDictionary {
+                if(docs["message"] != nil) { // Message set (ex: Invalid User!)
+                    // TODO: Logout
+                    return
+                }
+                let challenges = Challenge.challengesFromJSON(docs["docs"] as! NSArray)
+                completion(challenges: challenges, error: nil)
+            } else {
+                ApiClient.authToken = ""
+                MainViewController.saveUserInfo()
             }
-            let challenges = Challenge.challengesFromJSON(docs["docs"] as! NSArray)
-            completion(challenges: challenges, error: nil)
 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error retrieving challenges: \(error.description)")
