@@ -25,7 +25,10 @@ class AttemptCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, attemptImg: nil) { (attemptID, error) -> () in
+        if(challengeImageView.image == nil) {
+            return
+        }
+        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, attemptImg: challengeImageView.image!) { (attemptID, error) -> () in
             if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil);
             }

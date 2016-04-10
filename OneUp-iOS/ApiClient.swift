@@ -43,7 +43,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     
     class func postRegister(completion: (success: Bool, error: NSError?) -> ()) {
-        let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.userID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"username":MainViewController.userName!]
+        let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.userID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"nickname":MainViewController.userName!]
         
         http.POST(apiURL+"/register", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
@@ -73,9 +73,13 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            //print("Challenges: \(response)")
+            print("Challenges: \(response)")
             
             let docs = response as! NSDictionary
+            if(docs["message"] != nil) { // Message set (ex: Invalid User!)
+                // TODO: Logout
+                return
+            }
             let challenges = Challenge.challengesFromJSON(docs["docs"] as! NSArray)
             completion(challenges: challenges, error: nil)
 
@@ -88,19 +92,18 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Post Challenge
      */
-    class func postChallenge(name:String, desc:String, pattern:String, categories:String, completion: (challengeID: String?, error: NSError?) -> ()) {
+    class func postChallenge(name:String, desc:String, pattern:String, categories:String, attemptImg:UIImage, completion: (challengeID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "name":name, "description":desc, "pattern":pattern, "categories":categories]
         
         http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             let responseDict = response as! NSDictionary
             let challengeID = responseDict["data"]!["_id"] as? String
-            http.POST(apiURL+"/challenges/"+challengeID!+"/attempts/", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                
-                completion(challengeID: challengeID!, error: nil)
-            }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
-                print("Error posting challenge attempt: \(error.description)")
-                completion(challengeID: nil, error: error)
+            
+            if(challengeID != nil) {
+                ApiClient.postAttempt(challengeID!, attemptImg: attemptImg) { (attemptID, error) -> () in
+                    // Do Nothing
+                }
             }
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -113,10 +116,20 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Post Challenge Attempt
      */
-    class func postAttempt(challengeID:String, attemptImg:UIImage?, completion: (attemptID: String?, error: NSError?) -> ()) {
-        let params:NSDictionary = ["token":ApiClient.authToken]
+    class func postAttempt(challengeID:String, attemptImg:UIImage, completion: (attemptID: String?, error: NSError?) -> ()) {
+        let params:NSDictionary = ["token":ApiClient.authToken, "description":"iOS - ToDo", "video":"todo"]
+        let imageData = UIImageJPEGRepresentation(attemptImg, 0.3)
         
-        http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, constructingBodyWithBlock: { (formData) -> Void in
+            
+            formData.appendPartWithFileData(
+                imageData!,
+                name: "video",
+                fileName: "challenge"+challengeID+String(NSDate().timeIntervalSince1970),
+                mimeType: "image/jpeg")
+            formData.appendPartWithFormData("video".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!, name: "video")
+            
+            }, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
                 let responseDict = response as! NSDictionary
                 let attemptID = responseDict["data"]!["_id"] as? String
