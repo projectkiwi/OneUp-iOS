@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9045F452987A97E565C347E9'
+               BlueprintIdentifier = '1738A2D6B49BB76A144A10C4'
                BlueprintName = 'XMSegmentedControl-XMSegmentedControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'XMSegmentedControl.bundle'>

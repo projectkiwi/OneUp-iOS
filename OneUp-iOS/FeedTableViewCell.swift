@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftGifOrigin
 
 class FeedTableViewCell: UITableViewCell {
 
@@ -28,7 +29,12 @@ class FeedTableViewCell: UITableViewCell {
             challengeTitleLabel.text = challenge.name
             challengeHeartCountLabel.text = "\(challenge.votes!)"
             challengeDescriptionLabel.text = challenge.desc
-            mainImageView.setImageWithURL(NSURL(string: challenge.imgUrl!)!)
+//            mainImageView.setImageWithURL(NSURL(string: challenge.imgUrl!)!)
+            
+            // "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif") sample gif
+            mainImageView.image = UIImage.gifWithURL("\(ApiClient.apiURL)/\(challenge.imgUrl!)")
+            
+            
             
             var catergoriesString = ""
             for catergory in challenge.categories! {
