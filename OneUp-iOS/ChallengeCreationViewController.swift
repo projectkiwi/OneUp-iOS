@@ -20,7 +20,7 @@ class ChallengeCreationViewController: UIViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
     
-    var videoURL: NSURL?
+    var videoData: NSData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,8 @@ class ChallengeCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        if(videoURL != nil) {
-            ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, mediaURL: videoURL!) { (challengeID, error) -> () in
+        if(videoData != nil) {
+            ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, mediaData: videoData!) { (challengeID, error) -> () in
                 
                 if error == nil { // success
                     self.dismissViewControllerAnimated(true,completion: nil)
@@ -98,7 +98,9 @@ extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
         
         if mediaType == kUTTypeMovie {
-            videoURL = info[UIImagePickerControllerReferenceURL] as? NSURL
+            if let videoURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
+                videoData = NSData(contentsOfURL: videoURL)
+            }
         }
         
         dismissViewControllerAnimated(true, completion: nil)
