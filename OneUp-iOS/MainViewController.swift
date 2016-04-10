@@ -62,8 +62,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func checkAutoLogin() {
-        //if(!ApiClient.authToken.isEmpty && MainViewController.userName != nil) {
-        if(!ApiClient.authToken.isEmpty) {
+        if(!ApiClient.authToken.isEmpty && MainViewController.userName != nil) {
             enterApplication()
         }
     }

@@ -20,6 +20,7 @@ class ChallengeCreationViewController: UIViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
     
+    var videoURL: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +49,15 @@ class ChallengeCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, attemptImg: challengeImageView.image!) { (challengeID, error) -> () in
-            
-            if error == nil { // success
-                self.dismissViewControllerAnimated(true,completion: nil)
+        if(videoURL != nil) {
+            ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, mediaFile: videoURL!) { (challengeID, error) -> () in
+                
+                if error == nil { // success
+                    self.dismissViewControllerAnimated(true,completion: nil)
+                }
             }
         }
+        
     }
     
     
@@ -86,15 +90,19 @@ class ChallengeCreationViewController: UIViewController {
 
 extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
         // Get the image captured by the UIImagePickerController
 //        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
 //        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-        let videoURL = info[UIImagePickerControllerMediaURL] as! NSString
+        
+        if mediaType == kUTTypeMovie {
+            videoURL = info[UIImagePickerControllerMediaURL] as? String
+        }
+        
         
         // 2
-        dismissViewControllerAnimated(true) {
             // 3
 //            if mediaType == kUTTypeMovie {
 //                let moviePlayer = MPMoviePlayerViewController(contentURL: info[UIImagePickerControllerMediaURL] as! NSURL)
@@ -115,7 +123,6 @@ extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
                 
 //                self.presentMoviePlayerViewControllerAnimated(moviePlayer)
 //            }
-        }
         
         
         // Do something with the images (based on your use case)

@@ -94,7 +94,7 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Post Challenge
      */
-    class func postChallenge(name:String, desc:String, pattern:String, categories:String, attemptImg:UIImage, completion: (challengeID: String?, error: NSError?) -> ()) {
+    class func postChallenge(name:String, desc:String, pattern:String, categories:String, mediaFile:String, completion: (challengeID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "name":name, "description":desc, "pattern":pattern, "categories":categories]
         
         http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
@@ -103,7 +103,7 @@ class ApiClient: AFHTTPSessionManager {
             let challengeID = responseDict["data"]!["_id"] as? String
             
             if(challengeID != nil) {
-                ApiClient.postAttempt(challengeID!, attemptImg: attemptImg) { (attemptID, error) -> () in
+                ApiClient.postAttempt(challengeID!, mediaFile: mediaFile) { (attemptID, error) -> () in
                     // Do Nothing
                 }
             }
@@ -118,14 +118,15 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Post Challenge Attempt
      */
-    class func postAttempt(challengeID:String, attemptImg:UIImage, completion: (attemptID: String?, error: NSError?) -> ()) {
+    class func postAttempt(challengeID:String, mediaFile:String, completion: (attemptID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "description":"iOS - ToDo", "video":"todo"]
-        let imageData = UIImageJPEGRepresentation(attemptImg, 0.3)
+        //let imageData = UIImageJPEGRepresentation(attemptImg, 0.3)
+        let mediaData = NSData(contentsOfFile: mediaFile)
         
         http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, constructingBodyWithBlock: { (formData) -> Void in
             
             formData.appendPartWithFileData(
-                imageData!,
+                mediaData!,
                 name: "video",
                 fileName: "challenge"+challengeID+String(NSDate().timeIntervalSince1970),
                 mimeType: "image/jpeg")
