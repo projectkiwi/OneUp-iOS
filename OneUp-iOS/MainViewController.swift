@@ -23,6 +23,38 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         setupLoginButton()
+        loadUserInfo()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        checkAutoLogin()
+    }
+    
+    func loadUserInfo() {
+        MainViewController.userID = NSUserDefaults.standardUserDefaults().stringForKey("userID")
+        MainViewController.FBAccessToken = NSUserDefaults.standardUserDefaults().stringForKey("FBAccessToken")
+        MainViewController.FBEmail = NSUserDefaults.standardUserDefaults().stringForKey("FBEmail")
+        MainViewController.userName = NSUserDefaults.standardUserDefaults().stringForKey("userName")
+        let authToken = NSUserDefaults.standardUserDefaults().stringForKey("OneUp_AuthToken")
+        if(authToken != nil) {
+            ApiClient.authToken = authToken!
+        } else {
+            ApiClient.authToken = ""
+        }
+    }
+    
+    func saveUserInfo() {
+        NSUserDefaults.standardUserDefaults().setObject(MainViewController.userID, forKey: "userID")
+        NSUserDefaults.standardUserDefaults().setObject(MainViewController.FBAccessToken, forKey: "FBAccessToken")
+        NSUserDefaults.standardUserDefaults().setObject(MainViewController.FBEmail, forKey: "FBEmail")
+        NSUserDefaults.standardUserDefaults().setObject(MainViewController.userName, forKey: "userName")
+        NSUserDefaults.standardUserDefaults().setObject(ApiClient.authToken, forKey: "OneUp_AuthToken")
+    }
+    
+    func checkAutoLogin() {
+        if(!ApiClient.authToken.isEmpty) {
+            enterApplication()
+        }
     }
     
     @IBOutlet weak var loginView: FBSDKLoginButton!
@@ -58,6 +90,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 ApiClient.postLogin() { (registered, error) -> () in // Authenticate with API
                     if error == nil { // success
+                        self.saveUserInfo()
                         self.enterApplication()
                     }
                 }
