@@ -85,11 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-OneUp-iOS/AFNetworking.framework"
+  install_framework "Pods-OneUp-iOS/FLAnimatedImage.framework"
   install_framework "Pods-OneUp-iOS/SwiftGifOrigin.framework"
   install_framework "Pods-OneUp-iOS/XMSegmentedControl.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-OneUp-iOS/AFNetworking.framework"
+  install_framework "Pods-OneUp-iOS/FLAnimatedImage.framework"
   install_framework "Pods-OneUp-iOS/SwiftGifOrigin.framework"
   install_framework "Pods-OneUp-iOS/XMSegmentedControl.framework"
 fi

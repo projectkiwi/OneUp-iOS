@@ -6,8 +6,9 @@ use_frameworks!
 target 'OneUp-iOS' do
 	pod 'AFNetworking'	
 	pod 'XMSegmentedControl'
+#	pod 'XAnimatedImage'
+	pod 'FLAnimatedImage'
 	pod 'SwiftGifOrigin'
-
 end
 
 target 'OneUp-iOSTests' do

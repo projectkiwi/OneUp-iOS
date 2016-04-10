@@ -31,8 +31,8 @@ class FeedTableViewCell: UITableViewCell {
             challengeDescriptionLabel.text = challenge.desc
 //            mainImageView.setImageWithURL(NSURL(string: challenge.imgUrl!)!)
             
-            // "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif") sample gif
-            mainImageView.image = UIImage.gifWithURL("\(ApiClient.apiURL)/\(challenge.imgUrl!)")
+//            "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif") sample gif
+            mainImageView.image = UIImage.gifWithURL("http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif")//"\(ApiClient.apiURL)/\(challenge.imgUrl!)")
             
             
             

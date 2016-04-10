@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FLAnimatedImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-OneUp-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0839623A13D69B0F31C32617A1021308</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>203E1BD20CEA370A0B531C22845B1799</key>
+		<key>2D26D7CB4372E6C1F706325F9B4B97DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BD05F8733D08502F5DA5C811E2DAC98</key>
+		<key>4DEEE49C206F3DEE0EED34387655318A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>790B00D65190734EB0045E3C5FBAC9BE</key>
+		<key>FD59208E640668CCB7D29090A125FF52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6A06F92842FC446A6AEA9B4FE7D430B</key>
+		<key>FE113CEF81C16AA59EC049ACE130BCB2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

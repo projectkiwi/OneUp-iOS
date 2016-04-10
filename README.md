@@ -11,7 +11,7 @@
 #### User Story 3
 
 - [.5] Express an opinion on past records by liking - Harris
-- [ ] Express an opinion on past records by commenting - Marty
+- [] (NOT DOING THIS) Express an opinion on past records by commenting - Marty
 
 #### User Story 4
 
@@ -30,12 +30,12 @@
 
 #### User Story 7
 
-- [ ] Implement Challenge Detail Page - Marty
+- [X] Implement Challenge Detail Page - Marty
 
 #### User Story 8
 
-- [ ] Implement timeline of past record holders - Marty 
-- [ ] As a user, I would like to know how long each record was held for - Marty
+- [X] Implement timeline of past record holders - Marty 
+- [X] As a user, I would like to know how long each record was held for - Marty
 
 #### User Story 9
 
@@ -46,7 +46,7 @@
 #### User Story 10
 
 - [X] Implement Challenge Creation Page - Harris
-- [ ] Implement getting media from phone or camera - Marty
+- [X] Implement getting media from phone or camera - Marty
 - [ ] Implement challenge attempt uploading - Harris
 
 
