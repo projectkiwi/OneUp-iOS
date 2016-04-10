@@ -17,6 +17,7 @@
 		BD962E351C891D8000345774 /* Attempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E341C891D8000345774 /* Attempt.swift */; };
 		BD962E371C894C2500345774 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD962E361C894C2500345774 /* Filter.storyboard */; };
 		BD962E391C894DD100345774 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD962E381C894DD100345774 /* FilterViewController.swift */; };
+		BD96C9761CBAD7D800F6E94F /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96C9751CBAD7D800F6E94F /* NSDateExtension.swift */; };
 		BDA57E671CB33F1B00E89162 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */; };
 		BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E681CB3492400E89162 /* FeedTableView.swift */; };
 		BDA57E6F1CB41A8800E89162 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */; };
@@ -79,6 +80,7 @@
 		BD962E341C891D8000345774 /* Attempt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attempt.swift; sourceTree = "<group>"; };
 		BD962E361C894C2500345774 /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		BD962E381C894DD100345774 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		BD96C9751CBAD7D800F6E94F /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		BDA57E681CB3492400E89162 /* FeedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableView.swift; sourceTree = "<group>"; };
 		BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				F0BC99811C73A998008BFB71 /* Info.plist */,
 				F0BC99791C73A998008BFB71 /* OneUp_iOS.xcdatamodeld */,
 				BD21A46F1CA8D43700A6226B /* ColorExtension.swift */,
+				BD96C9751CBAD7D800F6E94F /* NSDateExtension.swift */,
 			);
 			path = "OneUp-iOS";
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */,
 				BD08126A1CB17EBD00EC912D /* ChallengeCreationViewController.swift in Sources */,
 				F074C4921CBADFF5008D33C3 /* RegisterViewController.swift in Sources */,
+				BD96C9761CBAD7D800F6E94F /* NSDateExtension.swift in Sources */,
 				BDA57E6F1CB41A8800E89162 /* ProfileViewController.swift in Sources */,
 				BD962E391C894DD100345774 /* FilterViewController.swift in Sources */,
 				BDA57E671CB33F1B00E89162 /* NotificationsViewController.swift in Sources */,
