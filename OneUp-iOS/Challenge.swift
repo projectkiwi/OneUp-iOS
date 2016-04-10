@@ -31,6 +31,7 @@ class Challenge: NSObject, MKAnnotation {
         desc = challengeDetails["description"] as? String ?? "No Description"
         categories = challengeDetails["categories"] as? [String] ?? ["No Catergory"]
         pattern = challengeDetails["pattern"] as? String ?? "No pattern"
+        //coordinate = CLLocationCoordinate2D(latitude: challengeDetails["location"][0], longitude: challengeDetails["location"][1])
         coordinate = locations[(Int)(arc4random_uniform(4))]
         votes = challengeDetails["challenge_likes"] as? Int
 
