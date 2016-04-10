@@ -120,7 +120,7 @@ class ApiClient: AFHTTPSessionManager {
     class func postAttempt(challengeID:String, mediaFile:String, completion: (attemptID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "description":"iOS - ToDo", "video":"todo"]
         //let imageData = UIImageJPEGRepresentation(attemptImg, 0.3)
-        let mediaData = String(contentsOfFile: mediaFile, encoding: NSUTF8StringEncoding, error: nil)
+        let mediaData = NSData(contentsOfFile: mediaFile)
         
         http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, constructingBodyWithBlock: { (formData) -> Void in
             
