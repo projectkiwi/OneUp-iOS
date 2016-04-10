@@ -131,8 +131,8 @@ class ApiClient: AFHTTPSessionManager {
             formData.appendPartWithFileData(
                 mediaData,
                 name: "video",
-                fileName: "challenge"+challengeID+String(NSDate().timeIntervalSince1970),
-                mimeType: "image/jpeg")
+                fileName: "challenge"+challengeID+String(NSDate().timeIntervalSince1970)+".mp4",
+                mimeType: "video/mp4")
             formData.appendPartWithFormData("video".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!, name: "video")
             
             }, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
