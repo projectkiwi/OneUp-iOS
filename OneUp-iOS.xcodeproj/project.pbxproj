@@ -33,6 +33,7 @@
 		F0580D321C88DF6800259247 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D311C88DF6800259247 /* Home.storyboard */; };
 		F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D331C88E3EB00259247 /* Settings.storyboard */; };
 		F0580D361C88EC8600259247 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D351C88EC8600259247 /* Profile.storyboard */; };
+		F074C4921CBADFF5008D33C3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */; };
 		F08214BA1CB476A70016D55F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */; };
 		F08214BC1CB4797A0016D55F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
@@ -95,6 +96,7 @@
 		F0580D311C88DF6800259247 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F0580D331C88E3EB00259247 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		F0580D351C88EC8600259247 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 				F0EB973C1CB4370A001C5B73 /* AttemptCreationViewController.swift */,
 				BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */,
 				BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */,
+				F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				F03A2A5C1C892EF400267302 /* MapViewController.swift in Sources */,
 				BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */,
 				BD08126A1CB17EBD00EC912D /* ChallengeCreationViewController.swift in Sources */,
+				F074C4921CBADFF5008D33C3 /* RegisterViewController.swift in Sources */,
 				BDA57E6F1CB41A8800E89162 /* ProfileViewController.swift in Sources */,
 				BD962E391C894DD100345774 /* FilterViewController.swift in Sources */,
 				BDA57E671CB33F1B00E89162 /* NotificationsViewController.swift in Sources */,

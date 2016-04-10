@@ -21,7 +21,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     
     class func postLogin(completion: (registered: Bool, error: NSError?) -> ()) {
-        let params:NSDictionary = ["facebook_id":MainViewController.userID!, "access_token":MainViewController.FBAccessToken!,"email":MainViewController.FBEmail!]
+        let params:NSDictionary = ["facebook_id":MainViewController.FBUserID!, "access_token":MainViewController.FBAccessToken!,"email":MainViewController.FBEmail!]
         
         http.POST(apiURL+"/auth/facebook", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
@@ -29,8 +29,9 @@ class ApiClient: AFHTTPSessionManager {
             
             let responseDict = response as! NSDictionary
             ApiClient.authToken = responseDict["token"] as! String
-            
-            completion(registered: true, error: nil)
+            MainViewController.userName = responseDict["username"] as? String
+            let isNewAccount = responseDict["new_account"] as! Bool
+            completion(registered: !isNewAccount, error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error on login: \(error.description)")
@@ -43,9 +44,9 @@ class ApiClient: AFHTTPSessionManager {
      */
     
     class func postRegister(completion: (success: Bool, error: NSError?) -> ()) {
-        let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.userID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"nickname":MainViewController.userName!]
+        let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.FBUserID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"username":MainViewController.userName!]
         
-        http.POST(apiURL+"/register", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.PUT(apiURL+"/me", parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             //let responseDict = response as! NSDictionary
             //let attemptID = responseDict["data"]!["_id"] as? String
@@ -73,7 +74,7 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            print("Challenges: \(response)")
+            //print("Challenges: \(response)")
             
             let docs = response as! NSDictionary
             if(docs["message"] != nil) { // Message set (ex: Invalid User!)
