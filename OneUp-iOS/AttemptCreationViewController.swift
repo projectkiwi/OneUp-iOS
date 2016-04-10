@@ -13,6 +13,8 @@ class AttemptCreationViewController: UIViewController {
     @IBOutlet weak var challengeImageView: UIImageView!
     @IBOutlet weak var challengeNameLabel: UILabel!
     
+    var videoURL: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +30,11 @@ class AttemptCreationViewController: UIViewController {
         if(challengeImageView.image == nil) {
             return
         }
-        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, attemptImg: challengeImageView.image!) { (attemptID, error) -> () in
-            if error == nil { // success
-                self.dismissViewControllerAnimated(true,completion: nil);
+        if(videoURL != nil) {
+            ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, mediaFile: videoURL!) { (attemptID, error) -> () in
+                if error == nil { // success
+                    self.dismissViewControllerAnimated(true,completion: nil);
+                }
             }
         }
     }
@@ -58,6 +62,7 @@ extension AttemptCreationViewController: UIImagePickerControllerDelegate {
         // Get the image captured by the UIImagePickerController
 //        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        videoURL = info[UIImagePickerControllerMediaURL] as? String
         
         // Do something with the images (based on your use case)
         challengeImageView.image = editedImage
