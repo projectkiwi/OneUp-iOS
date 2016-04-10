@@ -11,7 +11,7 @@
 #### User Story 3
 
 - [.5] Express an opinion on past records by liking - Harris
-- [] (NOT DOING THIS) Express an opinion on past records by commenting - Marty
+- [-] Express an opinion on past records by commenting - Marty
 
 #### User Story 4
 
@@ -21,7 +21,7 @@
 #### User Story 5
 
 - [ ] As a user, I would like to be identified by a username - Harris
-- [ ] As a user, I would like to be able to link my Facebook account to the app - Harris
+- [.5] As a user, I would like to be able to link my Facebook account to the app - Harris
 - [ ] Provide support for profile pictures - Harris
 
 #### User Story 6
@@ -39,7 +39,7 @@
 
 #### User Story 9
 
-- [ ] Implement bookmark button on challenge detail page. - Harris
+- [.5] Implement bookmark button on challenge detail page. - Harris
 - [ ] Implement bookmarked challenges page - harris
 - [ ] New changes in bookmarked challenges should be sent to notifications - Harris
 
@@ -47,7 +47,7 @@
 
 - [X] Implement Challenge Creation Page - Harris
 - [X] Implement getting media from phone or camera - Marty
-- [ ] Implement challenge attempt uploading - Harris
+- [.5] Implement challenge attempt uploading - Harris
 
 
 ### Sprint 1
