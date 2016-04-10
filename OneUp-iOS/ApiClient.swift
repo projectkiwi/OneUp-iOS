@@ -25,12 +25,15 @@ class ApiClient: AFHTTPSessionManager {
         
         http.POST(apiURL+"/auth/facebook", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            print("Login Response: \(response)")
+            //print("Login Response: \(response)")
             
             let responseDict = response as! NSDictionary
             ApiClient.authToken = responseDict["token"] as! String
-            MainViewController.userName = responseDict["username"] as? String // TODO: Not reading as string from NSDictionary
-            let isNewAccount = responseDict["new_account"] as! Bool
+            MainViewController.userName = responseDict["user"]?["username"] as? String
+            var isNewAccount = responseDict["new_account"] as! Bool
+            if(MainViewController.userName == nil) { // Require Registration if username is not set
+                isNewAccount = true
+            }
             completion(registered: !isNewAccount, error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -72,7 +75,6 @@ class ApiClient: AFHTTPSessionManager {
             paramsDict = ["token":ApiClient.authToken]
         }
         
-        print(apiURL+requestPath)
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             //print("Challenges: \(response)")
@@ -133,7 +135,7 @@ class ApiClient: AFHTTPSessionManager {
                 name: "video",
                 fileName: "challenge"+challengeID+String(NSDate().timeIntervalSince1970)+".mp4",
                 mimeType: "video/mp4")
-            formData.appendPartWithFormData("video".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!, name: "video")
+            formData.appendPartWithFormData("video".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name: "video")
             
             }, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
