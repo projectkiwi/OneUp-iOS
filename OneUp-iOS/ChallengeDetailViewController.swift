@@ -26,8 +26,8 @@ class ChallengeDetailViewController: UIViewController {
             //likesLabel.text = "\(currentAttempt?.votes)"
             likesLabel.text = "0"
 //            attemptImageView.setImageWithURL(NSURL(string: (currentAttempt?.imgUrl)!)!)
-            attemptImageView.image = UIImage.gifWithURL("http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif")//"\(ApiClient.apiURL)/\(challenge.imgUrl!)")
-
+            attemptImageView.image = UIImage.gifWithURL("\(ApiClient.apiURL)/\(currentAttempt!.imgUrl!)")
+            // http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif")
         }
     }
     

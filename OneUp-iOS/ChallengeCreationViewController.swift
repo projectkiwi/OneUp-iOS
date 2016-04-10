@@ -97,9 +97,13 @@ extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
         
+        
         if mediaType == kUTTypeMovie {
             if let videoURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
-                videoData = NSData(contentsOfURL: videoURL)
+//                videoData = NSData(contentsOfURL: videoURL)
+                
+                var asset = AVURLAsset(URL: videoURL)
+                print("shasda")
             }
         }
         

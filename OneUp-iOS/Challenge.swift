@@ -36,7 +36,7 @@ class Challenge: NSObject, MKAnnotation {
 
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         if attempts.count > 0 {
-            topAttempt = attempts[0] as Attempt
+            topAttempt = attempts[attempts.count - 1] as Attempt
             imgUrl = topAttempt.imgUrl
         } else {
             imgUrl = "http://fuel-design.com/media/uploads/thumbs/uploads/homepage/This_is_Bad_jpg_321x311_q95.jpg"
