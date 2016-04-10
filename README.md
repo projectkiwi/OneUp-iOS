@@ -20,8 +20,8 @@
 
 #### User Story 5
 
-- [ ] As a user, I would like to be identified by a username - Harris
-- [.5] As a user, I would like to be able to link my Facebook account to the app - Harris
+- [X] As a user, I would like to be identified by a username - Harris
+- [X] As a user, I would like to be able to link my Facebook account to the app - Harris
 - [ ] Provide support for profile pictures - Harris
 
 #### User Story 6

@@ -62,7 +62,8 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func checkAutoLogin() {
-        if(!ApiClient.authToken.isEmpty && MainViewController.userName != nil) {
+        //if(!ApiClient.authToken.isEmpty && MainViewController.userName != nil) {
+        if(!ApiClient.authToken.isEmpty) {
             enterApplication()
         }
     }
@@ -92,7 +93,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
             if ((error) != nil) {
                 print("FB Login Error: \(error)") // Process error
             } else {
-                print("Logged In: \(result)")
+                //print("FB Logged In: \(result)")
                 MainViewController.FBUserID = result.valueForKey("id") as? String
                 MainViewController.FBAccessToken = FBSDKAccessToken.currentAccessToken().tokenString
                 MainViewController.FBEmail = result.valueForKey("email") as? String
