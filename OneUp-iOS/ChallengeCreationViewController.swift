@@ -15,21 +15,40 @@ class ChallengeCreationViewController: UIViewController {
 
     @IBOutlet weak var challengeImageView: UIImageView!
     @IBOutlet weak var challengeName: UITextField!
-    @IBOutlet weak var challengeDescription: UITextView!
+    @IBOutlet weak var challengeDescription: UITextField!
+    @IBOutlet weak var patternField: UITextField!
+    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var categoryField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ChallengeCreationViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChallengeCreationViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChallengeCreationViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
     }
     
+    
+    func keyboardWillShow(sender: NSNotification) {
+        
+        self.view.frame.origin.y -= 216
+        
+        
+    }
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y += 216
+    }
     @IBAction func onCancelSelected(sender: AnyObject) {
         dismissViewControllerAnimated(true,completion: nil)
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: "", categories: "test", attemptImg: challengeImageView.image!) { (challengeID, error) -> () in
+        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, attemptImg: challengeImageView.image!) { (challengeID, error) -> () in
             
             if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil)
@@ -37,9 +56,17 @@ class ChallengeCreationViewController: UIViewController {
         }
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func onSelectMedia(sender: AnyObject) {

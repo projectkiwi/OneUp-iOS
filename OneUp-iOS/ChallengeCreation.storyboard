@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ajV-CT-woq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ajV-CT-woq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,49 +19,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tA1-hi-t9D">
-                                <rect key="frame" x="16" y="69" width="288" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgh-L2-ovJ">
+                                <rect key="frame" x="8" y="115" width="304" height="304"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="810-PY-zDV"/>
+                                    <constraint firstAttribute="width" secondItem="Tgh-L2-ovJ" secondAttribute="height" multiplier="1:1" id="x90-cV-feM"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGG-id-KdC">
-                                <rect key="frame" x="21" y="224" width="278" height="30"/>
-                                <state key="normal" title="find image"/>
+                                <state key="normal" title="Button" image="createimg"/>
                                 <connections>
-                                    <action selector="onSelectMedia:" destination="iUH-B2-GPA" eventType="touchUpInside" id="NZM-9M-ocp"/>
+                                    <action selector="onSelectMedia:" destination="iUH-B2-GPA" eventType="touchUpInside" id="FfG-Wi-ktO"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Challenge Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-6P-GnK">
-                                <rect key="frame" x="21" y="259" width="278" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-6P-GnK">
+                                <rect key="frame" x="21" y="434" width="278" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Challenge Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CWh-CE-mhO">
-                                <rect key="frame" x="21" y="294" width="278" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="rBO-SM-hUk"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="24 pushups" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qS0-mx-uMu">
+                                <rect key="frame" x="21" y="466" width="278" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
-                            </textView>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kir-hX-YL6">
+                                <rect key="frame" x="21" y="498" width="278" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Strength, Endurance..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AFc-4d-ZBo">
+                                <rect key="frame" x="21" y="530" width="278" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFf-dV-C6g">
+                                <rect key="frame" x="15" y="79" width="290" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tA1-hi-t9D" firstAttribute="top" secondItem="LIi-hJ-mDb" secondAttribute="bottom" constant="5" id="9R5-ua-egW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tA1-hi-t9D" secondAttribute="trailing" id="AUW-9l-xy3"/>
+                            <constraint firstAttribute="trailing" secondItem="qS0-mx-uMu" secondAttribute="trailing" constant="21" id="DCO-el-4cx"/>
+                            <constraint firstItem="AFc-4d-ZBo" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="21" id="Esc-ze-Gzs"/>
                             <constraint firstItem="Qkw-6P-GnK" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="Gie-aF-aUJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qkw-6P-GnK" secondAttribute="trailing" constant="5" id="IyC-Qa-XHN"/>
-                            <constraint firstItem="Qkw-6P-GnK" firstAttribute="top" secondItem="LGG-id-KdC" secondAttribute="bottom" constant="5" id="Rce-mm-uje"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LGG-id-KdC" secondAttribute="trailing" constant="5" id="UE2-31-B3H"/>
-                            <constraint firstItem="CWh-CE-mhO" firstAttribute="top" secondItem="Qkw-6P-GnK" secondAttribute="bottom" constant="5" id="lcA-bv-yWz"/>
-                            <constraint firstItem="CWh-CE-mhO" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="osx-F4-WAg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CWh-CE-mhO" secondAttribute="trailing" constant="5" id="qN3-oT-Vgb"/>
-                            <constraint firstItem="LGG-id-KdC" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="tfN-h2-2Sf"/>
-                            <constraint firstItem="LGG-id-KdC" firstAttribute="top" secondItem="tA1-hi-t9D" secondAttribute="bottom" constant="5" id="vrD-MW-KIs"/>
-                            <constraint firstItem="tA1-hi-t9D" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" id="yG1-MN-zK8"/>
+                            <constraint firstAttribute="trailing" secondItem="kir-hX-YL6" secondAttribute="trailing" constant="21" id="L69-qA-9g7"/>
+                            <constraint firstItem="xFf-dV-C6g" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="15" id="LW4-3y-lkH"/>
+                            <constraint firstAttribute="trailing" secondItem="Tgh-L2-ovJ" secondAttribute="trailing" constant="8" id="OFx-j2-MjS"/>
+                            <constraint firstAttribute="trailing" secondItem="xFf-dV-C6g" secondAttribute="trailing" constant="15" id="WpU-XE-zim"/>
+                            <constraint firstItem="Tgh-L2-ovJ" firstAttribute="top" secondItem="xFf-dV-C6g" secondAttribute="bottom" constant="15" id="a7N-9z-4kV"/>
+                            <constraint firstItem="Qkw-6P-GnK" firstAttribute="top" secondItem="Tgh-L2-ovJ" secondAttribute="bottom" constant="15" id="e6W-98-2mC"/>
+                            <constraint firstAttribute="trailing" secondItem="Qkw-6P-GnK" secondAttribute="trailing" constant="21" id="fsi-RD-9t0"/>
+                            <constraint firstItem="qS0-mx-uMu" firstAttribute="top" secondItem="Qkw-6P-GnK" secondAttribute="bottom" constant="15" id="igR-Se-gs4"/>
+                            <constraint firstItem="kir-hX-YL6" firstAttribute="top" secondItem="qS0-mx-uMu" secondAttribute="bottom" constant="15" id="jAM-e0-PwQ"/>
+                            <constraint firstItem="AFc-4d-ZBo" firstAttribute="top" secondItem="kir-hX-YL6" secondAttribute="bottom" constant="15" id="lDE-ZO-1xd"/>
+                            <constraint firstItem="qS0-mx-uMu" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="21" id="m6e-eH-G5x"/>
+                            <constraint firstItem="Qkw-6P-GnK" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="21" id="nPD-EC-lxO"/>
+                            <constraint firstItem="qS0-mx-uMu" firstAttribute="top" secondItem="Qkw-6P-GnK" secondAttribute="bottom" constant="8" id="oI8-rZ-JcT"/>
+                            <constraint firstItem="Tgh-L2-ovJ" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="8" id="rc6-2f-Lxz"/>
+                            <constraint firstItem="kir-hX-YL6" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="21" id="s8q-2D-tJE"/>
+                            <constraint firstItem="Qkw-6P-GnK" firstAttribute="top" secondItem="Tgh-L2-ovJ" secondAttribute="bottom" constant="15" id="wnN-XG-hKw"/>
+                            <constraint firstItem="xFf-dV-C6g" firstAttribute="top" secondItem="LIi-hJ-mDb" secondAttribute="bottom" constant="15" id="xqx-Iu-C65"/>
+                            <constraint firstAttribute="trailing" secondItem="AFc-4d-ZBo" secondAttribute="trailing" constant="21" id="yjS-IK-BYx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Gie-aF-aUJ"/>
+                                <exclude reference="IyC-Qa-XHN"/>
+                                <exclude reference="wnN-XG-hKw"/>
+                                <exclude reference="oI8-rZ-JcT"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Create" id="3hw-UL-LRZ">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="CMD-F4-RCA">
@@ -76,9 +103,11 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="challengeDescription" destination="CWh-CE-mhO" id="41g-Uv-O4C"/>
-                        <outlet property="challengeImageView" destination="tA1-hi-t9D" id="XI8-dn-cus"/>
-                        <outlet property="challengeName" destination="Qkw-6P-GnK" id="MH4-Nj-nZI"/>
+                        <outlet property="categoryField" destination="AFc-4d-ZBo" id="JbB-kO-xNu"/>
+                        <outlet property="challengeDescription" destination="Qkw-6P-GnK" id="5Ic-Cd-h2v"/>
+                        <outlet property="challengeName" destination="xFf-dV-C6g" id="Prw-UV-YKV"/>
+                        <outlet property="locationField" destination="kir-hX-YL6" id="cJZ-U4-C6b"/>
+                        <outlet property="patternField" destination="qS0-mx-uMu" id="EhK-dW-tpG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk6-SS-KdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,4 +133,7 @@
             <point key="canvasLocation" x="451" y="-101"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="createimg" width="924" height="848"/>
+    </resources>
 </document>
