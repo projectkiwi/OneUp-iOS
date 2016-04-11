@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Notifications-->
+        <!--Profile-->
         <scene sceneID="jPJ-Ys-4r3">
             <objects>
-                <viewController storyboardIdentifier="Notifications" title="Notifications" id="4sC-ls-521" customClass="ProfileViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileView" title="Profile" id="4sC-ls-521" customClass="ProfileViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ha5-BE-p9l"/>
                         <viewControllerLayoutGuide type="bottom" id="NQG-Hp-bbx"/>
@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="852.5" y="185.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="vxd-Vb-3D3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lxt-Bb-iMO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Profile" title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="lxt-Bb-iMO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vL1-J8-xU2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
