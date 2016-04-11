@@ -128,7 +128,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func postAttempt(challengeID:String, mediaData:NSData, completion: (attemptID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "description":"iOS - ToDo"]
-        AFHTTPSessionManager().requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         //let imageData = UIImageJPEGRepresentation(attemptImg, 0.3)
         
@@ -143,7 +143,7 @@ class ApiClient: AFHTTPSessionManager {
             
             }, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 
-                print("Attempt Creation Response: \(response)")
+                //print("Attempt Creation Response: \(response)")
                 let responseDict = response as! NSDictionary
                 let attemptID = responseDict["data"]?["_id"] as? String
                 completion(attemptID: attemptID, error: nil)
