@@ -92,27 +92,10 @@ class ChallengeCreationViewController: UIViewController {
 extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        // Get the image captured by the UIImagePickerController
-//        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        
 //        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-//        
-//        
 //        if mediaType == kUTTypeMovie {
-//            if let videoURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
-////                videoData = NSData(contentsOfURL: videoURL)
-//                
-//                var asset = AVURLAsset(URL: videoURL)
-//                print("shasda")
-//            }
 //        }
-//        
-//        dismissViewControllerAnimated(true, completion: nil)
-//        key	String	"UIImagePickerControllerReferenceURL"
         
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
         
         if let referenceURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
             let fetchResult = PHAsset.fetchAssetsWithALAssetURLs([referenceURL], options: nil)
@@ -120,7 +103,6 @@ extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
                 PHImageManager.defaultManager().requestAVAssetForVideo(phAsset, options: PHVideoRequestOptions(), resultHandler: { (asset, audioMix, info) -> Void in
                     if let asset = asset as? AVURLAsset {
                         self.videoData = NSData(contentsOfURL: asset.URL)
-                        
                         // optionally, write the video to the temp directory
 //                        let videoPath = NSTemporaryDirectory() + "tmpMovie.MOV"
 //                        let videoURL = NSURL(fileURLWithPath: videoPath)
@@ -136,39 +118,8 @@ extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
                 })
             }
         }
-        
-        
-        
-        // 2
-            // 3
-//            if mediaType == kUTTypeMovie {
-//                let moviePlayer = MPMoviePlayerViewController(contentURL: info[UIImagePickerControllerMediaURL] as! NSURL)
-////                let moviePlayer = AVPlayerViewController()
-//                    //)(contentURL: info[UIImagePickerControllerMediaURL] as! NSURL)
-//                
-//                
-//                let videoURL = info[UIImagePickerControllerMediaURL] as! NSURL
-//                let player = AVPlayer(URL: videoURL)
-//                let playerViewController = AVPlayerViewController()
-//                playerViewController.player = player
-//                self.presentViewController(playerViewController, animated: true) {
-//                    playerViewController.player!.play()
-//                }
-            
-                
-                
-                
-//                self.presentMoviePlayerViewControllerAnimated(moviePlayer)
-//            }
-        
-        
-        // Do something with the images (based on your use case)
-//        challengeImageView.image = editedImage
-        
-        // Dismiss UIImagePickerController to go back to your original view controller
-//        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }
 
 extension ChallengeCreationViewController: UINavigationControllerDelegate {
