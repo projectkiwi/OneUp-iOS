@@ -47,7 +47,7 @@
 
 - [X] Implement Challenge Creation Page - Harris
 - [X] Implement getting media from phone or camera - Marty
-- [.5] Implement challenge attempt uploading - Harris
+- [X] Implement challenge attempt uploading - Harris
 
 
 ### Sprint 1
