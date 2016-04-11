@@ -48,6 +48,7 @@ class ApiClient: AFHTTPSessionManager {
     
     class func postRegister(completion: (success: Bool, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.FBUserID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"username":MainViewController.userName!]
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.PUT(apiURL+"/me", parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
@@ -66,6 +67,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func getChallenges(requestPath:String, params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
         
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         var paramsDict: NSDictionary
         
         if params != nil {
@@ -102,6 +104,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func postChallenge(name:String, desc:String, pattern:String, categories:String, mediaData:NSData, completion: (challengeID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "name":name, "description":desc, "pattern":pattern, "categories":categories]
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
@@ -129,8 +132,6 @@ class ApiClient: AFHTTPSessionManager {
     class func postAttempt(challengeID:String, mediaData:NSData, completion: (attemptID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "description":"iOS - ToDo"]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
-        
-        //let imageData = UIImageJPEGRepresentation(attemptImg, 0.3)
         
         http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, constructingBodyWithBlock: { (formData) -> Void in
             
@@ -160,6 +161,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func likeChallenge(attemptID: String, completion: (liked: Bool, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken]
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.POST(apiURL+"/challenges/like/"+attemptID, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
@@ -177,6 +179,7 @@ class ApiClient: AFHTTPSessionManager {
      */
     class func bookmarkChallenge(challengeID: String, completion: (bookmarked: Bool, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken]
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.PATCH(apiURL+"/challenges/bookmark/"+challengeID, parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
