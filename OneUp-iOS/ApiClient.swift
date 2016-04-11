@@ -81,16 +81,16 @@ class ApiClient: AFHTTPSessionManager {
             
             //print("Challenges: \(response)")
             
-            if let docs = response as? NSDictionary {
-                if(docs["message"] != nil) { // Message set (ex: Invalid User!)
-                    // TODO: Logout
+            if let responseDict = response as? NSDictionary {
+                if(String(responseDict["message"]) == "Invalid User!") {
+                    MainViewController.clearUserInfo()
+                    // TODO: Return To Login Screen
                     return
                 }
-                let challenges = Challenge.challengesFromJSON(docs["docs"] as! NSArray)
+                let challenges = Challenge.challengesFromJSON(responseDict["docs"] as! NSArray)
                 completion(challenges: challenges, error: nil)
-            } else {
-                ApiClient.authToken = ""
-                MainViewController.saveUserInfo()
+            } else { // Invalid Response, Kick User Out
+                MainViewController.clearUserInfo()
             }
 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -157,6 +157,30 @@ class ApiClient: AFHTTPSessionManager {
     }
     
     /**
+        Get Liked Challenges
+     */
+    
+    class func getLiked(completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+        
+        http.GET(apiURL+"/likes/", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            //print("Likes: \(response)")
+            
+            if let responseDict = response as? NSDictionary {
+                let challenges = Challenge.challengesFromJSON(responseDict["docs"] as! NSArray)
+                completion(challenges: challenges, error: nil)
+            } else { // Invalid Response, Kick User Out
+                MainViewController.clearUserInfo()
+            }
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error retrieving likes: \(error.description)")
+            completion(challenges: nil, error: error)
+        }
+    }
+    
+    /**
         Like Challenge Attempt
      */
     class func likeChallenge(attemptID: String, completion: (liked: Bool, error: NSError?) -> ()) {
@@ -165,7 +189,13 @@ class ApiClient: AFHTTPSessionManager {
         
         http.POST(apiURL+"/challenges/like/"+attemptID, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            completion(liked: true, error: nil)
+            var liked: Bool? = false
+            
+            if let responseDict = response as? NSDictionary {
+                liked = responseDict["success"] as? Bool
+            }
+            
+            completion(liked: liked==true, error: nil)
                     
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error liking challenge: \(error.description)")
@@ -175,15 +205,49 @@ class ApiClient: AFHTTPSessionManager {
     }
     
     /**
+        Get Bookmarks
+     */
+    
+    class func getBookmarks(completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+        
+        http.GET(apiURL+"/bookmarks/", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            //print("Bookmarks: \(response)")
+            
+            if let responseDict = response as? NSDictionary {
+                let challenges = Challenge.challengesFromJSON(responseDict["docs"] as! NSArray)
+                completion(challenges: challenges, error: nil)
+            } else { // Invalid Response, Kick User Out
+                MainViewController.clearUserInfo()
+            }
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error retrieving bookmarks: \(error.description)")
+            completion(challenges: nil, error: error)
+        }
+    }
+    
+    
+    /**
         Bookmark Challenge
      */
     class func bookmarkChallenge(challengeID: String, completion: (bookmarked: Bool, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
-        http.PATCH(apiURL+"/challenges/bookmark/"+challengeID, parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.PATCH(apiURL+"/users/bookmark/"+challengeID, parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            completion(bookmarked: true, error: nil)
+            var bookmarked = false
+            
+            if let responseDict = response as? NSDictionary {
+                let wasBookmarked = responseDict["success"] as! Bool
+                if(wasBookmarked) {
+                    bookmarked = true
+                }
+            }
+            
+            completion(bookmarked: bookmarked, error: nil)
                     
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error liking challenge: \(error.description)")
