@@ -19,6 +19,7 @@ class NotificationsViewController: UIViewController {
     }
     
     func setupTableView() {
+        self.automaticallyAdjustsScrollViewInsets = false;
         tableView.dataSource = self
         tableView.delegate = self
         
