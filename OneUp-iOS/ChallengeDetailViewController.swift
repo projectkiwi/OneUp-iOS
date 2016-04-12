@@ -102,7 +102,7 @@ class ChallengeDetailViewController: UIViewController {
         
         // TODO: Immediately Toggle Color
         
-        ApiClient.bookmarkChallenge((ChallengeDetailViewController.challenge.attempts.last?.id)!) { (bookmarked, error) -> () in
+        ApiClient.bookmarkChallenge(ChallengeDetailViewController.challenge.id) { (bookmarked, error) -> () in
             if error == nil { // success
                 if bookmarked {
                     self.bookmarksView.backgroundColor = UIColor.redColor()
