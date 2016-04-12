@@ -33,7 +33,7 @@ class FeedTableViewCell: UITableViewCell {
             
 //            "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif") sample gif
             mainImageView.image = UIImage.gifWithURL("\(ApiClient.apiURL)/\(challenge.imgUrl!)")
-            
+            challengeAuthorLabel.text = challenge.username
             
             
             

@@ -20,6 +20,9 @@ class Challenge: NSObject, MKAnnotation {
     var imgUrl: String?
     var votes: Int?
     let coordinate: CLLocationCoordinate2D
+    var username: String?
+    var recordHolders: NSArray?
+    var currentRecord: NSDictionary?
     
     var topAttempt: Attempt!
     
@@ -35,6 +38,13 @@ class Challenge: NSObject, MKAnnotation {
         coordinate = locations[(Int)(arc4random_uniform(4))]
         votes = challengeDetails["challenge_likes"] as? Int
 
+        if let recordHolders = challengeDetails["record_holders"] as? NSArray {
+            if recordHolders.count > 0 {
+                currentRecord = recordHolders[0] as? NSDictionary
+                username = currentRecord!["username"] as? String
+            }
+        }
+        
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         if attempts.count > 0 {
             topAttempt = attempts[attempts.count - 1] as Attempt
