@@ -35,7 +35,7 @@ class ChallengeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(ChallengeDetailViewController.challenge.attempts.count <= 0) { // If Challenge has no Attempts, go back
+        if(ChallengeDetailViewController.challenge == nil || ChallengeDetailViewController.challenge.attempts.count <= 0) { // If Challenge has no Attempts, go back
             navigationController?.popViewControllerAnimated(true)
             return;
         }

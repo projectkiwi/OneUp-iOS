@@ -23,7 +23,7 @@ class Attempt {
     
     init(attemptDetails: NSDictionary) {
         id = attemptDetails["_id"] as! String
-        author = attemptDetails["author"] as? String ?? "IOS Placeholder - Waiting Backend Support"
+        author = attemptDetails["author"] as? String ?? "IOS Author Placeholder - Waiting Backend Support"
         if let imgFile = attemptDetails["gif_img"] as? String {
             imgUrl = "\(ApiClient.apiURL)/\(imgFile)"
         } else {

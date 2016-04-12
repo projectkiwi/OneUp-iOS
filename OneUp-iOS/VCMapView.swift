@@ -22,13 +22,7 @@ extension MapViewController: MKMapViewDelegate {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
-                
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
-                
-//                let btnImage = UIImage(named: "arrow.png")
-//                let btn = UIButton(type: .Custom)
-//                btn.setImage(btnImage, forState: .Normal)
-//                view.rightCalloutAccessoryView = btn
             }
             
             // Set Pin Color
@@ -47,6 +41,9 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as UIViewController
+        if let challengePin = view.annotation as? ChallengePin {
+            ChallengeDetailViewController.challenge = challengePin.challenge
+        }
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
