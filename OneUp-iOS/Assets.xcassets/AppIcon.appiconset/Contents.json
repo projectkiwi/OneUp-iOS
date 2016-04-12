@@ -3,26 +3,44 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "OneUp80.png",
+      "filename" : "OneUp29.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "OneUp58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "OneUp120-1.png",
+      "filename" : "OneUp87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "OneUp57.png",
+      "filename" : "OneUp80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "OneUp86.png",
+      "filename" : "OneUp120-1.png",
       "scale" : "3x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "OneUp57.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "OneUp114.png",
+      "scale" : "2x"
     },
     {
       "size" : "60x60",
