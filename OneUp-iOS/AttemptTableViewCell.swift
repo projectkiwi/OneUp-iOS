@@ -22,8 +22,7 @@ class AttemptTableViewCell: UITableViewCell {
         didSet {
             // TODO: Edit this value so it shows the right info
             scoreLabel.text = "\(attempt?.votes) people"
-            
-            previewImageView.setImageWithURL(NSURL(string: (attempt?.imgUrl!)!)!)
+            previewImageView.setImageWithURL(NSURL(string: (attempt?.imgUrl)!)!)
             
         }
     }

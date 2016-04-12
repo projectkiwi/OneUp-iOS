@@ -11,16 +11,24 @@ import Foundation
 class Attempt {
     
     var id: String!
-    var votes: Int!
     var imgUrl: String!
     var gifUrl: String!
-    var voteTotal: Int!
+    var videoURL: String!
+    var description: String!
+    var votes: Int!
+    var likes: Int! { get { return votes } }
+    var isLiked: Bool!
+    var comments: NSArray!
     
     init(attemptDetails: NSDictionary) {
         id = attemptDetails["_id"] as! String
-        voteTotal = attemptDetails["like_total"] as! Int
-        imgUrl = attemptDetails["gif_img"] as! String
-        gifUrl = attemptDetails["gif_img"] as! String
+        imgUrl = attemptDetails["gif_img"] as? String ?? ""
+        gifUrl = attemptDetails["gif_img"] as? String ?? ""
+        videoURL = attemptDetails["orig_video"] as? String ?? ""
+        description = attemptDetails["description"] as? String ?? ""
+        votes = attemptDetails["like_total"] as? Int ?? 0
+        isLiked = attemptDetails["liked_attempt"] as? Bool ?? false
+        comments = attemptDetails["comments"] as? NSArray ?? []
     }
 
     class func attemptsFromArray(attemptArray: NSArray) -> [Attempt] {
