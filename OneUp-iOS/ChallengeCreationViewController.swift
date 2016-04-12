@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import AVKit
-import MediaPlayer
 import MobileCoreServices
 import Photos
 
@@ -37,10 +35,7 @@ class ChallengeCreationViewController: UIViewController {
     
     
     func keyboardWillShow(sender: NSNotification) {
-        
         self.view.frame.origin.y -= 216
-        
-        
     }
     func keyboardWillHide(sender: NSNotification) {
         self.view.frame.origin.y += 216
@@ -50,18 +45,17 @@ class ChallengeCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        if(videoData != nil) {
-            ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, mediaData: videoData!) { (challengeID, error) -> () in
-                
-                if error == nil { // success
-                    self.dismissViewControllerAnimated(true,completion: nil)
-                }
+        if(videoData == nil) {
+            return
+        }
+        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, mediaData: videoData!) { (challengeID, error) -> () in
+            
+            if error == nil { // success
+                self.dismissViewControllerAnimated(true,completion: nil)
             }
         }
         
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -79,11 +73,7 @@ class ChallengeCreationViewController: UIViewController {
         vc.delegate = self
         vc.allowsEditing = true
         vc.mediaTypes = [kUTTypeMovie as NSString as String]
-
-//        vc.sourceType = UIImagePickerControllerSourceType.Camera // use for pics from camera
         vc.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
-        
-        
         self.presentViewController(vc, animated: true, completion: nil)
     }
 

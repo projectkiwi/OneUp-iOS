@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MobileCoreServices
+import Photos
 
 class AttemptCreationViewController: UIViewController {
 
@@ -14,7 +16,6 @@ class AttemptCreationViewController: UIViewController {
     @IBOutlet weak var challengeNameLabel: UILabel!
     
     var videoData: NSData?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +28,12 @@ class AttemptCreationViewController: UIViewController {
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        if(challengeImageView.image == nil) {
+        if(videoData == nil) {
             return
         }
-        if(videoData != nil) {
-            ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, mediaData: videoData!) { (attemptID, error) -> () in
-                if error == nil { // success
-                    self.dismissViewControllerAnimated(true,completion: nil);
-                }
+        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, mediaData: videoData!) { (attemptID, error) -> () in
+            if error == nil { // success
+                self.dismissViewControllerAnimated(true,completion: nil);
             }
         }
     }
@@ -48,10 +47,8 @@ class AttemptCreationViewController: UIViewController {
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
-//        vc.sourceType = UIImagePickerControllerSourceType.Camera // use for pics from camera
+        vc.mediaTypes = [kUTTypeMovie as NSString as String]
         vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        
-        
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
@@ -59,17 +56,16 @@ class AttemptCreationViewController: UIViewController {
 
 extension AttemptCreationViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        // Get the image captured by the UIImagePickerController
-//        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        if let videoURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
-            videoData = NSData(contentsOfURL: videoURL)
+        if let referenceURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
+            let fetchResult = PHAsset.fetchAssetsWithALAssetURLs([referenceURL], options: nil)
+            if let phAsset = fetchResult.firstObject as? PHAsset {
+                PHImageManager.defaultManager().requestAVAssetForVideo(phAsset, options: PHVideoRequestOptions(), resultHandler: { (asset, audioMix, info) -> Void in
+                    if let asset = asset as? AVURLAsset {
+                        self.videoData = NSData(contentsOfURL: asset.URL)
+                    }
+                })
+            }
         }
-        
-        // Do something with the images (based on your use case)
-        challengeImageView.image = editedImage
-        
-        // Dismiss UIImagePickerController to go back to your original view controller
         dismissViewControllerAnimated(true, completion: nil)
     }
     

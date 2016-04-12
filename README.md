@@ -2,6 +2,48 @@
 
 ## User Stories
 
+### Sprint 3
+
+#### User Story 2
+
+- [ ] Link challenge locations to the map view - Harris
+- [ ] In list view, filter challenges based on a location radius - Harris
+
+#### User Story 3
+
+- [ ] Implement timeline of past record holders - Marty
+- [ ] As a user, I would like to know how long each record was held for - Marty
+
+#### User Story 4
+
+- [ ] Implement User Profile Page - Marty
+- [ ] Implement Bookmarks - Harris
+- [ ] Implement History - Marty
+- [ ] Implement Likes - Harris
+
+#### User Story 5
+
+- [ ] Implement Filters on Photos - Harris
+- [ ] Implement Filters on Videos - Harris
+
+#### User Story 6
+
+- [ ] Implement Notifications - Harris
+- [ ] Implement Push Notifications - Marty
+
+#### User Story 7
+
+- [ ] Fix all the bugs!
+- [ ] Refactoring
+
+#### User Story 8
+
+- [ ] Implement challenge cell design - Marty
+
+#### User Story 9
+
+- [ ] Google Analytics! - Harris
+
 ### Sprint 2
 
 #### User Story 2
