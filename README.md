@@ -4,6 +4,8 @@
 
 ### Sprint 3
 
+- [ ] Attempt Location Picker - Harris
+
 #### User Story 2
 
 - [ ] Link challenge locations to the map view - Harris
