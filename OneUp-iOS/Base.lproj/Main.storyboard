@@ -152,16 +152,17 @@
             </objects>
             <point key="canvasLocation" x="2466.5" y="-148"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--One Up Tab Bar Controller-->
         <scene sceneID="0L3-iP-YmW">
             <objects>
-                <tabBarController storyboardIdentifier="MainApp" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HmD-Vw-Uue" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainApp" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HmD-Vw-Uue" customClass="OneUpTabBarController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VGq-tJ-Vws">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="OneUpTabBar" destination="VGq-tJ-Vws" id="war-eL-Tqn"/>
                         <segue destination="VDC-jK-Rao" kind="relationship" relationship="viewControllers" id="I6z-Da-T0B"/>
                         <segue destination="OsG-ai-m8w" kind="relationship" relationship="viewControllers" id="BfS-26-BDJ"/>
                         <segue destination="GKg-Ly-1Kq" kind="relationship" relationship="viewControllers" id="lBY-Ac-ugf"/>

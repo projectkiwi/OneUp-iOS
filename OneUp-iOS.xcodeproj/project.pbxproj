@@ -37,6 +37,7 @@
 		F074C4921CBADFF5008D33C3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */; };
 		F08214BA1CB476A70016D55F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */; };
 		F08214BC1CB4797A0016D55F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */; };
+		F0B4188C1CBCE634007B6693 /* OneUpTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B4188B1CBCE634007B6693 /* OneUpTabBarController.swift */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* MainViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F0B4188B1CBCE634007B6693 /* OneUpTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneUpTabBarController.swift; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				BDA57E661CB33F1B00E89162 /* NotificationsViewController.swift */,
 				BDA57E6E1CB41A8800E89162 /* ProfileViewController.swift */,
 				F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */,
+				F0B4188B1CBCE634007B6693 /* OneUpTabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */,
 				BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */,
 				F0BC99751C73A998008BFB71 /* MainViewController.swift in Sources */,
+				F0B4188C1CBCE634007B6693 /* OneUpTabBarController.swift in Sources */,
 				F03A2A601C893C6800267302 /* VCMapView.swift in Sources */,
 				F03A2A5C1C892EF400267302 /* MapViewController.swift in Sources */,
 				BDA57E691CB3492400E89162 /* FeedTableView.swift in Sources */,
