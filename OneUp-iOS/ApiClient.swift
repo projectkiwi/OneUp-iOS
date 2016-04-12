@@ -236,7 +236,7 @@ class ApiClient: AFHTTPSessionManager {
         let params:NSDictionary = ["token":ApiClient.authToken]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
-        http.PATCH(apiURL+"/users/bookmark/"+challengeID, parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.POST(apiURL+"/users/bookmark/"+challengeID, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             var bookmarked = false
             
