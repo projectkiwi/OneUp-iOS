@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var segmentedControlView: XMSegmentedControl!
     @IBOutlet weak var feedTableView: FeedTableView!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class ProfileViewController: UIViewController {
         profileImageView.clipsToBounds = true
         
         getData()
+        usernameLabel.text = MainViewController.userName
     }
     
     @IBAction func logoutClicked(sender: AnyObject) {

@@ -10,6 +10,7 @@
 		BD0812681CB17CF700EC912D /* ChallengeCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0812671CB17CF700EC912D /* ChallengeCreation.storyboard */; };
 		BD08126A1CB17EBD00EC912D /* ChallengeCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0812691CB17EBD00EC912D /* ChallengeCreationViewController.swift */; };
 		BD21A4701CA8D43700A6226B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21A46F1CA8D43700A6226B /* ColorExtension.swift */; };
+		BD5B9A571CBD7E2B00D76CC2 /* GifFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5B9A561CBD7E2B00D76CC2 /* GifFetcher.swift */; };
 		BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68D4C21C88B73300F88429 /* ApiClient.swift */; };
 		BD6E4E851CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */; };
 		BD6E4E881CA8C0F900EBBDDC /* AttemptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6E4E861CA8C0F900EBBDDC /* AttemptTableViewCell.swift */; };
@@ -74,6 +75,7 @@
 		BD0812671CB17CF700EC912D /* ChallengeCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChallengeCreation.storyboard; sourceTree = "<group>"; };
 		BD0812691CB17EBD00EC912D /* ChallengeCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCreationViewController.swift; sourceTree = "<group>"; };
 		BD21A46F1CA8D43700A6226B /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		BD5B9A561CBD7E2B00D76CC2 /* GifFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifFetcher.swift; sourceTree = "<group>"; };
 		BD68D4C21C88B73300F88429 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewController.swift; sourceTree = "<group>"; };
 		BD6E4E861CA8C0F900EBBDDC /* AttemptTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttemptTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,6 +161,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD5B9A551CBD7E1400D76CC2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BD68D4C21C88B73300F88429 /* ApiClient.swift */,
+				BD5B9A561CBD7E2B00D76CC2 /* GifFetcher.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		BDB6ABF21C7F501600C0B6C9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +253,7 @@
 		F0BC99711C73A998008BFB71 /* OneUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BD68D4C21C88B73300F88429 /* ApiClient.swift */,
+				BD5B9A551CBD7E1400D76CC2 /* Networking */,
 				BDB6ABF41C7F502B00C0B6C9 /* Models */,
 				BDB6ABF31C7F502500C0B6C9 /* Views */,
 				BDB6ABF21C7F501600C0B6C9 /* Controllers */,
@@ -356,7 +367,7 @@
 				TargetAttributes = {
 					F0BC996E1C73A998008BFB71 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 39U9JN48D3;
+						DevelopmentTeam = DMWCPKYXAY;
 					};
 					F0BC99851C73A998008BFB71 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -481,6 +492,7 @@
 			files = (
 				BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */,
 				BD6E4E881CA8C0F900EBBDDC /* AttemptTableViewCell.swift in Sources */,
+				BD5B9A571CBD7E2B00D76CC2 /* GifFetcher.swift in Sources */,
 				BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */,
 				BDB6ABF91C7F532300C0B6C9 /* FeedTableViewCell.swift in Sources */,
 				F0BC99751C73A998008BFB71 /* MainViewController.swift in Sources */,

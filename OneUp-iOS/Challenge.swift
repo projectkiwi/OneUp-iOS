@@ -27,6 +27,7 @@ class Challenge: NSObject, MKAnnotation {
     var username: String?
     var recordHolders: NSArray?
     var currentRecord: NSDictionary?
+    var cachedGIFImage: UIImage?
     
     var topAttempt: Attempt!
     

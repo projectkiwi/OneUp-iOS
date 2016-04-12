@@ -29,8 +29,20 @@ class FeedTableViewCell: UITableViewCell {
             challengeTitleLabel.text = challenge.name
             challengeHeartCountLabel.text = "\(challenge.votes)"
             challengeDescriptionLabel.text = challenge.desc
-            mainImageView.image = UIImage.gifWithURL("\(challenge.previewGif)")
             challengeAuthorLabel.text = challenge.username
+            
+            if let cachedGIF = challenge.cachedGIFImage {
+                self.mainImageView.image = cachedGIF
+            } else {
+                fetchGIF({ (image) in
+                    self.mainImageView.image = image
+                })
+            }
+            
+//            let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+//            dispatch_async(queue) {
+//                self.mainImageView.image = UIImage.gifWithURL("\(self.challenge.previewGif)")
+//            }
             
             var catergoriesString = ""
             for catergory in challenge.categories {
@@ -44,6 +56,27 @@ class FeedTableViewCell: UITableViewCell {
             
             challengeCategoriesLabel.text = catergoriesString
         }
+    }
+    
+    func fetchGIF(completion: (image: UIImage) -> ()) {
+        
+//        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+//        dispatch_async(queue) {
+//            let gif = UIImage.gifWithURL("\(self.challenge.previewGif)")
+//            completion(image: gif!)
+//        }
+        
+        
+        let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
+        dispatch_async(backgroundQueue, {
+            let gif = UIImage.gifWithURL("\(self.challenge.previewGif)")
+            self.challenge.cachedGIFImage = gif!
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(image: gif!)
+            })
+        })
+
     }
     
     

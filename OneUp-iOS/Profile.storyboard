@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxt-Bb-iMO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxt-Bb-iMO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -26,7 +26,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PURDUEHACKER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFI-NG-Hhz">
-                                <rect key="frame" x="94" y="87" width="146" height="25"/>
+                                <rect key="frame" x="94" y="87" width="261" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="0.29411764705882354" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,6 +48,7 @@
                             <constraint firstItem="0Ag-qe-ZbY" firstAttribute="top" secondItem="aXm-ZY-Zt5" secondAttribute="bottom" constant="5" id="5Jk-jU-Mzv"/>
                             <constraint firstItem="Dos-fl-PtX" firstAttribute="top" secondItem="0Ag-qe-ZbY" secondAttribute="bottom" id="5zD-RK-Dsd"/>
                             <constraint firstItem="xFI-NG-Hhz" firstAttribute="leading" secondItem="aXm-ZY-Zt5" secondAttribute="trailing" constant="15" id="CNU-Cc-RFI"/>
+                            <constraint firstAttribute="trailing" secondItem="xFI-NG-Hhz" secondAttribute="trailing" constant="20" id="NOP-Jo-duH"/>
                             <constraint firstItem="0Ag-qe-ZbY" firstAttribute="leading" secondItem="KDk-0j-IaX" secondAttribute="leading" id="g2W-WZ-Vqs"/>
                             <constraint firstItem="NQG-Hp-bbx" firstAttribute="top" secondItem="Dos-fl-PtX" secondAttribute="bottom" id="h0i-ja-yjj"/>
                             <constraint firstItem="aXm-ZY-Zt5" firstAttribute="leading" secondItem="KDk-0j-IaX" secondAttribute="leading" constant="27" id="j9F-Or-erD"/>
@@ -78,6 +79,7 @@
                         <outlet property="feedTableView" destination="Dos-fl-PtX" id="hvE-cy-3ys"/>
                         <outlet property="profileImageView" destination="aXm-ZY-Zt5" id="Oqu-DE-WN1"/>
                         <outlet property="segmentedControlView" destination="0Ag-qe-ZbY" id="g79-hF-OMr"/>
+                        <outlet property="usernameLabel" destination="xFI-NG-Hhz" id="dBT-6Z-I7i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxz-dJ-lVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
