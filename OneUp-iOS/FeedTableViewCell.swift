@@ -27,18 +27,13 @@ class FeedTableViewCell: UITableViewCell {
     var challenge: Challenge! {
         didSet {
             challengeTitleLabel.text = challenge.name
-            challengeHeartCountLabel.text = "\(challenge.votes!)"
+            challengeHeartCountLabel.text = "\(challenge.votes)"
             challengeDescriptionLabel.text = challenge.desc
-//            mainImageView.setImageWithURL(NSURL(string: challenge.imgUrl!)!)
-            
-//            "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif") sample gif
-            mainImageView.image = UIImage.gifWithURL("\(ApiClient.apiURL)/\(challenge.imgUrl!)")
+            mainImageView.image = UIImage.gifWithURL("\(challenge.previewGif)")
             challengeAuthorLabel.text = challenge.username
             
-            
-            
             var catergoriesString = ""
-            for catergory in challenge.categories! {
+            for catergory in challenge.categories {
                 catergoriesString += "\(catergory), "
             }
             

@@ -19,8 +19,8 @@ class AttemptCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Name: "+ChallengeDetailViewController.challenge.name!)
-        challengeNameLabel.text = ChallengeDetailViewController.challenge.name!
+        print("Name: "+ChallengeDetailViewController.challenge.name)
+        challengeNameLabel.text = ChallengeDetailViewController.challenge.name
     }
     
     @IBAction func onCancelSelected(sender: AnyObject) {
@@ -31,7 +31,7 @@ class AttemptCreationViewController: UIViewController {
         if(videoData == nil) {
             return
         }
-        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id!, mediaData: videoData!) { (attemptID, error) -> () in
+        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id, mediaData: videoData!) { (attemptID, error) -> () in
             if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil);
             }

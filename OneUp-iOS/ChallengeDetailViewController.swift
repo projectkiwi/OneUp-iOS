@@ -22,12 +22,13 @@ class ChallengeDetailViewController: UIViewController {
     
     var currentAttempt: Attempt? {
         didSet {
-            attemptAuthorLabel.text = "Author!"
-            //likesLabel.text = "\(currentAttempt?.votes)"
-            likesLabel.text = "0"
-//            attemptImageView.setImageWithURL(NSURL(string: (currentAttempt?.imgUrl)!)!)
-            attemptImageView.image = UIImage.gifWithURL("\(ApiClient.apiURL)/\(currentAttempt!.imgUrl!)")
-            // http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif")
+            attemptAuthorLabel.text = currentAttempt!.author
+            likesLabel.text = String(currentAttempt!.likes)
+            if(currentAttempt!.isLiked) {
+                likesView.backgroundColor = UIColor.redColor()
+            }
+            
+            attemptImageView.image = UIImage.gifWithURL(currentAttempt!.gifUrl)
         }
     }
     
@@ -59,8 +60,7 @@ class ChallengeDetailViewController: UIViewController {
     
     func updateUIFields() {
         challengeNameLabel.text = ChallengeDetailViewController.challenge.name
-        attemptAuthorLabel.text = "Author Name"
-        //attemptImageView.image = UIImage(contentsOfFile: <#T##String#>)
+        attemptAuthorLabel.text = ChallengeDetailViewController.challenge.username
     }
     
     func makeLikeBookmarkButtonsInteractive() {
@@ -71,6 +71,11 @@ class ChallengeDetailViewController: UIViewController {
         // Bookmark Button
         let bookmarkGesture = UITapGestureRecognizer(target: self, action: #selector(ChallengeDetailViewController.bookmarkClicked(_:)))
         bookmarksView.addGestureRecognizer(bookmarkGesture)
+        
+        // Set Bookmark Button Color
+        if(ChallengeDetailViewController.challenge.isBookmarked) {
+            bookmarksView.backgroundColor = UIColor.redColor()
+        }
     }
 
     override func didReceiveMemoryWarning() {

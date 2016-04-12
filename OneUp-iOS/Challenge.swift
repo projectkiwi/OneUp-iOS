@@ -11,18 +11,18 @@ import MapKit
 
 class Challenge: NSObject, MKAnnotation {
     
-    var id: String!
-    var name: String!
-    var attempts: [Attempt]!
-    var desc: String!
-    var categories: [String]!
-    var pattern: String!
-    var imgUrl: String!
-    var votes: Int!
-    var likes: Int! { get { return votes } }
-    var likedTopAttempt: Bool!
-    var likedPreviousAttempt: Bool!
-    var isBookmarked: Bool!
+    var id: String
+    var name: String
+    var attempts: [Attempt]
+    var desc: String
+    var categories: [String]
+    var pattern: String
+    var previewGif: String
+    var votes: Int
+    var likes: Int { get { return votes } }
+    var likedTopAttempt: Bool
+    var likedPreviousAttempt: Bool
+    var isBookmarked: Bool
     let coordinate: CLLocationCoordinate2D
     var username: String?
     var recordHolders: NSArray?
@@ -60,11 +60,11 @@ class Challenge: NSObject, MKAnnotation {
         }
         
         // Get Top Attempt - For Image
-        imgUrl = "iosNoAttemptImg.jpg"
+        previewGif = "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif"
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         if attempts.count > 0 {
             topAttempt = attempts[attempts.count - 1] as Attempt
-            imgUrl = topAttempt.imgUrl
+            previewGif = topAttempt.gifUrl
         }
     }
     
