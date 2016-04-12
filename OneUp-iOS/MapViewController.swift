@@ -26,11 +26,6 @@ class MapViewController: UIViewController {
         let initialLocation = CLLocation(latitude: 43, longitude: -96)
         centerMapOnLocation(initialLocation,regionRadius: 2400000)
     }
-    @IBAction func listButtonClicked(sender: AnyObject) {
-        dismissViewControllerAnimated(true) { () -> Void in
-            print("dismissing back to list")
-        }
-    }
     
     func loadData() {
         ApiClient.getChallenges("/challenges/",params: nil) { (challenges, error) -> () in

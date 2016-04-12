@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JQK-TZ-uAK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JQK-TZ-uAK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,9 +14,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
                     <navigationItem key="navigationItem" title="Map" id="FmL-yO-Oyt">
-                        <barButtonItem key="leftBarButtonItem" title="List" id="Xp7-AW-aaa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wqg-X8-uVj">
                             <connections>
-                                <action selector="listButtonClicked:" destination="P3Q-Ta-oyg" id="xHk-AP-q7Z"/>
+                                <segue destination="G85-JR-Gbw" kind="presentation" id="AOo-cG-aUB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -27,6 +27,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6g-LB-vFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-131" y="-845"/>
+        </scene>
+        <!--ChallengeCreation-->
+        <scene sceneID="a6b-0R-YzX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChallengeCreation" id="G85-JR-Gbw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmJ-s5-eai" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="313.5" y="-1121"/>
         </scene>
         <!--Map-->
         <scene sceneID="Ob7-Cj-Kot">

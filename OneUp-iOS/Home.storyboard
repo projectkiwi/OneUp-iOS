@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyq-76-mqm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yyq-76-mqm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Challenges-->
@@ -44,18 +43,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="One Up" id="zy5-Ey-ev7">
                         <barButtonItem key="backBarButtonItem" title="Home" id="YxP-GQ-IsT"/>
-                        <leftBarButtonItems>
-                            <barButtonItem title="Map" id="P3a-XT-R5B">
-                                <connections>
-                                    <segue destination="0oq-qe-MAF" kind="show" id="mgV-bI-JDl"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Filter" id="6N9-Jq-gBz">
-                                <connections>
-                                    <segue destination="feJ-DU-49K" kind="presentation" id="Pdj-Sv-Ym8"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="6N9-Jq-gBz">
+                            <connections>
+                                <segue destination="feJ-DU-49K" kind="presentation" id="Pdj-Sv-Ym8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NbZ-sS-DGh">
                             <connections>
                                 <segue destination="0So-D5-izt" kind="presentation" id="H5h-yP-QS3"/>
@@ -86,14 +78,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCA-qO-Z6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3358" y="1312"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="KVF-Az-GpU">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="0oq-qe-MAF" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xir-db-624" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3294" y="1188"/>
         </scene>
         <!--Home-->
         <scene sceneID="3jT-G2-18o">
