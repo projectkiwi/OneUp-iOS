@@ -32,6 +32,8 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
         setupSegmentedControl()
         loadTableAndData()
         tableViewSetup()
+        
+        self.navigationController?.tabBarItem!.image = UIImage(named: "arrow")
     }
     
     // XMSegmentedControl
