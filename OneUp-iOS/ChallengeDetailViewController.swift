@@ -128,22 +128,16 @@ extension ChallengeDetailViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(AttemptTableViewCell.cellIdentifier, forIndexPath: indexPath) as! AttemptTableViewCell
-        
         cell.attempt = ChallengeDetailViewController.challenge.attempts[indexPath.row]
-        
         return cell
     }
-
 }
 
 
 extension ChallengeDetailViewController: UITableViewDelegate {
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         currentAttempt = ChallengeDetailViewController.challenge.attempts[indexPath.row]
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
-    
 }
