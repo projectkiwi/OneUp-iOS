@@ -17,6 +17,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.navigationController?.tabBarItem!.image = UIImage(named: "profile") // Set Tab Bar Icon
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,34 +68,16 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     var challenges: [Challenge]?
     func getData() {
         ApiClient.getChallenges("/challenges/", params: nil) { (challenges, error) -> () in
-            // success
-            if error == nil {
+            if error == nil { // success
                 self.challenges = challenges!
                 self.feedTableView.challenges = challenges!
                 self.feedTableView.reloadData()
             }
-                
-                // error
-            else {
-                
-            }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 // delegate

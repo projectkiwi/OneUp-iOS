@@ -238,16 +238,13 @@ class ApiClient: AFHTTPSessionManager {
         http.POST(apiURL+"/challenges/like/"+attemptID, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             var liked: Bool? = false
-            
             if let responseDict = response as? NSDictionary {
-                liked = responseDict["success"] as? Bool
+                liked = responseDict["like"] as? Bool
             }
-            
             completion(liked: liked==true, error: nil)
                     
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error liking challenge: \(error.description)")
-            
             completion(liked: false, error: error)
         }
     }

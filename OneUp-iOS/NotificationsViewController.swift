@@ -12,9 +12,13 @@ class NotificationsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.navigationController?.tabBarItem!.image = UIImage(named: "bell") // Set Tab Bar Icon
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTableView()
     }
     
@@ -35,9 +39,7 @@ extension NotificationsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("notificationCell", forIndexPath: indexPath)
-        
         cell.textLabel?.text = notificationItems[indexPath.row]
-        
         return cell
     }
     

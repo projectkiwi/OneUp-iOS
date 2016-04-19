@@ -56,7 +56,7 @@ class Challenge: NSObject, MKAnnotation {
         if let recordHolders = challengeDetails["record_holders"] as? NSArray {
             if recordHolders.count > 0 {
                 currentRecord = recordHolders[0] as? NSDictionary
-                //username = currentRecord!["username"] as? String ?? "no record"
+                username = currentRecord?["username"] as? String
             }
         }
         

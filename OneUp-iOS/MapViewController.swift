@@ -16,6 +16,11 @@ class MapViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.navigationController?.tabBarItem!.image = UIImage(named: "map") // Set Tab Bar Icon
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self // VCMapView MapViewController Extension
