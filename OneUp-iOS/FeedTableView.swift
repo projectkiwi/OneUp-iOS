@@ -29,12 +29,7 @@ class FeedTableView: UITableView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        print("this shit is being initiated")
         feedTableViewDataSource?.feedTableViewChallenges()
-//        for challenge in (feedTableViewDataSource?.feedTableViewChallenges())! {
-//            challenges.append(challenge)
-//        }
-        
         
         self.delegate = self
         self.dataSource = self

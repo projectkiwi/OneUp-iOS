@@ -25,8 +25,6 @@ class ApiClient: AFHTTPSessionManager {
         
         http.POST(apiURL+"/auth/facebook", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            //print("Login Response: \(response)")
-            
             let responseDict = response as! NSDictionary
             ApiClient.authToken = responseDict["token"] as! String
             MainViewController.userName = responseDict["user"]?["username"] as? String
@@ -61,6 +59,26 @@ class ApiClient: AFHTTPSessionManager {
             completion(success: false, error: error)
         }
     }
+    
+    
+    class func getSelf(completion: (me: User?, error: NSError?) -> ()) {
+        let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.FBUserID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"username":MainViewController.userName!]
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+        
+        
+        http.GET(apiURL + "/me", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            let user = User(userDetails: response as! NSDictionary)
+            completion(me: user, error: nil)
+                
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error retrieving challenges: \(error.description)")
+            completion(me: nil, error: error)
+        }
+    }
+    
+    
     
     /**
          Retrieves challenges (use requestPath to specify local/popular/global)
@@ -99,6 +117,35 @@ class ApiClient: AFHTTPSessionManager {
         }
     }
     
+    
+    /**
+     Retrieves challenge
+     */
+    class func getChallenge(challengeID: String, params: NSDictionary?, completion: (challenge: Challenge?, error: NSError?) -> ()) {
+        
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+        var paramsDict: NSDictionary
+        
+        if params != nil {
+            paramsDict = params!
+            paramsDict.setValue(ApiClient.authToken, forKey: "token")
+        } else {
+            paramsDict = ["token":ApiClient.authToken]
+        }
+        
+        http.GET(apiURL + "/challenges/" + challengeID, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            print("Challenges: \(response)")
+            let challenge = Challenge(challengeDetails: response as! NSDictionary)
+            
+            completion(challenge: challenge, error: nil)
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error retrieving challenges: \(error.description)")
+            completion(challenge: nil, error: error)
+        }
+    }
+    
+    
     /**
         Post Challenge
      */
@@ -125,6 +172,7 @@ class ApiClient: AFHTTPSessionManager {
         }
         
     }
+    
     
     /**
         Post Challenge Attempt

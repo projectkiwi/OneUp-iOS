@@ -27,6 +27,12 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
         
+        ApiClient.getSelf { (me, error) in
+            if me != nil {
+            
+            }
+        }
+        
         getData()
         usernameLabel.text = MainViewController.userName
     }
