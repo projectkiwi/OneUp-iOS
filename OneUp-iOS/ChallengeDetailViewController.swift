@@ -90,7 +90,11 @@ class ChallengeDetailViewController: UIViewController {
     
     @IBAction func likeClicked(sender: AnyObject) {
         
-        // TODO: Immediately Toggle Color
+        if self.likesView.backgroundColor == UIColor.redColor() { // Immediately Toggle Color
+            self.likesView.backgroundColor = UIColor.greenColor()
+        } else {
+            self.likesView.backgroundColor = UIColor.redColor()
+        }
         
         ApiClient.likeChallenge((ChallengeDetailViewController.challenge.attempts.last?.id)!) { (liked, error) -> () in // TODO: Get correct attemptID
             if error == nil { // success
@@ -105,11 +109,15 @@ class ChallengeDetailViewController: UIViewController {
     
     @IBAction func bookmarkClicked(sender: AnyObject) {
         
-        // TODO: Immediately Toggle Color
+        if self.bookmarksView.backgroundColor == UIColor.redColor() { // Immediately Toggle Color
+            self.bookmarksView.backgroundColor = UIColor.greenColor()
+        } else {
+            self.bookmarksView.backgroundColor = UIColor.redColor()
+        }
         
         ApiClient.bookmarkChallenge(ChallengeDetailViewController.challenge.id) { (bookmarked, error) -> () in
-            if error == nil { // success
-                if bookmarked {
+            if error == nil { // Success
+                if bookmarked { // Set Color To New Result
                     self.bookmarksView.backgroundColor = UIColor.redColor()
                 } else {
                     self.bookmarksView.backgroundColor = UIColor.greenColor()
