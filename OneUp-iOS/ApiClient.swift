@@ -73,7 +73,7 @@ class ApiClient: AFHTTPSessionManager {
                 
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
-            print("Error retrieving challenges: \(error.description)")
+            print("Error retrieving info on self: \(error.description)")
             completion(me: nil, error: error)
         }
     }
@@ -140,7 +140,7 @@ class ApiClient: AFHTTPSessionManager {
             
             completion(challenge: challenge, error: nil)
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
-            print("Error retrieving challenges: \(error.description)")
+            print("Error retrieving specific challenge: \(error.description)")
             completion(challenge: nil, error: error)
         }
     }
@@ -253,23 +253,32 @@ class ApiClient: AFHTTPSessionManager {
         Get Bookmarks
      */
     
-    class func getBookmarks(completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+    class func getBookmarks(completion: (bookmarkIDs: NSArray?, error: NSError?) -> ()) {
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
-        http.GET(apiURL+"/bookmarks/", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.GET(apiURL+"/me/bookmarks/", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            //print("Bookmarks: \(response)")
+            print("Bookmarks: \(response)")
             
-            if let responseDict = response as? NSDictionary {
-                let challenges = Challenge.challengesFromJSON(responseDict["docs"] as! NSArray)
-                completion(challenges: challenges, error: nil)
+            if let bookmarkIDs = response as? NSArray {
+                completion(bookmarkIDs: bookmarkIDs, error: nil)
+                
+//                var challenges = [Challenge]()
+//                
+//                for bookmarkID in bookmarkIDs {
+//                    ApiClient.getChallenge(bookmarkID as! String, params: nil, completion: { (challenge, error) in
+//                        challenges.append(challenge!)
+//                        completion(challenges: challenges, error: nil)
+//                    })
+//                }
+                
             } else { // Invalid Response, Kick User Out
                 MainViewController.clearUserInfo()
             }
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error retrieving bookmarks: \(error.description)")
-            completion(challenges: nil, error: error)
+            completion(bookmarkIDs: nil, error: error)
         }
     }
     

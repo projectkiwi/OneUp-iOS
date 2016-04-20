@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    var me: User?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.navigationController?.tabBarItem!.image = UIImage(named: "profile") // Set Tab Bar Icon
@@ -25,6 +27,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ApiClient.getSelf { (me, error) in
+            if error == nil {
+                self.me = me!
+            }
+        }
+        
         setupSegmentedControl()
         feedTableView.feedTableViewDataSource = self
         feedTableView.feedTableViewDelegate = self
@@ -32,13 +40,7 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
         
-        ApiClient.getSelf { (me, error) in
-            if me != nil {
-            
-            }
-        }
         
-        getData()
         usernameLabel.text = MainViewController.userName
     }
     
@@ -68,15 +70,29 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var challenges: [Challenge]?
-    func getData() {
-        ApiClient.getChallenges("/challenges/", params: nil) { (challenges, error) -> () in
-            if error == nil { // success
-                self.challenges = challenges!
-                self.feedTableView.challenges = challenges!
-                self.feedTableView.reloadData()
+    var challenges = [Challenge]()
+    func getData(completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+        
+        if let ids = me?.bookmarkIDs {
+            challenges = [Challenge]()
+            for bookmarkID in ids {
+                ApiClient.getChallenge(bookmarkID as! String, params: nil, completion: { (challenge, error) in
+                    if let challenge = challenge {
+                        self.challenges.append(challenge)
+                        self.feedTableView.challenges = self.challenges
+                        self.feedTableView.reloadData()
+                    }
+                })
             }
         }
+        
+//        ApiClient.getChallenges("/challenges/", params: nil) { (challenges, error) -> () in
+//            if error == nil { // success
+//                self.challenges = challenges!
+//                self.feedTableView.challenges = challenges!
+//                self.feedTableView.reloadData()
+//            }
+//        }
     }
 }
 
@@ -91,7 +107,9 @@ extension ProfileViewController: FeedTableViewDelegate {
 extension ProfileViewController: FeedTableViewDataSource {
     func feedTableViewChallenges() -> [Challenge] {
         print("grabbing challenges")
-        return [Challenge]()
+        getData { (challenges, error) in
+            return challenges
+        }
     }
 }
 

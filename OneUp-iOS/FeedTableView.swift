@@ -52,6 +52,7 @@ class FeedTableView: UITableView {
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
         feedTableViewDataSource?.feedTableViewChallenges()
+        reloadData()
         refreshControl.endRefreshing()
     }
 

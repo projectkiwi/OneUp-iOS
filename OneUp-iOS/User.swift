@@ -13,7 +13,7 @@ class User {
     var username: String
     var facebookID: String
     var email: String
-//    var bookmarks: [Challenge]
+    var bookmarkIDs: NSArray?
 //    var associatedChallenges: [Challenge]
     
 //    username: String,
@@ -29,14 +29,20 @@ class User {
         username = userDetails["username"] as? String ?? "no username"
         facebookID = userDetails["facebook_id"] as? String ?? "no ID"
         email = userDetails["email"] as? String ?? "no email"
-        
-        for challengeID in userDetails["liked_challenges"] as! NSArray {
-            print(challengeID)
-            ApiClient.getChallenge(challengeID as! String, params: nil, completion: { (challenge, error) in
-                let challenge = challenge
-                print(challenge)
-            })
+
+        ApiClient.getBookmarks { (bookmarkIDs, error) in
+            if error == nil {
+                self.bookmarkIDs = bookmarkIDs
+            }
         }
+    
+//        for challengeID in userDetails["liked_challenges"] as! NSArray {
+//            print(challengeID)
+//            ApiClient.getChallenge(challengeID as! String, params: nil, completion: { (challenge, error) in
+//                let challenge = challenge
+//                print(challenge)
+//            })
+//        }
 //        bookmarks = nil
 //        associatedChallenges = nil
     }
