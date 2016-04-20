@@ -23,7 +23,7 @@ class AttemptTableViewCell: UITableViewCell {
             scoreLabel.text = "\(attempt!.votes) likes"
             dateLabel.text = "2 days ago"
             previewImageView.setImageWithURL(NSURL(string: (attempt?.imgUrl)!)!)
-            
+            dateLabel.text = attempt?.timestamp
         }
     }
 

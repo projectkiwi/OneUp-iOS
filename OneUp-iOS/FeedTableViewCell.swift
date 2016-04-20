@@ -55,6 +55,7 @@ class FeedTableViewCell: UITableViewCell {
             }
             
             challengeCategoriesLabel.text = catergoriesString
+            challengeTimeLabel.text = challenge.timestamp
         }
     }
     

@@ -20,6 +20,7 @@ class Attempt {
     var likes: Int { get { return votes } }
     var isLiked: Bool
     var comments: NSArray!
+    var timestamp: String?
     
     init(attemptDetails: NSDictionary) {
         id = attemptDetails["_id"] as! String
@@ -43,6 +44,16 @@ class Attempt {
         votes = attemptDetails["like_total"] as? Int ?? 0
         isLiked = attemptDetails["liked_attempt"] as? Bool ?? false
         comments = attemptDetails["comments"] as? NSArray ?? []
+        
+        if let createdAtString = attemptDetails["created_on"] as? String {
+            let createdAtDate = createdAtString.dateFromString(createdAtString)
+            let currentDate = NSDate()
+            timestamp = currentDate.offsetFrom(createdAtDate!)
+            
+        } else {
+            timestamp = "ER"
+        }
+        
     }
 
     class func attemptsFromArray(attemptArray: NSArray) -> [Attempt] {

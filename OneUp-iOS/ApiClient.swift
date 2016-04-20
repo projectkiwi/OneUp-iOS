@@ -79,7 +79,7 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            //print("Challenges: \(response)")
+            print("Challenges: \(response)")
             
             if let responseDict = response as? NSDictionary {
                 if(String(responseDict["message"]) == "Invalid User!") {
