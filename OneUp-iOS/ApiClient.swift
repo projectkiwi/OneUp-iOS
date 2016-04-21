@@ -99,7 +99,7 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            //print("Challenges: \(response)")
+            print("Challenges: \(response)")
             
             if let responseDict = response as? NSDictionary {
                 if(String(responseDict["message"]) == "Invalid User!") {
@@ -324,20 +324,15 @@ class ApiClient: AFHTTPSessionManager {
         
         http.POST(apiURL+"/users/bookmark/"+challengeID, parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            var bookmarked = false
-            
+            var bookmarked: Bool? = false
             if let responseDict = response as? NSDictionary {
-                let wasBookmarked = responseDict["success"] as! Bool
-                if(wasBookmarked) {
-                    bookmarked = true
-                }
+                bookmarked = responseDict["bookmark"] as? Bool
             }
             
-            completion(bookmarked: bookmarked, error: nil)
+            completion(bookmarked: bookmarked==true, error: nil)
                     
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
-            print("Error liking challenge: \(error.description)")
-            
+            print("Error bookmarking challenge: \(error.description)")
             completion(bookmarked: false, error: error)
         }
     }

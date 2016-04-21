@@ -28,6 +28,7 @@ class Challenge: NSObject, MKAnnotation {
     var recordHolders: NSArray?
     var currentRecord: NSDictionary?
     var cachedGIFImage: UIImage?
+    var timestamp: String?
     
     var topAttempt: Attempt!
     
@@ -63,10 +64,16 @@ class Challenge: NSObject, MKAnnotation {
         // Get Top Attempt - For Image
         previewGif = "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif"
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
+        
         if attempts.count > 0 {
             topAttempt = attempts[attempts.count - 1] as Attempt
             previewGif = topAttempt.gifUrl
+            
+            timestamp = topAttempt.timestamp
         }
+        
+        
+        
     }
     
     class func challengesFromJSON(challengeArray: NSArray) -> [Challenge] {

@@ -12,6 +12,8 @@ class NotificationsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var notifications = [Notification]()
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.navigationController?.tabBarItem!.image = UIImage(named: "bell") // Set Tab Bar Icon
@@ -19,6 +21,14 @@ class NotificationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notifications.append(Notification(author: "PURDUEHACKER", statusChange: "liked your challenge", timeStamp: "2 days ago"))
+        
+        notifications.append(Notification(author: "HARRIS", statusChange: "Bookmarked your challenge", timeStamp: "3 days ago"))
+        
+        notifications.append(Notification(author: "ADAM", statusChange: "Liked your attempt", timeStamp: "6 days ago"))
+        
+        
         setupTableView()
     }
     
@@ -27,24 +37,25 @@ class NotificationsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.rowHeight = 110
     }
     
-    let notificationItems = ["Notification 1","Notification 2","Notification 3"]
 }
 
 extension NotificationsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notificationItems.count
+        return notifications.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("notificationCell", forIndexPath: indexPath)
-        cell.textLabel?.text = notificationItems[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("notificationCell", forIndexPath: indexPath) as! NotificationCell
+        
+        cell.notification = notifications[indexPath.row]
+        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //let cell = tableView.cellForRowAtIndexPath(indexPath)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
