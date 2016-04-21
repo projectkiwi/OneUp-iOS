@@ -106,10 +106,10 @@ extension FeedTableView: UITableViewDelegate {
                 isMoreDataLoading = true
                 
                 // TODO: REMOVE AND IMPLEMENT PAGING WHEN BACKEND READY
-                challenges.appendContentsOf(originalChallenges)
+//                challenges.appendContentsOf(originalChallenges)
                 
-                reloadData()
-                isMoreDataLoading = false
+//                reloadData()
+//                isMoreDataLoading = false
             }
         }
     }

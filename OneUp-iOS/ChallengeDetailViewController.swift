@@ -46,6 +46,8 @@ class ChallengeDetailViewController: UIViewController {
         }
         currentAttempt = ChallengeDetailViewController.challenge.attempts[0]
         
+        attemptImageView.clipsToBounds = true
+        
         setupCustomCell()
         updateUIFields()
         makeLikeBookmarkButtonsInteractive()

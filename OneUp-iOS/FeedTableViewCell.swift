@@ -87,6 +87,8 @@ class FeedTableViewCell: UITableViewCell {
         contentContainerView.layer.cornerRadius = 5
         contentContainerView.clipsToBounds = true
         
+        mainImageView.clipsToBounds = true
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

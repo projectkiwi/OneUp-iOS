@@ -30,11 +30,13 @@ class User {
         facebookID = userDetails["facebook_id"] as? String ?? "no ID"
         email = userDetails["email"] as? String ?? "no email"
 
-        ApiClient.getBookmarks { (bookmarkIDs, error) in
-            if error == nil {
-                self.bookmarkIDs = bookmarkIDs
-            }
-        }
+        bookmarkIDs = userDetails["bookmarks"] as? [String]
+        
+//        ApiClient.getBookmarks { (bookmarkIDs, error) in
+//            if error == nil {
+//                self.bookmarkIDs = bookmarkIDs
+//            }
+//        }
     
 //        for challengeID in userDetails["liked_challenges"] as! NSArray {
 //            print(challengeID)

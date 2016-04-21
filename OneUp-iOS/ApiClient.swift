@@ -68,6 +68,8 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL + "/me", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
+            print(response)
+            
             let user = User(userDetails: response as! NSDictionary)
             completion(me: user, error: nil)
                 
@@ -114,6 +116,36 @@ class ApiClient: AFHTTPSessionManager {
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error retrieving challenges: \(error.description)")
             completion(challenges: nil, error: error)
+        }
+    }
+    
+    
+    /**
+     Recursively retrieves challenges from an array of challenge ids
+     */
+    class func getChallengeBatch(challengeIDs: [String], params: NSDictionary?, completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+    
+        var allChallenges = [Challenge]()
+        
+        if challengeIDs.count > 0 {
+            getChallenge(challengeIDs[0], params: nil, completion: { (challenge, error) in
+                
+                if error == nil {
+                    allChallenges.append(challenge!)
+                    
+                    let neededChallengeIDs = Array(challengeIDs.dropFirst())
+                    getChallengeBatch(neededChallengeIDs, params: nil, completion: { (challenges, error) in
+                        if error == nil {
+                            allChallenges += challenges!
+                            completion(challenges: allChallenges, error: nil)
+                        }
+                    })
+                }
+            })
+        }
+        
+        else {
+            completion(challenges: [Challenge](), error: nil)
         }
     }
     

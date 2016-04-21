@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController {
         ApiClient.getSelf { (me, error) in
             if error == nil {
                 self.me = me!
+                self.getData()
             }
         }
         
@@ -71,19 +72,18 @@ class ProfileViewController: UIViewController {
     }
     
     var challenges = [Challenge]()
-    func getData(completion: (challenges: [Challenge]?, error: NSError?) -> ()) {
+    func getData() {
+        
+        
         
         if let ids = me?.bookmarkIDs {
-            challenges = [Challenge]()
-            for bookmarkID in ids {
-                ApiClient.getChallenge(bookmarkID as! String, params: nil, completion: { (challenge, error) in
-                    if let challenge = challenge {
-                        self.challenges.append(challenge)
-                        self.feedTableView.challenges = self.challenges
-                        self.feedTableView.reloadData()
-                    }
-                })
-            }
+            ApiClient.getChallengeBatch(ids as! [String], params: nil, completion: { (challenges, error) in
+                if error == nil {
+                    self.challenges = challenges!
+                    self.feedTableView.challenges = challenges!
+                    self.feedTableView.reloadData()
+                }
+            })            
         }
         
 //        ApiClient.getChallenges("/challenges/", params: nil) { (challenges, error) -> () in
@@ -106,10 +106,8 @@ extension ProfileViewController: FeedTableViewDelegate {
 // data source
 extension ProfileViewController: FeedTableViewDataSource {
     func feedTableViewChallenges() -> [Challenge] {
-        print("grabbing challenges")
-        getData { (challenges, error) in
-            return challenges
-        }
+        getData()
+        return [Challenge]()
     }
 }
 
