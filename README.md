@@ -13,14 +13,14 @@
 
 #### User Story 3
 
-- [ ] Implement timeline of past record holders - Marty
-- [ ] As a user, I would like to know how long each record was held for - Marty
+- [X] Implement timeline of past record holders - Marty
+- [X] As a user, I would like to know how long each record was held for - Marty
 
 #### User Story 4
 
-- [ ] Implement User Profile Page - Marty
-- [ ] Implement Bookmarks - Harris
-- [ ] Implement History - Marty
+- [X] Implement User Profile Page - Marty
+- [X] Implement Bookmarks - Harris
+- [X] Implement History - Marty
 - [ ] Implement Likes - Harris
 
 #### User Story 5
@@ -30,8 +30,8 @@
 
 #### User Story 6
 
-- [ ] Implement Notifications - Harris
-- [ ] Implement Push Notifications - Marty
+- [X] Implement Notifiactions design - Marty
+- [ ] Implement Notifications with correct data - Marty 
 
 #### User Story 7
 
@@ -40,7 +40,7 @@
 
 #### User Story 8
 
-- [ ] Implement challenge cell design - Marty
+- [X] Implement challenge cell design - Marty
 
 #### User Story 9
 
