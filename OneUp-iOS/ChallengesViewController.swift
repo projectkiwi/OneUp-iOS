@@ -9,9 +9,9 @@
 import UIKit
 import XMSegmentedControl
 
-class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
+class ChallengesViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var feedTableView: FeedTableView!
     
     enum DataSources {
         case Local
@@ -28,6 +28,10 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        feedTableView.feedTableViewDataSource = self
+        feedTableView.feedTableViewDelegate = self
+        
         currentDataSource = .Local
         setupSegmentedControl()
         loadTableAndData()
@@ -36,19 +40,6 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
         self.navigationController?.tabBarItem!.image = UIImage(named: "home") // Set Tab Bar Icon
     }
     
-    // XMSegmentedControl
-    func xmSegmentedControl(xmSegmentedControl: XMSegmentedControl, selectedSegment: Int) {
-        if(selectedSegment == 0) {
-            currentDataSource = .Local
-        }
-        if(selectedSegment == 1) {
-            currentDataSource = .Popular
-        }
-        if(selectedSegment == 2) {
-            currentDataSource = .Global
-        }
-        loadTableAndData(); // Reload Table
-    }
     
     func setupSegmentedControl() {
         let segmentedControl = XMSegmentedControl(frame: CGRect(x: 0, y: 60, width: self.view.frame.width, height: 44), segmentTitle: ["Local", "Popular", "Global"], selectedItemHighlightStyle: XMSelectedItemHighlightStyle.BottomEdge)
@@ -75,42 +66,22 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
         } else if currentDataSource == .Global {
             requestURL = "/challenges/"
         }
+        
         ApiClient.getChallenges(requestURL,params: nil) { (challenges, error) -> () in
             if error == nil { // success
                 self.challenges = challenges!
-                self.tableView.reloadData()
-                
-                // REMOVE AFTER PAGING IMPLEMENTED
-                if self.originalChallenges.isEmpty == true {
-                    self.originalChallenges.appendContentsOf(self.challenges)
-                }
+                self.feedTableView.challenges = challenges!
+                self.feedTableView.reloadData()
             }
         }
     }
     
     func tableViewSetup() {
-        tableView.delegate = self
-        tableView.dataSource = self
         
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 162 // "average" cell height
-        
-        // add custom cell
-        let cellNib = UINib(nibName: "FeedTableViewCell", bundle: NSBundle.mainBundle())
-        tableView.registerNib(cellNib, forCellReuseIdentifier: FeedTableViewCell.cellIdentifier)
-        
-        // pull down to refresh
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(ChallengesViewController.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, atIndex: 0)
+        feedTableView.feedTableViewDataSource = self
+        feedTableView.feedTableViewDelegate = self
     }
     
-    func refreshControlAction(refreshControl: UIRefreshControl) {
-        loadTableAndData()
-        refreshControl.endRefreshing()
-    }
     
     
     override func didReceiveMemoryWarning() {
@@ -121,7 +92,6 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
 
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //let destinationViewController = segue.destinationViewController
@@ -138,53 +108,33 @@ class ChallengesViewController: UIViewController, XMSegmentedControlDelegate {
 }
 
 
-extension ChallengesViewController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return challenges.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(FeedTableViewCell.cellIdentifier, forIndexPath: indexPath) as! FeedTableViewCell
-        
-        cell.challenge = challenges[indexPath.row]
-        
-        return cell
-        
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 162
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as! ChallengeDetailViewController
-        ChallengeDetailViewController.challenge = challenges[indexPath.row]
-        
-        self.navigationController?.pushViewController(controller, animated: true)
-        
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+// delegate
+extension ChallengesViewController: FeedTableViewDelegate {
+    func feedTableView(controllerToSwitch: ChallengeDetailViewController) {
+        self.navigationController?.pushViewController(controllerToSwitch, animated: true)
     }
 }
 
-extension ChallengesViewController: UIScrollViewDelegate, UITableViewDelegate {
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if (!isMoreDataLoading) {
-            // calculate the position of one screen length before the bottom of the results
-            let scrollViewContentHeight = tableView.contentSize.height
-            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
-            
-            // when the user has scrolled past the threshold, start requesting
-            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
-                isMoreDataLoading = true
-                
-                // TODO: REMOVE AND IMPLEMENT PAGING WHEN BACKEND READY
-                challenges.appendContentsOf(originalChallenges)
-                
-                tableView.reloadData()
-                isMoreDataLoading = false
-            }
+// data source
+extension ChallengesViewController: FeedTableViewDataSource {
+    func feedTableViewChallenges() -> [Challenge] {
+        loadTableAndData()
+        return [Challenge]()
+    }
+}
+
+extension ChallengesViewController: XMSegmentedControlDelegate {
+    // XMSegmentedControl
+    func xmSegmentedControl(xmSegmentedControl: XMSegmentedControl, selectedSegment: Int) {
+        if(selectedSegment == 0) {
+            currentDataSource = .Local
         }
+        if(selectedSegment == 1) {
+            currentDataSource = .Popular
+        }
+        if(selectedSegment == 2) {
+            currentDataSource = .Global
+        }
+        loadTableAndData(); // Reload Table
     }
 }

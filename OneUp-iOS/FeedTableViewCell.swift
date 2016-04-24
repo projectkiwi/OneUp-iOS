@@ -70,12 +70,13 @@ class FeedTableViewCell: UITableViewCell {
         
         let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
         dispatch_async(backgroundQueue, {
-            let gif = UIImage.gifWithURL("\(self.challenge.previewGif)")
-            self.challenge.cachedGIFImage = gif!
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completion(image: gif!)
-            })
+            if let gif = UIImage.gifWithURL("\(self.challenge.previewGif)") {
+                self.challenge.cachedGIFImage = gif
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(image: gif)
+                })
+            }
         })
 
     }
