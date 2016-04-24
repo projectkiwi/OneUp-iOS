@@ -4,12 +4,12 @@
 
 ### Sprint 3
 
-- [ ] Attempt Location Picker - Harris
+- [X] Attempt Location Picker - Harris
 
 #### User Story 2
 
-- [ ] Link challenge locations to the map view - Harris
-- [ ] In list view, filter challenges based on a location radius - Harris
+- [X] Link challenge locations to the map view - Harris
+- [-] In list view, filter challenges based on a location radius - Harris
 
 #### User Story 3
 
@@ -19,7 +19,7 @@
 #### User Story 4
 
 - [X] Implement User Profile Page - Marty
-- [X] Implement Bookmarks - Harris
+- [ ] Implement Bookmarks - Harris
 - [X] Implement History - Marty
 - [ ] Implement Likes - Harris
 

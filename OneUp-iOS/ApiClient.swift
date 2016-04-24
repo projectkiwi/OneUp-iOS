@@ -178,7 +178,7 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Post Challenge
      */
-    class func postChallenge(name:String, desc:String, pattern:String, categories:String, mediaData:NSData, completion: (challengeID: String?, error: NSError?) -> ()) {
+    class func postChallenge(name:String, desc:String, pattern:String, categories:String, location:Location, mediaData:NSData, completion: (challengeID: String?, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken, "name":name, "description":desc, "pattern":pattern, "categories":categories]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
@@ -188,7 +188,7 @@ class ApiClient: AFHTTPSessionManager {
             let challengeID = responseDict["data"]?["_id"] as? String
             
             if(challengeID != nil) {
-                ApiClient.postAttempt(challengeID!, mediaData: mediaData) { (attemptID, error) -> () in
+                ApiClient.postAttempt(challengeID!, description: desc, location: location, mediaData: mediaData) { (attemptID, error) -> () in
                     // Do Nothing
                 }
             }
@@ -206,8 +206,8 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Post Challenge Attempt
      */
-    class func postAttempt(challengeID:String, mediaData:NSData, completion: (attemptID: String?, error: NSError?) -> ()) {
-        let params:NSDictionary = ["token":ApiClient.authToken, "description":"iOS - ToDo"]
+    class func postAttempt(challengeID:String, description:String, location:Location, mediaData:NSData, completion: (attemptID: String?, error: NSError?) -> ()) {
+        let params:NSDictionary = ["token":ApiClient.authToken, "description":description, "location":location.id]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, constructingBodyWithBlock: { (formData) -> Void in

@@ -20,6 +20,7 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
     @IBOutlet weak var locationButton: UIButton!
     
     var videoData: NSData?
+    var selectedLocation: Location?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
         if(videoData == nil) {
             return
         }
-        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, mediaData: videoData!) { (challengeID, error) -> () in
+        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, location: selectedLocation!, mediaData: videoData!) { (challengeID, error) -> () in
             
             if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil)
@@ -86,6 +87,7 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
     }
     
     func locationPickerController(locationPickerController: LocationPickerController, didSelectLocation location: Location) {
+        selectedLocation = location
         locationButton.setTitle("Location: \(location.name)", forState: .Normal)
     }
 }
