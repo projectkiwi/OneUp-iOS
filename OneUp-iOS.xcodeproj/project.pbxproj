@@ -40,6 +40,8 @@
 		F0580D341C88E3EB00259247 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D331C88E3EB00259247 /* Settings.storyboard */; };
 		F0580D361C88EC8600259247 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0580D351C88EC8600259247 /* Profile.storyboard */; };
 		F074C4921CBADFF5008D33C3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */; };
+		F075C4291CCD54F100952881 /* LocationPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F075C4281CCD54F100952881 /* LocationPicker.storyboard */; };
+		F075C42D1CCD56D500952881 /* LocationPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075C42C1CCD56D500952881 /* LocationPickerController.swift */; };
 		F08214BA1CB476A70016D55F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */; };
 		F08214BC1CB4797A0016D55F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */; };
 		F0B4188C1CBCE634007B6693 /* OneUpTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B4188B1CBCE634007B6693 /* OneUpTabBarController.swift */; };
@@ -111,6 +113,8 @@
 		F0580D331C88E3EB00259247 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		F0580D351C88EC8600259247 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F074C4911CBADFF5008D33C3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F075C4281CCD54F100952881 /* LocationPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocationPicker.storyboard; sourceTree = "<group>"; };
+		F075C42C1CCD56D500952881 /* LocationPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPickerController.swift; sourceTree = "<group>"; };
 		F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F0B4188B1CBCE634007B6693 /* OneUpTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneUpTabBarController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				BD962E381C894DD100345774 /* FilterViewController.swift */,
+				F075C42C1CCD56D500952881 /* LocationPickerController.swift */,
 				F0BC99741C73A998008BFB71 /* MainViewController.swift */,
 				BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */,
 				F03A2A5B1C892EF400267302 /* MapViewController.swift */,
@@ -238,6 +243,7 @@
 				BD962E361C894C2500345774 /* Filter.storyboard */,
 				BD0812671CB17CF700EC912D /* ChallengeCreation.storyboard */,
 				F0EB973A1CB435DD001C5B73 /* AttemptCreation.storyboard */,
+				F075C4281CCD54F100952881 /* LocationPicker.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				F0580D361C88EC8600259247 /* Profile.storyboard in Resources */,
 				F0BC997D1C73A998008BFB71 /* Assets.xcassets in Resources */,
 				F0254E6A1C88F5F800AB3F5C /* Challenge.storyboard in Resources */,
+				F075C4291CCD54F100952881 /* LocationPicker.storyboard in Resources */,
 				F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */,
 				BDA57E711CB41B8200E89162 /* Notifications.storyboard in Resources */,
 			);
@@ -507,6 +514,7 @@
 			files = (
 				BD68D4C31C88B73300F88429 /* ApiClient.swift in Sources */,
 				BD6E4E881CA8C0F900EBBDDC /* AttemptTableViewCell.swift in Sources */,
+				F075C42D1CCD56D500952881 /* LocationPickerController.swift in Sources */,
 				BD5B9A571CBD7E2B00D76CC2 /* GifFetcher.swift in Sources */,
 				BDA8D3B61CC014E9005935CD /* User.swift in Sources */,
 				BDB6ABF61C7F503E00C0B6C9 /* ChallengesViewController.swift in Sources */,
