@@ -70,7 +70,7 @@ extension FeedTableView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(FeedTableViewCell.cellIdentifier, forIndexPath: indexPath) as! FeedTableViewCell
         
         cell.challenge = challenges[indexPath.row]
-        print("recreating cells")
+        cell.challengeIndex = indexPath.row
         
         return cell
         

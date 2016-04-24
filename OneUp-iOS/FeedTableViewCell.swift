@@ -24,6 +24,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var challengeHeartCountLabel: UILabel!
     @IBOutlet weak var challengeCategoriesLabel: UILabel!
     
+    var challengeIndex: Int?
     var challenge: Challenge! {
         didSet {
             challengeTitleLabel.text = challenge.name
@@ -31,7 +32,7 @@ class FeedTableViewCell: UITableViewCell {
             challengeDescriptionLabel.text = challenge.desc
             challengeAuthorLabel.text = challenge.username
             
-            if let cachedGIF = challenge.cachedGIFImage {
+            if let cachedGIF: UIImage = challenge.cachedGIFImage {
                 self.mainImageView.image = cachedGIF
             } else {
                 fetchGIF({ (image) in
@@ -44,17 +45,17 @@ class FeedTableViewCell: UITableViewCell {
 //                self.mainImageView.image = UIImage.gifWithURL("\(self.challenge.previewGif)")
 //            }
             
-            var catergoriesString = ""
-            for catergory in challenge.categories {
-                catergoriesString += "\(catergory), "
+            var categoriesString = ""
+            for category in challenge.categories {
+                categoriesString += "\(category), "
             }
             
-            if catergoriesString.characters.count > 0 {
-                catergoriesString = catergoriesString.substringToIndex(catergoriesString.endIndex.predecessor())
-                catergoriesString = catergoriesString.substringToIndex(catergoriesString.endIndex.predecessor())
+            if categoriesString.characters.count > 0 {
+                categoriesString = categoriesString.substringToIndex(categoriesString.endIndex.predecessor())
+                categoriesString = categoriesString.substringToIndex(categoriesString.endIndex.predecessor())
             }
             
-            challengeCategoriesLabel.text = catergoriesString
+            challengeCategoriesLabel.text = categoriesString
             challengeTimeLabel.text = challenge.timestamp
         }
     }
@@ -70,8 +71,13 @@ class FeedTableViewCell: UITableViewCell {
         
         let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
         dispatch_async(backgroundQueue, {
-            if let gif = UIImage.gifWithURL("\(self.challenge.previewGif)") {
+            if let gif = UIImage.gifWithURL(self.challenge.previewGif) {
                 self.challenge.cachedGIFImage = gif
+                if self.challengeIndex != nil {
+                    if let challengesVC = self.window?.rootViewController as? ChallengesViewController {
+                        challengesVC.challenges[self.challengeIndex!].cachedGIFImage = gif
+                    }
+                }
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(image: gif)
