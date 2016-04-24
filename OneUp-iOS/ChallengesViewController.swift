@@ -28,7 +28,6 @@ class ChallengesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         feedTableView.feedTableViewDataSource = self
         feedTableView.feedTableViewDelegate = self
         
@@ -53,8 +52,6 @@ class ChallengesViewController: UIViewController {
         self.view.addSubview(segmentedControl)
     }
     
-    
-    
     // Challenges Table
     func loadTableAndData() {
         // TODO: Apply Filters
@@ -77,7 +74,6 @@ class ChallengesViewController: UIViewController {
     }
     
     func tableViewSetup() {
-        
         feedTableView.feedTableViewDataSource = self
         feedTableView.feedTableViewDelegate = self
     }

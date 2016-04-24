@@ -10,14 +10,14 @@ import UIKit
 import MobileCoreServices
 import Photos
 
-class ChallengeCreationViewController: UIViewController {
+class ChallengeCreationViewController: UIViewController, LocationPickerControllerDelegate {
 
     @IBOutlet weak var challengeImageView: UIImageView!
     @IBOutlet weak var challengeName: UITextField!
     @IBOutlet weak var challengeDescription: UITextField!
     @IBOutlet weak var patternField: UITextField!
-    @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var categoryField: UITextField!
+    @IBOutlet weak var locationButton: UIButton!
     
     var videoData: NSData?
     
@@ -77,16 +77,21 @@ class ChallengeCreationViewController: UIViewController {
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
+    @IBAction func selectLocation(sender: AnyObject) {
+        let lpStoryboard = UIStoryboard(name: "LocationPicker", bundle: nil)
+        if let lpController = lpStoryboard.instantiateViewControllerWithIdentifier("LocationPicker") as? LocationPickerController {
+            lpController.delegate = self
+            self.presentViewController(lpController, animated: true, completion: nil)
+        }
+    }
+    
+    func locationPickerController(locationPickerController: LocationPickerController, didSelectLocation location: String) {
+        locationButton.setTitle("Location: \(location)", forState: .Normal)
+    }
 }
 
 extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-//        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-//        if mediaType == kUTTypeMovie {
-//        }
-        
-        
         if let referenceURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
             let fetchResult = PHAsset.fetchAssetsWithALAssetURLs([referenceURL], options: nil)
             if let phAsset = fetchResult.firstObject as? PHAsset {

@@ -25,6 +25,8 @@ class ApiClient: AFHTTPSessionManager {
         
         http.POST(apiURL+"/auth/facebook", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
+            print("Login Response: \(response)")
+            
             let responseDict = response as! NSDictionary
             ApiClient.authToken = responseDict["token"] as! String
             MainViewController.userName = responseDict["user"]?["username"] as? String
@@ -32,6 +34,7 @@ class ApiClient: AFHTTPSessionManager {
             if(MainViewController.userName == nil) { // Require Registration if username is not set
                 isNewAccount = true
             }
+            MainViewController.saveUserInfo()
             completion(registered: !isNewAccount, error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
