@@ -45,6 +45,7 @@
 		F08214BA1CB476A70016D55F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */; };
 		F08214BC1CB4797A0016D55F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */; };
 		F0B4188C1CBCE634007B6693 /* OneUpTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B4188B1CBCE634007B6693 /* OneUpTabBarController.swift */; };
+		F0B5F93A1CCD6EAD00A976C7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B5F9391CCD6EAD00A976C7 /* Location.swift */; };
 		F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99721C73A998008BFB71 /* AppDelegate.swift */; };
 		F0BC99751C73A998008BFB71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99741C73A998008BFB71 /* MainViewController.swift */; };
 		F0BC99781C73A998008BFB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC99761C73A998008BFB71 /* Main.storyboard */; };
@@ -118,6 +119,7 @@
 		F08214B91CB476A70016D55F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F08214BB1CB4797A0016D55F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F0B4188B1CBCE634007B6693 /* OneUpTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneUpTabBarController.swift; sourceTree = "<group>"; };
+		F0B5F9391CCD6EAD00A976C7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F0BC996F1C73A998008BFB71 /* OneUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OneUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99721C73A998008BFB71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0BC99741C73A998008BFB71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				BDD6C11C1C88BEE3004B2512 /* Challenge.swift */,
 				BD962E341C891D8000345774 /* Attempt.swift */,
+				F0B5F9391CCD6EAD00A976C7 /* Location.swift */,
 				F03A2A5D1C89367A00267302 /* ChallengePin.swift */,
 				BDA8D3B51CC014E9005935CD /* User.swift */,
 				BDA8D3BB1CC7C7DA005935CD /* Notification.swift */,
@@ -540,6 +543,7 @@
 				BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */,
 				F0EB973D1CB4370A001C5B73 /* AttemptCreationViewController.swift in Sources */,
 				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
+				F0B5F93A1CCD6EAD00A976C7 /* Location.swift in Sources */,
 				BDA8D3BA1CC7C759005935CD /* NotificationCell.swift in Sources */,
 				BD962E351C891D8000345774 /* Attempt.swift in Sources */,
 			);

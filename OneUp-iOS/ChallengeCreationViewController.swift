@@ -85,8 +85,8 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
         }
     }
     
-    func locationPickerController(locationPickerController: LocationPickerController, didSelectLocation location: String) {
-        locationButton.setTitle("Location: \(location)", forState: .Normal)
+    func locationPickerController(locationPickerController: LocationPickerController, didSelectLocation location: Location) {
+        locationButton.setTitle("Location: \(location.name)", forState: .Normal)
     }
 }
 

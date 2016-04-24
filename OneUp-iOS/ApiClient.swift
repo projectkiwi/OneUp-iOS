@@ -149,6 +149,7 @@ class ApiClient: AFHTTPSessionManager {
     /**
      Retrieves challenge
      */
+    
     class func getChallenge(challengeID: String, params: NSDictionary?, completion: (challenge: Challenge?, error: NSError?) -> ()) {
         
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
@@ -314,6 +315,7 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Bookmark Challenge
      */
+    
     class func bookmarkChallenge(challengeID: String, completion: (bookmarked: Bool, error: NSError?) -> ()) {
         let params:NSDictionary = ["token":ApiClient.authToken]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
@@ -334,6 +336,10 @@ class ApiClient: AFHTTPSessionManager {
     }
     
     
+    /**
+        Get Notifications
+     */
+    
     class func getNotifications(completion: (notifications: [Notification]?, error: NSError?) -> ()) {
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
@@ -349,6 +355,37 @@ class ApiClient: AFHTTPSessionManager {
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error retrieving notifications: \(error.description)")
             completion(notifications: nil, error: error)
+        }
+    }
+    
+    
+    
+    /**
+        Get Location Options
+     */
+    
+    class func getLocations(completion: (locations: [Location]?, error: NSError?) -> ()) {
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+        let params:NSDictionary = ["token":ApiClient.authToken, "lat":"40.42", "lon":"-86.9"]
+        
+        http.GET(apiURL+"/locations/", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            //print("Locations: \(response)")
+            
+            if let responseDict = response as? NSDictionary {
+                if let locationsRaw = responseDict["locations"] as? NSArray {
+                    let locations = Location.locationsFromArray(locationsRaw)
+                    completion(locations: locations, error: nil)
+                } else { // Invalid Response, Kick User Out
+                    MainViewController.clearUserInfo()
+                }
+            } else { // Invalid Response, Kick User Out
+                MainViewController.clearUserInfo()
+            }
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error retrieving locations: \(error.description)")
+            completion(locations: nil, error: error)
         }
     }
     

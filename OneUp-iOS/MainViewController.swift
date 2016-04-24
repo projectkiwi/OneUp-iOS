@@ -17,6 +17,8 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     static var FBEmail: String?
     static var userName: String?
     
+    static var locations: [Location]?
+    
     var FBRequestPermissions = ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"]
 
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         checkAutoLogin()
+        cacheLocations()
     }
     
     class func loadUserInfo() {
@@ -64,6 +67,14 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
     func checkAutoLogin() {
         if(!ApiClient.authToken.isEmpty && MainViewController.userName != nil) {
             enterApplication()
+        }
+    }
+    
+    func cacheLocations() {
+        ApiClient.getLocations() { (locations,error) -> () in
+            if error == nil { // success
+                MainViewController.locations = locations
+            }
         }
     }
     
