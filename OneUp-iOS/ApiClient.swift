@@ -49,9 +49,7 @@ class ApiClient: AFHTTPSessionManager {
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.PUT(apiURL+"/me", parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            
-            //let responseDict = response as! NSDictionary
-            //let attemptID = responseDict["data"]!["_id"] as? String
+                
             completion(success: true, error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -65,14 +63,11 @@ class ApiClient: AFHTTPSessionManager {
         let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.FBUserID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"username":MainViewController.userName!]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
-        
         http.GET(apiURL + "/me", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            print(response)
-            
+            print("User = \(response)")
             let user = User(userDetails: response as! NSDictionary)
             completion(me: user, error: nil)
-                
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error retrieving info on self: \(error.description)")
@@ -98,8 +93,6 @@ class ApiClient: AFHTTPSessionManager {
         }
         
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            
-            print("Challenges: \(response)")
             
             if let responseDict = response as? NSDictionary {
                 if(String(responseDict["message"]) == "Invalid User!") {

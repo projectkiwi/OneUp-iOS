@@ -27,9 +27,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         ApiClient.getSelf { (me, error) in
             if error == nil {
                 self.me = me!
+                
+                self.profileImageView.setImageWithURL(NSURL(string: (me?.avatarImgUrl!)!)!)
+                
                 self.getData()
             }
         }
@@ -74,8 +79,6 @@ class ProfileViewController: UIViewController {
     var challenges = [Challenge]()
     func getData() {
         
-        
-        
         if let ids = me?.bookmarkIDs {
             ApiClient.getChallengeBatch(ids as! [String], params: nil, completion: { (challenges, error) in
                 if error == nil {
@@ -85,14 +88,6 @@ class ProfileViewController: UIViewController {
                 }
             })            
         }
-        
-//        ApiClient.getChallenges("/challenges/", params: nil) { (challenges, error) -> () in
-//            if error == nil { // success
-//                self.challenges = challenges!
-//                self.feedTableView.challenges = challenges!
-//                self.feedTableView.reloadData()
-//            }
-//        }
     }
 }
 
@@ -113,6 +108,5 @@ extension ProfileViewController: FeedTableViewDataSource {
 
 extension ProfileViewController: XMSegmentedControlDelegate {
     func xmSegmentedControl(xmSegmentedControl: XMSegmentedControl, selectedSegment:Int) {
-        print("happened")
     }
 }
