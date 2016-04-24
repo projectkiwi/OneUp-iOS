@@ -86,7 +86,7 @@ class MainViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("User Logged Out")
     }
     
-    func processLogin() {
+    func processLogin() { // Handle After Facebook Login
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: FBRequestPermissions)
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             if ((error) != nil) {

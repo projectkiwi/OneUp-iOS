@@ -86,8 +86,6 @@ extension FeedTableView: UITableViewDataSource {
         ChallengeDetailViewController.challenge = challenges[indexPath.row]
         
         feedTableViewDelegate?.feedTableView(controller)
-//        self.navigationController?.pushViewController(controller, animated: true)
-        print("first")
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

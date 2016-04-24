@@ -40,11 +40,6 @@ class FeedTableViewCell: UITableViewCell {
                 })
             }
             
-//            let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-//            dispatch_async(queue) {
-//                self.mainImageView.image = UIImage.gifWithURL("\(self.challenge.previewGif)")
-//            }
-            
             var categoriesString = ""
             for category in challenge.categories {
                 categoriesString += "\(category), "
@@ -62,16 +57,10 @@ class FeedTableViewCell: UITableViewCell {
     
     func fetchGIF(completion: (image: UIImage) -> ()) {
         
-//        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-//        dispatch_async(queue) {
-//            let gif = UIImage.gifWithURL("\(self.challenge.previewGif)")
-//            completion(image: gif!)
-//        }
-        
-        
         let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
         dispatch_async(backgroundQueue, {
             if let gif = UIImage.gifWithURL(self.challenge.previewGif) {
+                // Update Cached GIF
                 self.challenge.cachedGIFImage = gif
                 if self.challengeIndex != nil {
                     if let challengesVC = self.window?.rootViewController as? ChallengesViewController {
@@ -79,6 +68,7 @@ class FeedTableViewCell: UITableViewCell {
                     }
                 }
                 
+                // Call Callback
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(image: gif)
                 })
@@ -86,7 +76,6 @@ class FeedTableViewCell: UITableViewCell {
         })
 
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
