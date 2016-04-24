@@ -22,12 +22,11 @@ class NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        notifications.append(Notification(author: "PURDUEHACKER", statusChange: "liked your challenge", timeStamp: "2 days ago"))
+//        notifications.append(Notification(author: "PURDUEHACKER", statusChange: "liked your challenge", timeStamp: "2 days ago"))
+//        notifications.append(Notification(author: "HARRIS", statusChange: "Bookmarked your challenge", timeStamp: "3 days ago"))
+//        notifications.append(Notification(author: "ADAM", statusChange: "Liked your attempt", timeStamp: "6 days ago"))
         
-        notifications.append(Notification(author: "HARRIS", statusChange: "Bookmarked your challenge", timeStamp: "3 days ago"))
-        
-        notifications.append(Notification(author: "ADAM", statusChange: "Liked your attempt", timeStamp: "6 days ago"))
-        
+        getData()
         
         setupTableView()
     }
@@ -38,6 +37,15 @@ class NotificationsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.rowHeight = 110
+    }
+    
+    func getData() {
+        ApiClient.getNotifications { (notifications, error) in
+            if error == nil {
+                self.notifications = notifications!
+                self.tableView.reloadData()
+            }
+        }
     }
     
 }

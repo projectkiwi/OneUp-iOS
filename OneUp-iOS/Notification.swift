@@ -16,9 +16,24 @@ class Notification {
     var timeStamp: String?
     
     
+    
     init(author: String, statusChange: String, timeStamp: String) {
         self.author = author
         self.statusChange = statusChange
         self.timeStamp = timeStamp
+    }
+    
+    init(notificationDetails: NSDictionary) {
+        
+        author = notificationDetails["from"]!["username"] as? String ?? "NO FROM"
+        statusChange = notificationDetails["text"] as? String ?? "NO DESCRIPTION"
+        
+        if let createdAtString = notificationDetails["date"] as? String {
+            let createdAtDate = createdAtString.dateFromString(createdAtString)
+            let currentDate = NSDate()
+            timeStamp = currentDate.offsetFrom(createdAtDate!)
+        } else {
+            timeStamp = "ER"
+        }
     }
 }

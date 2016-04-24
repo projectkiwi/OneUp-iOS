@@ -31,7 +31,7 @@
 #### User Story 6
 
 - [X] Implement Notifiactions design - Marty
-- [ ] Implement Notifications with correct data - Marty 
+- [X] Implement Notifications with correct data - Marty 
 
 #### User Story 7
 

@@ -337,4 +337,23 @@ class ApiClient: AFHTTPSessionManager {
         }
     }
     
+    
+    class func getNotifications(completion: (notifications: [Notification]?, error: NSError?) -> ()) {
+        http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+        
+        http.GET(apiURL+"/me/notifications", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            var notifications = [Notification]()
+            for noticationInfo in (response as? NSArray)! {
+                notifications.append(Notification(notificationDetails: (noticationInfo as? NSDictionary)!))
+            }
+            
+            completion(notifications: notifications, error: nil)
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Error retrieving notifications: \(error.description)")
+            completion(notifications: nil, error: error)
+        }
+    }
+    
 }
