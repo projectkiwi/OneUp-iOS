@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yvi-Ta-16J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LkY-Zr-Ohr">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
+        <!--SettingsView-->
         <scene sceneID="iou-Ue-KhN">
             <objects>
-                <viewController storyboardIdentifier="Settings" title="Settings" id="Yvi-Ta-16J" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsView" title="SettingsView" id="Yvi-Ta-16J" customClass="SettingsViewController" customModule="OneUp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oNK-J5-Kpg"/>
                         <viewControllerLayoutGuide type="bottom" id="7nU-eY-zVW"/>
@@ -17,17 +18,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaH-FU-Rj1">
-                                <rect key="frame" x="35" y="40" width="64" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings Go Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaH-FU-Rj1">
+                                <rect key="frame" x="25" y="84" width="550" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xaH-FU-Rj1" firstAttribute="leading" secondItem="hmh-Kt-fTP" secondAttribute="leadingMargin" constant="5" id="2xn-x9-M6O"/>
+                            <constraint firstItem="xaH-FU-Rj1" firstAttribute="top" secondItem="oNK-J5-Kpg" secondAttribute="bottom" constant="20" id="Xj7-yZ-fDT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xaH-FU-Rj1" secondAttribute="trailing" constant="5" id="vyn-Qb-v5D"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="5hj-DH-eed"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ml-za-86F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="231"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="hWN-S2-FLF">
+            <objects>
+                <navigationController storyboardIdentifier="Settings" title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="LkY-Zr-Ohr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OXo-8E-50J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yvi-Ta-16J" kind="relationship" relationship="rootViewController" id="dyQ-A6-9Dk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRO-Od-g4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="231"/>
         </scene>

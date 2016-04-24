@@ -51,6 +51,7 @@
 		F0BC99801C73A998008BFB71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BC997E1C73A998008BFB71 /* LaunchScreen.storyboard */; };
 		F0BC998B1C73A998008BFB71 /* OneUp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC998A1C73A998008BFB71 /* OneUp_iOSTests.swift */; };
 		F0BC99961C73A998008BFB71 /* OneUp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */; };
+		F0E8BE821CCD48A2005E2A75 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E8BE811CCD48A2005E2A75 /* SettingsViewController.swift */; };
 		F0EB973B1CB435DD001C5B73 /* AttemptCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EB973A1CB435DD001C5B73 /* AttemptCreation.storyboard */; };
 		F0EB973D1CB4370A001C5B73 /* AttemptCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB973C1CB4370A001C5B73 /* AttemptCreationViewController.swift */; };
 		FD2BEAB8C73DE7BC602013C9 /* Pods_OneUp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2168DF0A1C413EAD7E8D89B /* Pods_OneUp_iOS.framework */; };
@@ -127,6 +128,7 @@
 		F0BC99911C73A998008BFB71 /* OneUp-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OneUp-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC99951C73A998008BFB71 /* OneUp_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneUp_iOSUITests.swift; sourceTree = "<group>"; };
 		F0BC99971C73A998008BFB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0E8BE811CCD48A2005E2A75 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F0EB973A1CB435DD001C5B73 /* AttemptCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AttemptCreation.storyboard; sourceTree = "<group>"; };
 		F0EB973C1CB4370A001C5B73 /* AttemptCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttemptCreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 				F0BC99741C73A998008BFB71 /* MainViewController.swift */,
 				BDB6ABF51C7F503E00C0B6C9 /* ChallengesViewController.swift */,
 				F03A2A5B1C892EF400267302 /* MapViewController.swift */,
+				F0E8BE811CCD48A2005E2A75 /* SettingsViewController.swift */,
 				BD6E4E841CA8A9CF00EBBDDC /* ChallengeDetailViewController.swift */,
 				BD0812691CB17EBD00EC912D /* ChallengeCreationViewController.swift */,
 				F0EB973C1CB4370A001C5B73 /* AttemptCreationViewController.swift */,
@@ -525,6 +528,7 @@
 				F03A2A5E1C89367A00267302 /* ChallengePin.swift in Sources */,
 				F0BC997B1C73A998008BFB71 /* OneUp_iOS.xcdatamodeld in Sources */,
 				BDA8D3BC1CC7C7DA005935CD /* Notification.swift in Sources */,
+				F0E8BE821CCD48A2005E2A75 /* SettingsViewController.swift in Sources */,
 				BDD6C11D1C88BEE3004B2512 /* Challenge.swift in Sources */,
 				F0EB973D1CB4370A001C5B73 /* AttemptCreationViewController.swift in Sources */,
 				F0BC99731C73A998008BFB71 /* AppDelegate.swift in Sources */,
