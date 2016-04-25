@@ -19,37 +19,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGG-id-KdC">
-                                <rect key="frame" x="21" y="275" width="278" height="30"/>
-                                <state key="normal" title="find image"/>
-                                <connections>
-                                    <action selector="onSelectMedia:" destination="iUH-B2-GPA" eventType="touchUpInside" id="Iz4-uH-gHr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dV-5y-eWg">
                                 <rect key="frame" x="21" y="79" width="278" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.73333333333333328" green="0.72941176470588232" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tA1-hi-t9D">
-                                <rect key="frame" x="16" y="120" width="288" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGN-qv-gVr">
+                                <rect key="frame" x="8" y="115" width="304" height="304"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="810-PY-zDV"/>
+                                    <constraint firstAttribute="width" secondItem="oGN-qv-gVr" secondAttribute="height" multiplier="1:1" id="vK0-sv-lXJ"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="createimg"/>
+                                <connections>
+                                    <action selector="onSelectMedia:" destination="iUH-B2-GPA" eventType="touchUpInside" id="3j3-ge-lFG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="24 pushups" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8u6-ja-vqV">
+                                <rect key="frame" x="21" y="436" width="278" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tA1-hi-t9D" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" id="L7I-VQ-vwK"/>
+                            <constraint firstAttribute="trailing" secondItem="oGN-qv-gVr" secondAttribute="trailing" constant="8" id="3AO-vI-E3K"/>
+                            <constraint firstItem="oGN-qv-gVr" firstAttribute="top" secondItem="5dV-5y-eWg" secondAttribute="bottom" constant="15" id="EhZ-wr-ijn"/>
                             <constraint firstItem="5dV-5y-eWg" firstAttribute="top" secondItem="LIi-hJ-mDb" secondAttribute="bottom" constant="15" id="MbE-dq-zWn"/>
-                            <constraint firstItem="LGG-id-KdC" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="Qth-s8-pdw"/>
+                            <constraint firstItem="8u6-ja-vqV" firstAttribute="top" secondItem="oGN-qv-gVr" secondAttribute="bottom" constant="17" id="MbT-il-Xqk"/>
+                            <constraint firstItem="oGN-qv-gVr" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="8" id="OMr-9t-2LS"/>
+                            <constraint firstItem="8u6-ja-vqV" firstAttribute="centerX" secondItem="54X-MJ-gO7" secondAttribute="centerX" id="SrU-c7-Qz6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5dV-5y-eWg" secondAttribute="trailing" constant="5" id="WVn-C1-KST"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tA1-hi-t9D" secondAttribute="trailing" id="alm-Ch-tod"/>
                             <constraint firstItem="5dV-5y-eWg" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leadingMargin" constant="5" id="b1K-3o-25G"/>
-                            <constraint firstItem="tA1-hi-t9D" firstAttribute="top" secondItem="5dV-5y-eWg" secondAttribute="bottom" constant="20" id="f0z-u9-ieS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LGG-id-KdC" secondAttribute="trailing" constant="5" id="fnc-4f-qfQ"/>
-                            <constraint firstItem="LGG-id-KdC" firstAttribute="top" secondItem="tA1-hi-t9D" secondAttribute="bottom" constant="5" id="mve-md-YRQ"/>
+                            <constraint firstItem="8u6-ja-vqV" firstAttribute="leading" secondItem="54X-MJ-gO7" secondAttribute="leading" constant="21" id="pLs-5a-5SH"/>
+                            <constraint firstAttribute="trailing" secondItem="8u6-ja-vqV" secondAttribute="trailing" constant="21" id="wtj-vA-sUV"/>
+                            <constraint firstItem="oGN-qv-gVr" firstAttribute="width" secondItem="oGN-qv-gVr" secondAttribute="height" multiplier="1:1" id="zRY-dm-P7G"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Attempt" id="3hw-UL-LRZ">
@@ -66,7 +70,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="challengeImageView" destination="tA1-hi-t9D" id="Nc4-5G-S1k"/>
                         <outlet property="challengeNameLabel" destination="5dV-5y-eWg" id="Rr3-c6-2Y5"/>
                     </connections>
                 </viewController>
@@ -167,9 +170,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="AGU-X3-4VB"/>
                                 <exclude reference="ggm-9Y-lt6"/>
                                 <exclude reference="uc7-ho-A88"/>
-                                <exclude reference="AGU-X3-4VB"/>
                                 <exclude reference="aEC-Io-GbE"/>
                             </mask>
                         </variation>

@@ -36,11 +36,27 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
     
     
     func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y -= 216
+        print("clicked title")
+
+        if titleSelected == false && self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 216
+        }
+        
+        titleSelected = false
     }
+    
     func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y += 216
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 216
+        }
     }
+    
+    
+    var titleSelected = false
+    @IBAction func clickedTitle(sender: AnyObject) {
+        titleSelected = true
+    }
+    
     @IBAction func onCancelSelected(sender: AnyObject) {
         dismissViewControllerAnimated(true,completion: nil)
     }
