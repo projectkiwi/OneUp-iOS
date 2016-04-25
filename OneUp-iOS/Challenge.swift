@@ -16,6 +16,7 @@ class Challenge: NSObject, MKAnnotation {
     var attempts: [Attempt]
     var desc: String
     var categories: [String]
+    var categoriesString: String
     var pattern: String
     var previewGif: String
     var votes: Int
@@ -23,10 +24,9 @@ class Challenge: NSObject, MKAnnotation {
     var likedTopAttempt: Bool
     var likedPreviousAttempt: Bool
     var isBookmarked: Bool
-    let coordinate: CLLocationCoordinate2D
-    var username: String?
-    var recordHolders: NSArray?
-    var currentRecord: NSDictionary?
+    var locationName: String
+    var coordinate: CLLocationCoordinate2D
+    var isCached = false
     var cachedGIFImage: UIImage?
     var timestamp: String?
     
@@ -45,35 +45,53 @@ class Challenge: NSObject, MKAnnotation {
         likedPreviousAttempt = challengeDetails["liked_previous_attempt"] as? Bool ?? false
         isBookmarked = challengeDetails["bookmarked_challenge"] as? Bool ?? false
         
+        // Generate Categories String
+        categoriesString = ""
+        for category in categories {
+            categoriesString += "\(category), "
+        }
+        if categoriesString.characters.count >= 2 {
+            categoriesString = categoriesString.substringToIndex(categoriesString.endIndex.predecessor())
+            categoriesString = categoriesString.substringToIndex(categoriesString.endIndex.predecessor())
+        }
+        
         // Get Location
-        let challengeLoc = challengeDetails["location"] as? NSArray
-        if(challengeLoc != nil) {
-            coordinate = CLLocationCoordinate2D(latitude: challengeLoc!.objectAtIndex(0).doubleValue, longitude: challengeLoc!.objectAtIndex(1).doubleValue)
+        if let locationDict = challengeDetails["location"] as? NSDictionary {
+            let location = Location(locationDetails: locationDict)
+            locationName = location.name
+            coordinate = location.coordinate
         } else {
+            locationName = "Random Location"
             coordinate = randomLocations[(Int)(arc4random_uniform(4))]
         }
         
-        // Get Top Record Holder Name
-        if let recordHolders = challengeDetails["record_holders"] as? NSArray {
-            if recordHolders.count > 0 {
-                currentRecord = recordHolders[0] as? NSDictionary
-                username = currentRecord?["username"] as? String
-            }
-        }
-        
-        // Get Top Attempt - For Image
-        previewGif = "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif"
+        // Get Top Attempt
+        previewGif = "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif" // Default - if attempt.count==0
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         
         if attempts.count > 0 {
             topAttempt = attempts[attempts.count - 1] as Attempt
-            previewGif = topAttempt.gifUrl
             
-            timestamp = topAttempt.timestamp
+            previewGif = topAttempt.gifUrl // Get GIF Image
+            timestamp = topAttempt.timestamp // Get Timestamp
         }
         
-        
-        
+        super.init()
+    }
+    
+    func downloadGIF() {
+        if !isCached {
+            isCached = true
+            if let gif = UIImage.gifWithURL(self.previewGif) {
+                // Update Cached GIF
+                self.cachedGIFImage = gif
+            } else if(self.previewGif != "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif") {
+                 // Download Failed, Try with default GIF
+                isCached = false
+                self.previewGif = "http://a4.files.theultralinx.com/image/upload/MTI5MDU2ODQxNjEwMDc0NTkw.gif"
+                downloadGIF()
+            }
+        }
     }
     
     class func challengesFromJSON(challengeArray: NSArray) -> [Challenge] {

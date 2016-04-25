@@ -25,7 +25,7 @@ class ApiClient: AFHTTPSessionManager {
         
         http.POST(apiURL+"/auth/facebook", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            print("Login Response: \(response)")
+            //print("Login Response: \(response)")
             
             let responseDict = response as! NSDictionary
             ApiClient.authToken = responseDict["token"] as! String
@@ -97,6 +97,8 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
+            //print("Challenges Response: \(response)")
+            
             if let responseDict = response as? NSDictionary {
                 if(String(responseDict["message"]) == "Invalid User!") {
                     MainViewController.clearUserInfo()
@@ -147,7 +149,7 @@ class ApiClient: AFHTTPSessionManager {
     
     
     /**
-     Retrieves challenge
+        Retrieves challenge
      */
     
     class func getChallenge(challengeID: String, params: NSDictionary?, completion: (challenge: Challenge?, error: NSError?) -> ()) {
@@ -179,7 +181,7 @@ class ApiClient: AFHTTPSessionManager {
         Post Challenge
      */
     class func postChallenge(name:String, desc:String, pattern:String, categories:String, location:Location, mediaData:NSData, completion: (challengeID: String?, error: NSError?) -> ()) {
-        let params:NSDictionary = ["token":ApiClient.authToken, "name":name, "description":desc, "pattern":pattern, "categories":categories]
+        let params:NSDictionary = ["token":ApiClient.authToken, "name":name, "description":desc, "pattern":pattern, "categories":categories, "location_id":location.id]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.POST(apiURL+"/challenges", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
@@ -188,7 +190,7 @@ class ApiClient: AFHTTPSessionManager {
             let challengeID = responseDict["data"]?["_id"] as? String
             
             if(challengeID != nil) {
-                ApiClient.postAttempt(challengeID!, description: desc, location: location, mediaData: mediaData) { (attemptID, error) -> () in
+                ApiClient.postAttempt(challengeID!, description: desc, mediaData: mediaData) { (attemptID, error) -> () in
                     // Do Nothing
                 }
             }
@@ -206,8 +208,8 @@ class ApiClient: AFHTTPSessionManager {
     /**
         Post Challenge Attempt
      */
-    class func postAttempt(challengeID:String, description:String, location:Location, mediaData:NSData, completion: (attemptID: String?, error: NSError?) -> ()) {
-        let params:NSDictionary = ["token":ApiClient.authToken, "description":description, "location":location.id]
+    class func postAttempt(challengeID:String, description:String, mediaData:NSData, completion: (attemptID: String?, error: NSError?) -> ()) {
+        let params:NSDictionary = ["token":ApiClient.authToken, "description":description]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.POST(apiURL+"/challenges/"+challengeID+"/attempts/", parameters: params, constructingBodyWithBlock: { (formData) -> Void in

@@ -30,51 +30,36 @@ class FeedTableViewCell: UITableViewCell {
             challengeTitleLabel.text = challenge.name
             challengeHeartCountLabel.text = "\(challenge.votes)"
             challengeDescriptionLabel.text = challenge.desc
-            challengeAuthorLabel.text = challenge.username
+            challengeAuthorLabel.text = challenge.topAttempt?.author
+            challengeCategoriesLabel.text = challenge.categoriesString
+            challengeTimeLabel.text = challenge.timestamp
             
-            if let cachedGIF: UIImage = challenge.cachedGIFImage {
-                self.mainImageView.image = cachedGIF
+            if self.challenge.cachedGIFImage != nil {
+                self.mainImageView.image = self.challenge.cachedGIFImage
             } else {
-                fetchGIF({ (image) in
-                    self.mainImageView.image = image
+                fetchGIF({ () in // Callback, Set Image to Current Challenge (if image exists)
+                    if self.challenge.cachedGIFImage != nil {
+                        self.mainImageView.image = self.challenge.cachedGIFImage
+                    }
                 })
             }
             
-            var categoriesString = ""
-            for category in challenge.categories {
-                categoriesString += "\(category), "
-            }
-            
-            if categoriesString.characters.count > 0 {
-                categoriesString = categoriesString.substringToIndex(categoriesString.endIndex.predecessor())
-                categoriesString = categoriesString.substringToIndex(categoriesString.endIndex.predecessor())
-            }
-            
-            challengeCategoriesLabel.text = categoriesString
-            challengeTimeLabel.text = challenge.timestamp
         }
     }
     
-    func fetchGIF(completion: (image: UIImage) -> ()) {
-        
+    func fetchGIF(completion: () -> ()) {
         let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
         dispatch_async(backgroundQueue, {
-            if let gif = UIImage.gifWithURL(self.challenge.previewGif) {
-                // Update Cached GIF
-                self.challenge.cachedGIFImage = gif
-                if self.challengeIndex != nil {
-                    if let challengesVC = self.window?.rootViewController as? ChallengesViewController {
-                        challengesVC.challenges[self.challengeIndex!].cachedGIFImage = gif
-                    }
-                }
-                
-                // Call Callback
+            if self.challenge.cachedGIFImage == nil {
+                self.challenge.downloadGIF()
+            }
+            
+            if self.challenge.cachedGIFImage != nil {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completion(image: gif)
+                    completion()
                 })
             }
         })
-
     }
     
     override func awakeFromNib() {

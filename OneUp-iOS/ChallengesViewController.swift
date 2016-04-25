@@ -19,8 +19,9 @@ class ChallengesViewController: UIViewController {
         case Global
     }
     
+    static var challenges = [Challenge]()
+    
     var currentDataSource:DataSources = .Local
-    var challenges = [Challenge]()
     static var filterItems: [String: Bool] = ["sports": true, "Drinks": false, "Food": false]
     var originalChallenges = [Challenge]() // REMOVE AFTER PAGING IMPLEMENTED: dummy data till backend develops paging
     var isMoreDataLoading = false // used for infinate scroll
@@ -66,7 +67,7 @@ class ChallengesViewController: UIViewController {
         
         ApiClient.getChallenges(requestURL,params: nil) { (challenges, error) -> () in
             if error == nil { // success
-                self.challenges = challenges!
+                ChallengesViewController.challenges = challenges!
                 self.feedTableView.challenges = challenges!
                 self.feedTableView.reloadData()
             }

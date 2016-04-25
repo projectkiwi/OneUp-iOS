@@ -73,7 +73,6 @@ extension FeedTableView: UITableViewDataSource {
         cell.challengeIndex = indexPath.row
         
         return cell
-        
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

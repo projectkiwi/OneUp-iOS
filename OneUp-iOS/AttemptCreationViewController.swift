@@ -31,7 +31,7 @@ class AttemptCreationViewController: UIViewController {
         if(videoData == nil) {
             return
         }
-        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id, description: "TODO - iOS", location: MainViewController.locations![0], mediaData: videoData!) { (attemptID, error) -> () in
+        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id, description: "TODO - iOS", mediaData: videoData!) { (attemptID, error) -> () in
             if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil);
             }

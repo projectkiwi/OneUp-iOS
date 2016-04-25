@@ -35,7 +35,7 @@ class ChallengePin: NSObject, MKAnnotation {
         
         // loop through JSON to grab all challenges
         for challenge in challengeArray {
-            pins.append(ChallengePin(title: challenge.name, locationName: "Location Name", discipline: "Normal", coordinate: challenge.coordinate, challenge: challenge))
+            pins.append(ChallengePin(title: challenge.name, locationName: challenge.locationName, discipline: "Normal", coordinate: challenge.coordinate, challenge: challenge))
         }
         
         return pins

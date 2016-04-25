@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import SwiftGifOrigin
 
 class Attempt {
     
@@ -24,7 +26,7 @@ class Attempt {
     
     init(attemptDetails: NSDictionary) {
         id = attemptDetails["_id"] as! String
-        author = attemptDetails["author"] as? String ?? "IOS Author Placeholder - Waiting Backend Support"
+        author = "" // Default, Filled in later
         if let imgFile = attemptDetails["gif_img"] as? String {
             imgUrl = "\(ApiClient.apiURL)/\(imgFile)"
         } else {
@@ -45,6 +47,12 @@ class Attempt {
         isLiked = attemptDetails["liked_attempt"] as? Bool ?? false
         comments = attemptDetails["comments"] as? NSArray ?? []
         
+        // Get Author
+        if let attemptUser = attemptDetails["user"] as? NSDictionary {
+            author = attemptUser["username"] as? String ?? "Error: Author"
+        }
+        
+        // Create 2 character timestamp
         if let createdAtString = attemptDetails["created_on"] as? String {
             let createdAtDate = createdAtString.dateFromString(createdAtString)
             let currentDate = NSDate()
@@ -66,15 +74,4 @@ class Attempt {
         
         return attempts
     }
-/*
-    score: Number, //probably will make this a calculated field
-    challenge  : { type: mongoose.Schema.ObjectId, ref: 'Challenge' },
-    user  : { type: mongoose.Schema.ObjectId, ref: 'User' },
-    preview_img  : String,
-    full_img  : String,
-    gif_img : String,
-    comments  : [{ type: mongoose.Schema.ObjectId, ref: 'Comment' }],
-    votes  : [{ type: mongoose.Schema.ObjectId, ref: 'Vote' }],
-    vote_total : { type: Number, default: 11},
-*/
 }

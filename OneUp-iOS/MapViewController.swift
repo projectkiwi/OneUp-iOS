@@ -35,13 +35,12 @@ class MapViewController: UIViewController {
     func loadData() {
         ApiClient.getChallenges("/challenges/",params: nil) { (challenges, error) -> () in
             if error == nil { // success
-                self.challenges = challenges!
+                if challenges != nil {
+                    self.challenges = challenges!
+                    self.challengePins = ChallengePin.pinsFromChallenges(challenges!)
+                    self.showPins()
+                }
             }
-            if challenges != nil {
-                self.challengePins = ChallengePin.pinsFromChallenges(challenges!)
-            }
-            
-            self.showPins()
         }
     }
     

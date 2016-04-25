@@ -67,7 +67,7 @@ class ChallengeDetailViewController: UIViewController {
     
     func updateUIFields() {
         challengeNameLabel.text = ChallengeDetailViewController.challenge.name
-        attemptAuthorLabel.text = ChallengeDetailViewController.challenge.username
+        attemptAuthorLabel.text = ChallengeDetailViewController.challenge.topAttempt.author
     }
     
     func makeLikeBookmarkButtonsInteractive() {
