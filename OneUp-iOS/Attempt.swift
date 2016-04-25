@@ -23,6 +23,7 @@ class Attempt {
     var isLiked: Bool
     var comments: NSArray!
     var timestamp: String?
+//    var cachedGIFImage: UIImage?
     
     init(attemptDetails: NSDictionary) {
         id = attemptDetails["_id"] as! String
@@ -72,6 +73,6 @@ class Attempt {
             attempts.append(Attempt(attemptDetails: attemptDetails as! NSDictionary))
         }
         
-        return attempts
+        return attempts.reverse()
     }
 }

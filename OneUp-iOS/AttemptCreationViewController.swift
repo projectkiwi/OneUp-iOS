@@ -12,8 +12,8 @@ import Photos
 
 class AttemptCreationViewController: UIViewController {
 
-    @IBOutlet weak var challengeImageView: UIImageView!
     @IBOutlet weak var challengeNameLabel: UILabel!
+    @IBOutlet weak var descriptionInput: UITextField!
     
     var videoData: NSData?
     
@@ -57,7 +57,7 @@ class AttemptCreationViewController: UIViewController {
         if(videoData == nil) {
             return
         }
-        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id, description: "TODO - iOS", mediaData: videoData!) { (attemptID, error) -> () in
+        ApiClient.postAttempt(ChallengeDetailViewController.challenge.id, description: descriptionInput.text!, mediaData: videoData!) { (attemptID, error) -> () in
             if error == nil { // success
                 self.dismissViewControllerAnimated(true,completion: nil);
             }

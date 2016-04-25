@@ -22,12 +22,7 @@ class NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        notifications.append(Notification(author: "PURDUEHACKER", statusChange: "liked your challenge", timeStamp: "2 days ago"))
-//        notifications.append(Notification(author: "HARRIS", statusChange: "Bookmarked your challenge", timeStamp: "3 days ago"))
-//        notifications.append(Notification(author: "ADAM", statusChange: "Liked your attempt", timeStamp: "6 days ago"))
-        
         getData()
-        
         setupTableView()
     }
     
@@ -37,6 +32,16 @@ class NotificationsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.rowHeight = 110
+        
+        // pull down to refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(FeedTableView.refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
     }
     
     func getData() {

@@ -20,8 +20,8 @@ class AttemptTableViewCell: UITableViewCell {
     var attempt: Attempt? {
         didSet {
             authorLabel.text = attempt!.author
-            scoreLabel.text = "\(attempt!.votes) likes"
-            dateLabel.text = "2 days ago"
+//            scoreLabel.text = "\(attempt!.votes) likes"
+            scoreLabel.text = attempt?.description
             previewImageView.setImageWithURL(NSURL(string: (attempt?.imgUrl)!)!)
             dateLabel.text = attempt?.timestamp
         }

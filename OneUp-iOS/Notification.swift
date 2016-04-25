@@ -15,8 +15,6 @@ class Notification {
     var statusChange: String?
     var timeStamp: String?
     
-    
-    
     init(author: String, statusChange: String, timeStamp: String) {
         self.author = author
         self.statusChange = statusChange
@@ -26,6 +24,7 @@ class Notification {
     init(notificationDetails: NSDictionary) {
         
         author = notificationDetails["from"]!["username"] as? String ?? "NO FROM"
+        authorImgUrl = notificationDetails["from"]!["avatar"] as? String ?? ""
         statusChange = notificationDetails["text"] as? String ?? "NO DESCRIPTION"
         
         if let createdAtString = notificationDetails["date"] as? String {

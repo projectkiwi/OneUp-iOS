@@ -63,10 +63,10 @@ class ApiClient: AFHTTPSessionManager {
     
     
     class func getSelf(completion: (me: User?, error: NSError?) -> ()) {
-        let params:NSDictionary = ["token":ApiClient.authToken, "facebook_id":MainViewController.FBUserID!, "access_token":MainViewController.FBAccessToken!, "email":MainViewController.FBEmail!,"username":MainViewController.userName!]
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
+
         
-        http.GET(apiURL + "/me", parameters: params, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.GET(apiURL + "/me", parameters: [], progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
             print("User = \(response)")
             let user = User(userDetails: response as! NSDictionary)
@@ -97,7 +97,7 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL+requestPath, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            //print("Challenges Response: \(response)")
+            print("Challenges Response: \(response)")
             
             if let responseDict = response as? NSDictionary {
                 if(String(responseDict["message"]) == "Invalid User!") {

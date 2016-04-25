@@ -71,6 +71,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="challengeNameLabel" destination="5dV-5y-eWg" id="Rr3-c6-2Y5"/>
+                        <outlet property="descriptionInput" destination="8u6-ja-vqV" id="Kd4-YJ-HUJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk6-SS-KdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
