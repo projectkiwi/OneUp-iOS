@@ -21,6 +21,32 @@ class AttemptCreationViewController: UIViewController {
         super.viewDidLoad()
         print("Name: "+ChallengeDetailViewController.challenge.name)
         challengeNameLabel.text = ChallengeDetailViewController.challenge.name
+        
+        
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ChallengeCreationViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChallengeCreationViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChallengeCreationViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 216
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 216
+        }
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func onCancelSelected(sender: AnyObject) {
