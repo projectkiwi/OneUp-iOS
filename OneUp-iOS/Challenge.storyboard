@@ -19,10 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="template" translatesAutoresizingMaskIntoConstraints="NO" id="o4j-zj-hAZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="template" translatesAutoresizingMaskIntoConstraints="NO" id="o4j-zj-hAZ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="256"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="o4j-zj-hAZ" secondAttribute="height" multiplier="1:1" id="2UO-vL-RRS"/>
+                                    <constraint firstAttribute="width" secondItem="o4j-zj-hAZ" secondAttribute="height" multiplier="1:1" constant="64" id="2UO-vL-RRS"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sGp-GJ-8Hc">
@@ -206,7 +206,7 @@
                             <constraint firstItem="D16-20-g5D" firstAttribute="height" secondItem="4zJ-Us-als" secondAttribute="height" id="CGD-wc-K4D"/>
                             <constraint firstItem="Has-za-lVK" firstAttribute="top" secondItem="D16-20-g5D" secondAttribute="bottom" constant="8" symbolic="YES" id="JJP-vj-gP4"/>
                             <constraint firstItem="sGp-GJ-8Hc" firstAttribute="top" secondItem="4zJ-Us-als" secondAttribute="bottom" constant="33" id="JuW-6F-Uz9"/>
-                            <constraint firstItem="o4j-zj-hAZ" firstAttribute="top" secondItem="6sQ-1l-aPa" secondAttribute="top" id="KEF-av-xuu"/>
+                            <constraint firstItem="o4j-zj-hAZ" firstAttribute="top" secondItem="6sQ-1l-aPa" secondAttribute="top" constant="64" id="KEF-av-xuu"/>
                             <constraint firstItem="o4j-zj-hAZ" firstAttribute="leading" secondItem="6sQ-1l-aPa" secondAttribute="leading" id="KTf-Sm-eai"/>
                             <constraint firstItem="4zJ-Us-als" firstAttribute="top" secondItem="scp-1g-fag" secondAttribute="bottom" constant="4.5" id="KhP-vm-pi7"/>
                             <constraint firstItem="D16-20-g5D" firstAttribute="top" secondItem="4zJ-Us-als" secondAttribute="top" id="KlV-Rl-C0s"/>
