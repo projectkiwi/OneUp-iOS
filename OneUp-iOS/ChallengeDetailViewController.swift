@@ -98,7 +98,7 @@ class ChallengeDetailViewController: UIViewController {
             self.likesView.backgroundColor = UIColor.redColor()
         }
         
-        ApiClient.likeChallenge((ChallengeDetailViewController.challenge.attempts.last?.id)!) { (liked, error) -> () in // TODO: Get correct attemptID
+        ApiClient.likeChallenge(currentAttempt!.id) { (liked, error) -> () in 
             if error == nil { // success
                 if liked {
                     self.likesView.backgroundColor = UIColor.redColor()

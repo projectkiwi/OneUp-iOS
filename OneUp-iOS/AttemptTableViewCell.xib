@@ -39,8 +39,23 @@
                             <constraint firstAttribute="height" constant="72" id="SoF-bm-cCK"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE9-4t-2yq">
+                        <rect key="frame" x="280" y="43" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="7EW-qa-GHZ"/>
+                            <constraint firstAttribute="height" constant="20" id="Ube-LL-WqU"/>
+                        </constraints>
+                        <color key="tintColor" red="0.44011208206686925" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="Button" image="heart">
+                            <color key="titleColor" red="0.72156862749999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="onLike:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FXB-Xd-pj0"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hE9-4t-2yq" secondAttribute="trailing" constant="20" id="2A4-1z-EId"/>
                     <constraint firstItem="CM3-ei-ija" firstAttribute="leading" secondItem="h2D-EM-gaf" secondAttribute="leading" id="8om-Qn-TwK"/>
                     <constraint firstItem="eeo-Z0-0f7" firstAttribute="leading" secondItem="aMO-fY-0bP" secondAttribute="trailing" constant="17" id="9Wl-jk-Zgr"/>
                     <constraint firstItem="aMO-fY-0bP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="9pe-L5-CfS"/>
@@ -50,8 +65,10 @@
                     <constraint firstItem="eeo-Z0-0f7" firstAttribute="top" secondItem="aMO-fY-0bP" secondAttribute="top" id="J6b-JA-hsH"/>
                     <constraint firstItem="CM3-ei-ija" firstAttribute="top" secondItem="h2D-EM-gaf" secondAttribute="bottom" id="NHI-6H-T22"/>
                     <constraint firstItem="aMO-fY-0bP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Wx9-NV-F1D"/>
+                    <constraint firstItem="hE9-4t-2yq" firstAttribute="centerY" secondItem="h2D-EM-gaf" secondAttribute="centerY" id="gLz-jD-Pmx"/>
                     <constraint firstItem="h2D-EM-gaf" firstAttribute="leading" secondItem="eeo-Z0-0f7" secondAttribute="leading" id="mo6-6J-DEA"/>
                     <constraint firstItem="aMO-fY-0bP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="sUY-F5-upV"/>
+                    <constraint firstItem="hE9-4t-2yq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h2D-EM-gaf" secondAttribute="trailing" constant="5" id="zmB-Qt-WQe"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -64,6 +81,7 @@
             <connections>
                 <outlet property="authorLabel" destination="eeo-Z0-0f7" id="fzw-JR-CjA"/>
                 <outlet property="dateLabel" destination="CM3-ei-ija" id="cI0-EK-RSe"/>
+                <outlet property="heartButton" destination="hE9-4t-2yq" id="4uW-jr-H6C"/>
                 <outlet property="previewImageView" destination="aMO-fY-0bP" id="hIt-mE-rpE"/>
                 <outlet property="scoreLabel" destination="h2D-EM-gaf" id="bmH-Ut-t4F"/>
             </connections>
@@ -71,6 +89,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="heart" width="240" height="240"/>
         <image name="party-stock-photo" width="1920" height="1200"/>
     </resources>
 </document>
