@@ -166,7 +166,7 @@ class ApiClient: AFHTTPSessionManager {
         
         http.GET(apiURL + "/challenges/" + challengeID, parameters: paramsDict, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
-            print("Challenges: \(response)")
+            print("Single Challenge: \(response)")
             let challenge = Challenge(challengeDetails: response as! NSDictionary)
             
             completion(challenge: challenge, error: nil)
@@ -346,6 +346,8 @@ class ApiClient: AFHTTPSessionManager {
         http.requestSerializer.setValue(ApiClient.authToken, forHTTPHeaderField: "token")
         
         http.GET(apiURL+"/me/notifications", parameters: nil, progress: { (progress: NSProgress) -> Void in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            print("Notifications: \(response)")
             
             var notifications = [Notification]()
             for noticationInfo in (response as? NSArray)! {

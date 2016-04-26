@@ -149,5 +149,7 @@ extension ChallengeDetailViewController: UITableViewDelegate {
         currentAttempt = ChallengeDetailViewController.challenge.attempts[indexPath.row]
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        
     }
 }

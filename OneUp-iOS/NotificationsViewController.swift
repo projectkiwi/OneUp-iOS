@@ -53,6 +53,13 @@ class NotificationsViewController: UIViewController {
         }
     }
     
+    
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }
 }
 
 extension NotificationsViewController: UITableViewDataSource {
@@ -70,6 +77,15 @@ extension NotificationsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("Challenge") as! ChallengeDetailViewController
+        
+        
+        ApiClient.getChallenge(notifications[indexPath.row].challengeID!, params: nil) { (challenge, error) in
+            ChallengeDetailViewController.challenge = challenge
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 

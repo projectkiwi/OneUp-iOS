@@ -14,6 +14,8 @@ class Notification {
     var author: String?
     var statusChange: String?
     var timeStamp: String?
+    var challenge: Challenge?
+    var challengeID: String?
     
     init(author: String, statusChange: String, timeStamp: String) {
         self.author = author
@@ -26,6 +28,8 @@ class Notification {
         author = notificationDetails["from"]!["username"] as? String ?? "NO FROM"
         authorImgUrl = notificationDetails["from"]!["avatar"] as? String ?? ""
         statusChange = notificationDetails["text"] as? String ?? "NO DESCRIPTION"
+        
+        challengeID = notificationDetails["challenge"]!["_id"] as? String
         
         if let createdAtString = notificationDetails["date"] as? String {
             let createdAtDate = createdAtString.dateFromString(createdAtString)
