@@ -28,12 +28,12 @@ class ChallengeDetailViewController: UIViewController {
                 likesView.backgroundColor = UIColor.redColor()
             }
             
-            if let gif = ChallengeDetailViewController.challenge.cachedGIFImage {
-                attemptImageView.image = gif
-            } else {
-                // TODO: speed up after finding the best solution for the feed
+//            if let gif = ChallengeDetailViewController.challenge.cachedGIFImage {
+//                attemptImageView.image = gif
+//            } else {
+//                // TODO: speed up after finding the best solution for the feed
                 attemptImageView.image = UIImage.gifWithURL(currentAttempt!.gifUrl)
-            }
+//            }
         }
     }
     

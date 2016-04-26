@@ -190,7 +190,7 @@ class ApiClient: AFHTTPSessionManager {
             let challengeID = responseDict["data"]?["_id"] as? String
             
             if(challengeID != nil) {
-                ApiClient.postAttempt(challengeID!, description: desc, mediaData: mediaData) { (attemptID, error) -> () in
+                ApiClient.postAttempt(challengeID!, description: pattern, mediaData: mediaData) { (attemptID, error) -> () in
                     // Do Nothing
                 }
             }
@@ -354,7 +354,7 @@ class ApiClient: AFHTTPSessionManager {
                 notifications.append(Notification(notificationDetails: (noticationInfo as? NSDictionary)!))
             }
             
-            completion(notifications: notifications, error: nil)
+            completion(notifications: notifications.reverse(), error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             print("Error retrieving notifications: \(error.description)")

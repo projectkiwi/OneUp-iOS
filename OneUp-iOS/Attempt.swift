@@ -57,6 +57,7 @@ class Attempt {
         if let createdAtString = attemptDetails["created_on"] as? String {
             let createdAtDate = createdAtString.dateFromString(createdAtString)
             let currentDate = NSDate()
+//            currentDate.time
             timestamp = currentDate.offsetFrom(createdAtDate!)
             
         } else {

@@ -20,6 +20,7 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
     @IBOutlet weak var locationButton: UIButton!
     
     var videoData: NSData?
+    var imageData: NSData?
     var selectedLocation: Location?
     
     override func viewDidLoad() {
@@ -62,16 +63,28 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
     }
 
     @IBAction func onCreateSelected(sender: AnyObject) {
-        if(videoData == nil) {
+        var postData: NSData?
+        
+        if let vid = videoData {
+            postData = vid
+        } else if let img = imageData {
+            postData = img
+        } else {
             return
         }
-        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, location: selectedLocation!, mediaData: videoData!) { (challengeID, error) -> () in
+        
+        
+        
+        print("posting challenge")
+        ApiClient.postChallenge(challengeName.text!, desc: challengeDescription.text!, pattern: patternField.text!, categories: categoryField.text!, location: selectedLocation!, mediaData: postData!) { (challengeID, error) -> () in
             
             if error == nil { // success
+                
                 self.dismissViewControllerAnimated(true,completion: nil)
+            } else {
+                
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,7 +102,7 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
-        vc.mediaTypes = [kUTTypeMovie as NSString as String]
+        vc.mediaTypes = [kUTTypeMovie as String, kUTTypeImage as String]
         vc.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         self.presentViewController(vc, animated: true, completion: nil)
     }
@@ -110,27 +123,26 @@ class ChallengeCreationViewController: UIViewController, LocationPickerControlle
 
 extension ChallengeCreationViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        // video
         if let referenceURL = info[UIImagePickerControllerReferenceURL] as? NSURL {
             let fetchResult = PHAsset.fetchAssetsWithALAssetURLs([referenceURL], options: nil)
             if let phAsset = fetchResult.firstObject as? PHAsset {
                 PHImageManager.defaultManager().requestAVAssetForVideo(phAsset, options: PHVideoRequestOptions(), resultHandler: { (asset, audioMix, info) -> Void in
                     if let asset = asset as? AVURLAsset {
                         self.videoData = NSData(contentsOfURL: asset.URL)
-                        // optionally, write the video to the temp directory
-//                        let videoPath = NSTemporaryDirectory() + "tmpMovie.MOV"
-//                        let videoURL = NSURL(fileURLWithPath: videoPath)
-//                        let writeResult = self.videoData?.writeToURL(videoURL, atomically: true)
-//                        
-//                        if let writeResult = writeResult where writeResult {
-//                            print("success")
-//                        }
-//                        else {
-//                            print("failure")
-//                        }
                     }
                 })
             }
         }
+        
+        // image
+        else {
+//            let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+            imageData = UIImagePNGRepresentation(info[UIImagePickerControllerEditedImage] as! UIImage)
+        }
+        
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

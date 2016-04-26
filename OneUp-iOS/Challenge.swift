@@ -70,7 +70,7 @@ class Challenge: NSObject, MKAnnotation {
         attempts = Attempt.attemptsFromArray(challengeDetails["attempts"] as! NSArray)
         
         if attempts.count > 0 {
-            topAttempt = attempts[attempts.count - 1] as Attempt
+            topAttempt = attempts[0] as Attempt
             
             previewGif = topAttempt.gifUrl // Get GIF Image
             timestamp = topAttempt.timestamp // Get Timestamp
