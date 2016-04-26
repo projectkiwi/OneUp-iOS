@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     
     var me: User?
+    var ids = [String]()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,13 +28,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         ApiClient.getSelf { (me, error) in
             if error == nil {
                 self.me = me!
                 
                 self.profileImageView.setImageWithURL(NSURL(string: (me?.avatarImgUrl!)!)!)
+                self.ids = me?.associatedIds as! [String]
                 
                 self.getData()
             }
@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
     }
     
     func setupSegmentedControl() {
-        let segmentedControl3 = XMSegmentedControl(frame: CGRect(x: 0, y: 0, width: segmentedControlView.frame.width, height: 44), segmentTitle: ["challenges", "liked", "watching"], selectedItemHighlightStyle: XMSelectedItemHighlightStyle.BottomEdge)
+        let segmentedControl3 = XMSegmentedControl(frame: CGRect(x: 0, y: 0, width: segmentedControlView.frame.width, height: 44), segmentTitle: ["challenges", "liked", "bookmarked"], selectedItemHighlightStyle: XMSelectedItemHighlightStyle.BottomEdge)
         
         segmentedControl3.backgroundColor = UIColor.whiteColor()
         segmentedControl3.highlightColor = UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1)
@@ -76,18 +76,17 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     var challenges = [Challenge]()
     func getData() {
-        
-        if let ids = me?.bookmarkIDs {
-            ApiClient.getChallengeBatch(ids as! [String], params: nil, completion: { (challenges, error) in
-                if error == nil {
-                    self.challenges = challenges!
-                    self.feedTableView.challenges = challenges!
-                    self.feedTableView.reloadData()
-                }
-            })            
-        }
+        ApiClient.getChallengeBatch(ids, params: nil, completion: { (challenges, error) in
+            if error == nil {
+                self.challenges = challenges!
+                self.feedTableView.challenges = challenges!
+                self.feedTableView.reloadData()
+            }
+        })            
+
     }
 }
 
@@ -108,5 +107,24 @@ extension ProfileViewController: FeedTableViewDataSource {
 
 extension ProfileViewController: XMSegmentedControlDelegate {
     func xmSegmentedControl(xmSegmentedControl: XMSegmentedControl, selectedSegment:Int) {
+        switch selectedSegment {
+        case 0:
+            ids = me?.associatedIds as! [String]
+            break
+            
+        case 1:
+            ids = me?.likedIDs as! [String]
+            break
+            
+        case 2:
+            ids = me?.bookmarkIDs as! [String]
+            break
+            
+        default:
+            ids = me?.associatedIds as! [String]
+
+        }
+        getData()
+        
     }
 }

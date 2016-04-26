@@ -14,6 +14,8 @@ class User {
     var facebookID: String
     var email: String
     var bookmarkIDs: NSArray?
+    var likedIDs: NSArray?
+    var associatedIds: NSArray?
     var avatarImgUrl: String?
     
     init(userDetails: NSDictionary) {
@@ -22,6 +24,9 @@ class User {
         email = userDetails["email"] as? String ?? "no email"
 
         bookmarkIDs = userDetails["bookmarks"] as? [String]
+        likedIDs = userDetails["liked_challenges"] as? [String]
+        associatedIds = userDetails["associated_challenges"] as? [String]
+        
         avatarImgUrl = userDetails["avatar"] as? String
     }
 }
