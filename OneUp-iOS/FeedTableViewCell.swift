@@ -39,7 +39,13 @@ class FeedTableViewCell: UITableViewCell {
             } else {
                 fetchGIF({ () in // Callback, Set Image to Current Challenge (if image exists)
                     if self.challenge.cachedGIFImage != nil {
+//                        self.mainImageView.image = self.challenge.cachedGIFImage
+                        self.mainImageView.alpha = 0.0
                         self.mainImageView.image = self.challenge.cachedGIFImage
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.mainImageView.alpha = 1.0
+                        })
+                        
                     }
                 })
             }

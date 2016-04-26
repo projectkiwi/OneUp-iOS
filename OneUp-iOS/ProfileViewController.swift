@@ -32,7 +32,37 @@ class ProfileViewController: UIViewController {
             if error == nil {
                 self.me = me!
                 
-                self.profileImageView.setImageWithURL(NSURL(string: (me?.avatarImgUrl!)!)!)
+//                self.profileImageView.setImageWithURL(NSURL(string: (me?.avatarImgUrl!)!)!)
+                let imageUrl = me?.avatarImgUrl!
+                let imageRequest = NSURLRequest(URL: NSURL(string: imageUrl!)!)
+                
+                self.profileImageView.setImageWithURLRequest(
+                    imageRequest,
+                    placeholderImage: nil,
+                    success: { (imageRequest, imageResponse, image) -> Void in
+                        
+                        // imageResponse will be nil if the image is cached
+                        if imageResponse != nil {
+                            print("Image was NOT cached, fade in image")
+                            self.profileImageView.alpha = 0.0
+                            self.profileImageView.image = image
+                            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                                self.profileImageView.alpha = 1.0
+                            })
+                        } else {
+                            print("Image was cached so just update the image")
+                            self.profileImageView.image = image
+                        }
+                    },
+                    failure: { (imageRequest, imageResponse, error) -> Void in
+                        // do something for the failure condition
+                })
+                
+                
+                
+                
+                
+                
                 self.ids = me?.associatedIds as! [String]
                 
                 self.getData()

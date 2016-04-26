@@ -72,7 +72,16 @@ extension FeedTableView: UITableViewDataSource {
         cell.challenge = challenges[indexPath.row]
         cell.challengeIndex = indexPath.row
         
+        cell.contentView.alpha = 0
+        
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        
+        UIView.animateWithDuration(0.3, animations: {
+            cell.contentView.alpha = 1.0
+        })
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
